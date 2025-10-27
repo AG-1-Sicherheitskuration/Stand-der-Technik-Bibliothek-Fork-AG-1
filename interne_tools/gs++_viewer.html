@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Katalog-Anzeige</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+
+        #load-btn {
+            padding: 12px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        #load-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .group, .control {
+            border-left: 2px solid #e0e0e0;
+            padding-left: 20px;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        #catalog-container > .group {
+            margin-left: 0;
+            padding-left: 0;
+            border-left: none;
+        }
+
+        .toggle {
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #0056b3;
+            display: block;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        
+        .toggle:hover {
+            background-color: #e9ecef;
+        }
+
+        .toggle::before {
+            content: '+ ';
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .toggle.expanded::before {
+            content: '− ';
+        }
+
+        .content, .details-content {
+            padding-left: 25px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .remarks, .prose, .guidance {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+        
+        .prose, .guidance {
+             background-color: #eef7ff;
+        }
+
+        .control-title {
+            font-size: 1.1em;
+            color: #28a745;
+            margin-top: 15px;
+        }
+        
+        .details-toggle {
+            cursor: pointer;
+            color: #dc3545;
+            font-weight: normal;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+        
+        .details-toggle::before {
+            content: '[+] Details';
+        }
+        
+        .details-toggle.expanded::before {
+            content: '[-] Details';
+        }
+
+        pre {
+            background-color: #333;
+            color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        
+        h3 {
+            margin-top: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="load-btn">JSON-Katalog auswählen</button>
+    <input type="file" id="file-input" accept=".json" style="display: none;">
+    
+    <div id="catalog-container"></div>
+
+    <script>
+        const loadButton = document.getElementById('load-btn');
+        const fileInput = document.getElementById('file-input');
+        const container = document.getElementById('catalog-container');
+
+        // Wenn der Button geklickt wird, wird der Klick an das unsichtbare file-input weitergeleitet.
+        loadButton.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // Wenn eine Datei ausgewählt wurde (change-Event).
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (!file) {
+                return; // Beenden, falls keine Datei ausgewählt wurde.
+            }
+
+            const reader = new FileReader();
+
+            // Diese Funktion wird ausgeführt, sobald der FileReader die Datei fertig gelesen hat.
+            reader.onload = (e) => {
+                try {
+                    // Versuche, den Textinhalt der Datei als JSON zu parsen.
+                    const jsonData = JSON.parse(e.target.result);
+                    
+                    // Starte den Rendervorgang mit den geladenen Daten.
+                    renderCatalog(jsonData);
+
+                } catch (error) {
+                    alert('Fehler: Die ausgewählte Datei ist keine gültige JSON-Datei.\n' + error);
+                    container.innerHTML = ''; // Container leeren bei Fehler
+                }
+            };
+            
+            // Starte das Lesen der Datei als Text.
+            reader.readAsText(file);
+        });
+        
+        function renderCatalog(jsonData) {
+            container.innerHTML = ''; // Vorherigen Inhalt löschen
+
+            const catalog = jsonData.catalog;
+            if (catalog && catalog.groups) {
+                catalog.groups.forEach(group => {
+                    container.appendChild(renderGroup(group));
+                });
+            } else {
+                 alert('Fehler: Die JSON-Datei hat nicht die erwartete Struktur (catalog.groups wurde nicht gefunden).');
+            }
+        }
+
+        function toggleVisibility(element) {
+            element.classList.toggle('hidden');
+        }
+
+        function renderGroup(group) {
+            const groupEl = document.createElement('div');
+            groupEl.className = 'group';
+
+            const titleEl = document.createElement('span');
+            titleEl.className = 'toggle';
+            titleEl.textContent = `${group.id}: ${group.title}`;
+            groupEl.appendChild(titleEl);
+
+            const contentEl = document.createElement('div');
+            contentEl.className = 'content hidden';
+            groupEl.appendChild(contentEl);
+            
+            titleEl.addEventListener('click', () => {
+                titleEl.classList.toggle('expanded');
+                toggleVisibility(contentEl);
+            });
+
+            if (group.props) {
+                const remarksProp = group.props.find(p => p.remarks);
+                if (remarksProp) {
+                    const remarksEl = document.createElement('div');
+                    remarksEl.className = 'remarks';
+                    remarksEl.textContent = remarksProp.remarks;
+                    contentEl.appendChild(remarksEl);
+                }
+            }
+            
+            if (group.groups) {
+                group.groups.forEach(subGroup => {
+                    contentEl.appendChild(renderGroup(subGroup));
+                });
+            }
+            
+            if (group.controls) {
+                group.controls.forEach(control => {
+                    contentEl.appendChild(renderControl(control));
+                });
+            }
+
+            return groupEl;
+        }
+        
+        function renderControl(control) {
+            const controlEl = document.createElement('div');
+            controlEl.className = 'control';
+
+            const titleEl = document.createElement('div');
+            titleEl.className = 'control-title';
+            titleEl.textContent = `${control.id}: ${control.title}`;
+            
+            const detailsToggle = document.createElement('span');
+            detailsToggle.className = 'details-toggle';
+            titleEl.appendChild(detailsToggle);
+            
+            controlEl.appendChild(titleEl);
+
+            const detailsContentEl = document.createElement('div');
+            detailsContentEl.className = 'details-content hidden';
+            controlEl.appendChild(detailsContentEl);
+            
+            detailsToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                detailsToggle.classList.toggle('expanded');
+                toggleVisibility(detailsContentEl);
+            });
+            
+            if (control.parts) {
+                control.parts.forEach(part => {
+                    if (part.prose) {
+                        const proseEl = document.createElement('div');
+                        if (part.name === 'guidance') {
+                           proseEl.className = 'guidance';
+                           proseEl.innerHTML = `<strong>Guidance (${part.id}):</strong><br>${part.prose}`;
+                        } else {
+                           proseEl.className = 'prose';
+                           proseEl.innerHTML = `<strong>Prose (${part.id}):</strong><br>${part.prose}`;
+                        }
+                        controlEl.insertBefore(proseEl, detailsContentEl);
+                    }
+                });
+            }
+
+            if (control.props) {
+                const propsTitle = document.createElement('h3');
+                propsTitle.textContent = 'Properties (Props)';
+                detailsContentEl.appendChild(propsTitle);
+                
+                const propsEl = document.createElement('pre');
+                propsEl.textContent = JSON.stringify(control.props, null, 2);
+                detailsContentEl.appendChild(propsEl);
+            }
+            
+            if (control.parts) {
+                const partsTitle = document.createElement('h3');
+                partsTitle.textContent = 'Parts';
+                detailsContentEl.appendChild(partsTitle);
+                
+                const partsEl = document.createElement('pre');
+                partsEl.textContent = JSON.stringify(control.parts, null, 2);
+                detailsContentEl.appendChild(partsEl);
+            }
+
+            if (control.controls) {
+                control.controls.forEach(nestedControl => {
+                    controlEl.appendChild(renderControl(nestedControl));
+                });
+            }
+            
+            return controlEl;
+        }
+    </script>
+</body>
+</html>
