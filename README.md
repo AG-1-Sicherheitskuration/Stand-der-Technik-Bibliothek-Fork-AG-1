@@ -4,7 +4,7 @@ Erste Aufgaben sollte die Festlegung eines gemeinsamen Verständnis der QS sein.
 
 Von der Meldung an das BSI ist folgendes vorgehen vorgesehen: Diskussion daraus -> Issue -> Pull Request. Da dies sowohl für uns als auch das BSI noch "Neuland" :) müssen wir das genaue vorgehen noch abstimmen.
 
-Weiteres Angebot, was sich in der ersten Beteiligungsphase ls Hilfreich herausgestellt hat ist ein regelmässiges Treffen. Ich schlage hierzu wieder den Donnerstag 23 und 30.10 14:30 vor (1h). Ergänzt um ein Angebot für Nachzügler die sich gerne noch Beteiligen wollen dazu eine PM an mich mit individuellem Termin.
+Weiteres Angebot, was sich in der ersten Beteiligungsphase ls Hilfreich herausgestellt hat ist ein regelmässiges Treffen. Ich schlage als nächsten Termin Do. 13.11 um 15:30 vor einladung folg.Ergänzt um ein Angebot für Nachzügler die sich gerne noch Beteiligen wollen dazu eine PM an mich mit individuellem Termin.
 
 Zum "lesen des Grundschutz ++ kann folgendes Tool genutzt werden: https://viewer.oscal.io/ Ladet das json File herunter https://github.com/Forum-SdT-BibliothekSicherheitskuration/Sicherheitskuration/tree/main/Kompendien/Grundschutz%2B%2B-Kompendium und dann in dem Tool unter Upload hoch. Danach sollten die Anforderungen sichtbar sein. Dies ist nur als Vorschlag zu verstehen.
 
