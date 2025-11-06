@@ -1,3 +1,5 @@
+Fork ist aktuell Sync 06.11 7:00
+
 Die AG hat die Aufgabe sich an der inhaltlichen Verbesserung und Weiterentwicklung der Anforderungen und Maßnahmen in der Stand-der-Technik – Bibliothek und zur Sicherung der Qualität und Aktualität zu beteiligen.
 
 Erste Aufgaben sollte die Festlegung eines gemeinsamen Verständnis der QS sein. Hierzu wird eine Diskussion gestartet.
