@@ -1,4 +1,4 @@
-Fork ist aktuell Sync 07.11 14:00
+Fork ist aktuell Sync 19.11 8:00 4 Änderungen
 
 Die AG hat die Aufgabe sich an der inhaltlichen Verbesserung und Weiterentwicklung der Anforderungen und Maßnahmen in der Stand-der-Technik – Bibliothek und zur Sicherung der Qualität und Aktualität zu beteiligen.
 
@@ -9,6 +9,16 @@ Von der Meldung an das BSI ist folgendes vorgehen vorgesehen: Diskussion daraus 
 Weiteres Angebot, was sich in der ersten Beteiligungsphase ls Hilfreich herausgestellt hat ist ein regelmässiges Treffen. Ich schlage als nächsten Termin Do. 13.11 um 15:30 vor einladung folg.Ergänzt um ein Angebot für Nachzügler die sich gerne noch Beteiligen wollen dazu eine PM an mich mit individuellem Termin.
 
 Zum "lesen des Grundschutz ++ kann folgendes Tool genutzt werden: https://viewer.oscal.io/ Ladet das json File herunter https://github.com/Forum-SdT-BibliothekSicherheitskuration/Sicherheitskuration/tree/main/Kompendien/Grundschutz%2B%2B-Kompendium und dann in dem Tool unter Upload hoch. Danach sollten die Anforderungen sichtbar sein. Dies ist nur als Vorschlag zu verstehen.
+
+Welche Bereiche werden / wurden Bearbeitet Tabelle
+
+Übergreifende Themen (Diskussionen)
+
+|ISMS|
+|Technik|
+|Organisation|
+
+Die Tabelle wird weiter gefüllt
 
 # Stand der Technik Bibliothek
 
