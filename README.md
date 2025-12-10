@@ -1,4 +1,4 @@
-Fork ist aktuell Sync 19.11 8:00 4 Änderungen
+Fork ist aktuell Sync 10.12 12:00 7 Änderungen
 
 Die AG hat die Aufgabe sich an der inhaltlichen Verbesserung und Weiterentwicklung der Anforderungen und Maßnahmen in der Stand-der-Technik – Bibliothek und zur Sicherung der Qualität und Aktualität zu beteiligen.
 
