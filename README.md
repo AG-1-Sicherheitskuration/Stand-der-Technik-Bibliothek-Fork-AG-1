@@ -1,4 +1,4 @@
-Fork ist aktuell Sync 03.02.2026.2026 Discard 12 commits to make this branch match the upstream repository. 12 commits will be removed from this branch.
+Update Sync 09.02.2026.2026
 
 Die AG hat die Aufgabe sich an der inhaltlichen Verbesserung und Weiterentwicklung der Anforderungen und Maßnahmen in der Stand-der-Technik – Bibliothek und zur Sicherung der Qualität und Aktualität zu beteiligen.
 
