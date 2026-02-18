@@ -1,4 +1,4 @@
-Update Sync 09.02.2026.2026
+Update Sync 18.02.2026.2026
 
 Die AG hat die Aufgabe sich an der inhaltlichen Verbesserung und Weiterentwicklung der Anforderungen und Maßnahmen in der Stand-der-Technik – Bibliothek und zur Sicherung der Qualität und Aktualität zu beteiligen.
 
