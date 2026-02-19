@@ -8,13 +8,12 @@ Von der Meldung an das BSI ist folgendes vorgehen vorgesehen: Diskussion daraus 
 
 Weiteres Angebot, was sich in der ersten Beteiligungsphase ls Hilfreich herausgestellt hat ist ein regelmässiges Treffen. Ich schlage als nächsten Termin Do. 13.11 um 15:30 vor einladung folg.Ergänzt um ein Angebot für Nachzügler die sich gerne noch Beteiligen wollen dazu eine PM an mich mit individuellem Termin.
 
-Zum "lesen des Grundschutz ++ kann folgendes Tool genutzt werden: https://viewer.oscal.io/ Ladet das json File herunter https://github.com/Forum-SdT-BibliothekSicherheitskuration/Sicherheitskuration/tree/main/Kompendien/Grundschutz%2B%2B-Kompendium und dann in dem Tool unter Upload hoch. Danach sollten die Anforderungen sichtbar sein. Dies ist nur als Vorschlag zu verstehen.
 
-Welche Bereiche werden / wurden Bearbeitet Tabelle
+Welche Bereiche werden / wurden bearbeitet Tabelle
 
 Übergreifende Themen (Diskussionen)
 
-|ISMS|
+|ISMS|jetzt--> Methodik
 |Technik|
 |Organisation|
 
