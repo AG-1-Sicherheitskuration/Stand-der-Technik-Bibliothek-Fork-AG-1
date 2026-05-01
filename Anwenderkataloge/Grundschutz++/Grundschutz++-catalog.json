@@ -1,10 +1,10 @@
 {
   "catalog": {
-    "uuid": "63b80153-ee85-4d5a-a718-a534b17b194b",
+    "uuid": "5833d0d8-79d9-4329-9dce-5ba41182a4ba",
     "metadata": {
       "title": "Anwenderkatalog Grundschutz++",
-      "last-modified": "2026-03-12T04:14:03.393232863Z",
-      "version": "2026-03-12T04:13:55.762859+00:00",
+      "last-modified": "2026-04-20T11:58:38.048452946Z",
+      "version": "2026-04-20T11:58:28.849874+00:00",
       "oscal-version": "1.1.3",
       "props": [
         {
@@ -23,7 +23,7 @@
       ],
       "links": [
         {
-          "href": "#6a598493-8f3b-4ad3-ad73-9fb1495916e6",
+          "href": "#0cf8023f-9a7a-435e-852c-fa3347c8af8d",
           "rel": "reference",
           "text": "BSI IT-Grundschutz Edition 2023"
         }
@@ -36,7 +36,7 @@
       ],
       "parties": [
         {
-          "uuid": "e1aeae0f-325b-4b9c-971a-df50687e5415",
+          "uuid": "23471ebf-ebc5-4e3a-bb4d-d156207eeaae",
           "type": "person",
           "name": "Bundesamt für Sicherheit in der Informationstechnik",
           "email-addresses": [
@@ -48,7 +48,7 @@
         {
           "role-id": "creator",
           "party-uuids": [
-            "e1aeae0f-325b-4b9c-971a-df50687e5415"
+            "23471ebf-ebc5-4e3a-bb4d-d156207eeaae"
           ]
         }
       ],
@@ -698,7 +698,7 @@
                       {
                         "id": "GC.5.1.2_gdn",
                         "name": "guidance",
-                        "prose": "Das Ergebnis der  Schutzbedarfsfeststellung ist eine Übersicht des Schutzbedarfs der zu verarbeitenden Informationen,  sowie der Relevanz der Geschäftsprozesse. Die Einstufung erfolgt dabei in den Stufen „normal“ oder „hoch“. Die Einstufung richtet sich nach der Bedeutung des Geschäftsprozess für die Geschäftsziele oder den gesetzlichen Auftrag der Institution. Priorität für die weitere Abarbeitung hat zunächst der wichtigste Geschäftsprozess, d.h. derjenige Geschäftsprozess, dessen Informationsschutz für den Fortbestand der Institution von essentieller Bedeutung ist. Die Entscheidung darüber, welcher Geschäftsprozess am wichtigsten ist, obliegt der Institutionsleitung. Droht bei einer Verletzung der Vertraulichkeit, Integrität oder Verfügbarkeit von Informationen in diesem Geschäftsprozess ein existenzbedrohender finanzieller oder existenzbedrohender Reputationsschaden, so ist der Schutzbedarf des Prozesses als hoch einzustufen. Das gleiche gilt, wenn ein Geschäftsprozess oder eine Information, als (VS-)Vertraulich eingestuft wird."
+                        "prose": "Das Ergebnis der  Schutzbedarfsfeststellung ist eine Übersicht des Schutzbedarfs der zu verarbeitenden Informationen,  sowie der Relevanz der Geschäftsprozesse. Die Einstufung erfolgt dabei in den Stufen „normal“ oder „hoch“. Die Einstufung richtet sich nach der Bedeutung des Geschäftsprozess für die Geschäftsziele oder den gesetzlichen Auftrag der Institution. Priorität für die weitere Abarbeitung hat zunächst der wichtigste Geschäftsprozess, d.h. derjenige Geschäftsprozess, dessen Informationsschutz für den Fortbestand der Institution von essentieller Bedeutung ist. Die Entscheidung darüber, welcher Geschäftsprozess am wichtigsten ist, obliegt der Institutionsleitung. Droht bei einer Verletzung der Vertraulichkeit, Integrität oder Verfügbarkeit von Informationen in diesem Geschäftsprozess ein existenzbedrohender finanzieller oder existenzbedrohender Reputationsschaden, so ist der Schutzbedarf des Prozesses als hoch einzustufen. Das gleiche gilt, wenn innerhalb eines Geschäftsprozesses Informationen verarbeitet werden, die als besonders vertraulich eingestuft werden."
                       }
                     ]
                   },
@@ -7138,6 +7138,291 @@
                     "id": "PERF.7.1_gdn",
                     "name": "guidance",
                     "prose": "Die Verifikation sollte folgende Aspekte umfassen: Das Anforderungspaket sollte regelmäßig (i.A. jährlich, je nach Organisationsgröße, Parameter und Prüftiefe) in Hinblick auf die Modellierung überprüft werden, um ihre Aktualität und Angemessenheit in Bezug auf den Informationsverbund zu bewerten. Bei der Überprüfung sollten veränderte Geschäftsprozesse, neue IT-Komponenten, organisatorische Änderungen und externe Faktoren wie neue regulatorische Anforderungen oder veränderte Bedrohungslandschaften berücksichtigt werden. Die Überprüfung sollte in Abstimmung mit den zuständigen Bereichen erfolgen, um sicherzustellen, dass alle relevanten Perspektiven einbezogen werden. Bei Bedarf sollten Anpassungen der Auswahl der Anforderungen vorgenommen werden, um den aktuellen Anforderungen gerecht zu werden. Wenn signifikante Anpassungen erforderlich sind, können diese zu einer Neumodellierung oder Erweiterung des Anforderungspakets führen, was wiederum den gesamten Zyklus der Strukturmodellierung und Umsetzung beeinflusst. Die Verifikation sollte dokumentiert werden."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "RISK",
+        "title": "Risikomanagement",
+        "props": [
+          {
+            "name": "label",
+            "value": "RISK",
+            "remarks": "Risikomanagement ist ein systematischer, wiederkehrender Zyklus, mit dem Ziel, Risiken für die Vertraulichkeit, Integrität und Verfügbarkeit von Informationen zu identifizieren, zu bewerten, zu steuern und kontinuierlich zu überwachen. Es dient dazu, Risiken auf ein akzeptables Maß zu reduzieren."
+          },
+          {
+            "name": "alt-identifier",
+            "value": "906e6304-5a16-4251-b225-324d4945100a"
+          }
+        ],
+        "groups": [
+          {
+            "id": "RISK.1",
+            "title": "Risiko",
+            "props": [
+              {
+                "name": "label",
+                "value": "1"
+              },
+              {
+                "name": "alt-identifier",
+                "value": "f38cbd80-deac-4519-ba3c-9c1313c89782"
+              }
+            ],
+            "controls": [
+              {
+                "id": "RISK.1.1",
+                "class": "BSI-Anforderungen-zum-Risikomanagement",
+                "title": "Methodik für das Risikomanagement",
+                "params": [
+                  {
+                    "id": "risk.1.1-prm1",
+                    "props": [
+                      {
+                        "name": "alt-identifier",
+                        "value": "b6f7870d-6113-4039-974b-df571540c2f3"
+                      }
+                    ],
+                    "label": "einem anerkannten Standard"
+                  }
+                ],
+                "props": [
+                  {
+                    "name": "alt-identifier",
+                    "value": "b6f7870d-6113-4039-974b-df571540c2f3"
+                  },
+                  {
+                    "name": "sec_level",
+                    "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/security_level.csv",
+                    "value": "normal-SdT"
+                  },
+                  {
+                    "name": "effort_level",
+                    "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/effort_level.csv",
+                    "value": "0"
+                  }
+                ],
+                "parts": [
+                  {
+                    "id": "RISK.1.1_stm",
+                    "name": "statement",
+                    "props": [
+                      {
+                        "name": "documentation",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/documentation_guidelines.csv",
+                        "value": "Richtlinie zur Risikoanalyse"
+                      },
+                      {
+                        "name": "result",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/result.csv",
+                        "value": "einheitliche Methoden"
+                      },
+                      {
+                        "name": "result_specification",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/result.csv",
+                        "value": "nach {{einem anerkannten Standard}}"
+                      },
+                      {
+                        "name": "action_word",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/action_words.csv",
+                        "value": "verankern"
+                      },
+                      {
+                        "name": "modal_verb",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/modal_verbs.csv",
+                        "value": "MUSS"
+                      }
+                    ],
+                    "prose": "Risikomanagement MUSS einheitliche Methoden nach {{ insert: param, risk.1.1-prm1 }} verankern."
+                  },
+                  {
+                    "id": "RISK.1.1_gdn",
+                    "name": "guidance",
+                    "prose": "Diese Methoden müssen den Kontext der Institution und die Anforderungen interessierter Parteien sowie die hieraus abgeleiteten Ziele berücksichtigen. Die Methoden können frei gewählt werden."
+                  }
+                ]
+              },
+              {
+                "id": "RISK.1.3",
+                "class": "BSI-Anforderungen-zum-Risikomanagement",
+                "title": "Risikoeigentümer",
+                "props": [
+                  {
+                    "name": "alt-identifier",
+                    "value": "1a225ac3-6072-44ba-bfd6-b30e52477dd4"
+                  },
+                  {
+                    "name": "sec_level",
+                    "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/security_level.csv",
+                    "value": "normal-SdT"
+                  },
+                  {
+                    "name": "effort_level",
+                    "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/effort_level.csv",
+                    "value": "0"
+                  }
+                ],
+                "parts": [
+                  {
+                    "id": "RISK.1.3_stm",
+                    "name": "statement",
+                    "props": [
+                      {
+                        "name": "documentation",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/documentation_guidelines.csv",
+                        "value": "Richtlinie zur Risikoanalyse"
+                      },
+                      {
+                        "name": "result",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/result.csv",
+                        "value": "die Rolle des Risikoeigentümers"
+                      },
+                      {
+                        "name": "result_specification",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/result.csv",
+                        "value": "mit den notwendigen Aufgaben und Befugnissen"
+                      },
+                      {
+                        "name": "action_word",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/action_words.csv",
+                        "value": "verankern"
+                      },
+                      {
+                        "name": "modal_verb",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/modal_verbs.csv",
+                        "value": "MUSS"
+                      }
+                    ],
+                    "prose": "Risikomanagement MUSS die Rolle des Risikoeigentümers mit den notwendigen Aufgaben und Befugnissen verankern."
+                  },
+                  {
+                    "id": "RISK.1.3_gdn",
+                    "name": "guidance",
+                    "prose": "Der Risikoeigentümer trägt die Verantwortung für die Behandlung von Risiken. Er verfügt über die Befugnis, Entscheidungen über eine geeignete Risikobehandlung zu treffen."
+                  }
+                ]
+              },
+              {
+                "id": "RISK.1.5",
+                "class": "BSI-Anforderungen-zum-Risikomanagement",
+                "title": "Freigabe des Risikomanagements",
+                "props": [
+                  {
+                    "name": "alt-identifier",
+                    "value": "75cea6b4-d254-462e-9d20-09085e81f1dc"
+                  },
+                  {
+                    "name": "sec_level",
+                    "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/security_level.csv",
+                    "value": "normal-SdT"
+                  },
+                  {
+                    "name": "effort_level",
+                    "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/effort_level.csv",
+                    "value": "0"
+                  }
+                ],
+                "parts": [
+                  {
+                    "id": "RISK.1.5_stm",
+                    "name": "statement",
+                    "props": [
+                      {
+                        "name": "documentation",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/documentation_guidelines.csv",
+                        "value": "Richtlinie zur Risikoanalyse"
+                      },
+                      {
+                        "name": "result",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/result.csv",
+                        "value": "Verfahren, Rollendefinitionen und Kriterien"
+                      },
+                      {
+                        "name": "result_specification",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/result.csv",
+                        "value": "durch die Institutionsleitung"
+                      },
+                      {
+                        "name": "action_word",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/action_words.csv",
+                        "value": "autorisieren"
+                      },
+                      {
+                        "name": "modal_verb",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/modal_verbs.csv",
+                        "value": "MUSS"
+                      }
+                    ],
+                    "prose": "Risikomanagement MUSS Verfahren, Rollendefinitionen und Kriterien durch die Institutionsleitung autorisieren."
+                  },
+                  {
+                    "id": "RISK.1.5_gdn",
+                    "name": "guidance",
+                    "prose": "Diese Dokumentation der Autorisierung dient der Nachvollziehbarkeit und Verbindlichkeit."
+                  }
+                ]
+              },
+              {
+                "id": "RISK.1.10",
+                "class": "BSI-Anforderungen-zum-Risikomanagement",
+                "title": "Freigabe der Umsetzungsplanung",
+                "props": [
+                  {
+                    "name": "alt-identifier",
+                    "value": "6162c7df-8813-47d4-bbad-4f182c810292"
+                  },
+                  {
+                    "name": "sec_level",
+                    "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/security_level.csv",
+                    "value": "normal-SdT"
+                  },
+                  {
+                    "name": "effort_level",
+                    "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/effort_level.csv",
+                    "value": "0"
+                  }
+                ],
+                "parts": [
+                  {
+                    "id": "RISK.1.10_stm",
+                    "name": "statement",
+                    "props": [
+                      {
+                        "name": "documentation",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/documentation_guidelines.csv",
+                        "value": "Umsetzungsplan"
+                      },
+                      {
+                        "name": "result",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/result.csv",
+                        "value": "die Umsetzungsplanung"
+                      },
+                      {
+                        "name": "result_specification",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/result.csv",
+                        "value": "durch die Risikoeigentümer"
+                      },
+                      {
+                        "name": "action_word",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/action_words.csv",
+                        "value": "autorisieren"
+                      },
+                      {
+                        "name": "modal_verb",
+                        "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/modal_verbs.csv",
+                        "value": "MUSS"
+                      }
+                    ],
+                    "prose": "Risikomanagement MUSS die Umsetzungsplanung durch die Risikoeigentümer autorisieren."
+                  },
+                  {
+                    "id": "RISK.1.10_gdn",
+                    "name": "guidance",
+                    "prose": "Auf der Grundlage des Umsetzungsplans ist eine systematische und transparente Umsetzung der Anforderung bzw. Sicherheitsmaßnahmen möglich. Der Umsetzungsplan enthält z. B. die Anforderungsbeschreibung, das Zielobjekt bzw. den Anwendungsbereich, die verantwortliche Stelle, Start und Zieldatum (Fristen), Prioritäten, Status der Umsetzung, ergänzende Aktivitäten (z. B. Schulungen), Risiken inkl. Begründung (Was bleibt offen? Was wurde nicht umgesetzt und warum?), Ressourcenplanung, Abhängigkeiten zu anderen Anforderungen, Datum der Freigabe und Unterschrift des Risikoeigentümers. Der Umsetzungsplan dient als Grundlage für die Fortschrittskontrolle, die Berichterstattung und Audits."
                   }
                 ]
               }
@@ -46140,7 +46425,7 @@
               {
                 "id": "NOT.2.1",
                 "class": "BSI-Stand-der-Technik-Kernel",
-                "title": "Verfahren und Regelungen",
+                "title": "Verfahren und Regelungen zur BAO",
                 "props": [
                   {
                     "name": "alt-identifier",
@@ -46188,7 +46473,7 @@
                   {
                     "id": "NOT.2.1_gdn",
                     "name": "guidance",
-                    "prose": "Eine BAO ermöglicht, in Notfällen und Krisen schnellstmöglich auf das Schadensereignis zu reagieren. Eine BAO gehört zu den originären Aufgaben eines BCMS und SOLL von diesem etabliert werden. Wird bzw. wurde ein BCMS nach BSI-Standard 200-4 aufgebaut (unabhängig von der Stufe), so sind die BAO-betreffenden Anforderungen in der Regel erfüllt und werden im Rahmen des BCMS anhand des BSI-Standards 200-4 detaillierter definiert. Nähere Informationen können dem BSI-Standard 200-4 in Kapitel 5 Aufbau und Befähigung der BAO (R+AS) entnommen werden.  Die einzelnen Regelungen können den untergliederten Anforderungen entnommen werden."
+                    "prose": "Eine BAO ermöglicht, in Notfällen und Krisen schnellstmöglich auf das Schadensereignis zu reagieren. Eine BAO gehört zu den originären Aufgaben eines BCMS. Wird bzw. wurde ein BCMS nach BSI-Standard 200-4 aufgebaut (unabhängig von der Stufe), so sind die BAO-betreffenden Anforderungen in der Regel erfüllt und werden im Rahmen des BCMS anhand des BSI-Standards 200-4 detaillierter definiert. Nähere Informationen können dem BSI-Standard 200-4 in Kapitel 5 Aufbau und Befähigung der BAO (R+AS) entnommen werden.  Die einzelnen Regelungen können den untergliederten Anforderungen entnommen werden."
                   }
                 ],
                 "controls": [
@@ -46406,6 +46691,12 @@
                         "value": "5"
                       }
                     ],
+                    "links": [
+                      {
+                        "href": "#NOT.3.4",
+                        "rel": "related"
+                      }
+                    ],
                     "parts": [
                       {
                         "id": "NOT.2.1.4_stm",
@@ -46515,7 +46806,7 @@
                   {
                     "id": "NOT.3.1_gdn",
                     "name": "guidance",
-                    "prose": "Ein Wiederanlaufplan legt fest, wie eine ausgefallene (IT)-Ressource auf ein vorgesehenes Notbetriebsniveau innerhalb einer Wiederanlaufzeit durch Notfallteams zur Verfügung gestellt wird. Besteht ein BCMS, dann werden die zeitkritischen Ressourcen innerhalb der Business Impact Analyse identifiziert und in dieser entsprechende Wiederanlaufzeiten festgelegt. Die ausgewählten BC-Strategien des BCMS bieten ferner den Rahmen für die Wiederanlaufplanung. Besteht kein BCMS, dann können die zeitkritischen IT-Ressourcen anhand der Schutzbedarfsfeststellung (erhöhter Schutzbedarf in der Verfügbarkeit) identifiziert werden. Die Wiederanlaufzeit kann dann nur grob anhand der Ergebnisse der Schutzbedarfsfeststellung geschätzt werden. Nähere Informationen können dem BSI-Standard 200-4 Kapitel 12 Wiederanlauf- und Wiederherstellungsplanung (AS) entnommen werden."
+                    "prose": "Ein Wiederanlaufplan legt fest, wie eine ausgefallene (IT)-Ressource auf ein vorgesehenes Notbetriebsniveau innerhalb einer Wiederanlaufzeit durch Notfallteams zur Verfügung gestellt wird. Besteht ein BCMS, dann werden die kritischen Ressourcen innerhalb der Business Impact Analyse identifiziert und in dieser entsprechende Wiederanlaufzeiten festgelegt. Die ausgewählten BC-Strategien des BCMS bieten ferner den Rahmen für die Wiederanlaufplanung. Besteht kein BCMS, dann können die zeitkritischen IT-Ressourcen anhand der Schutzbedarfsfeststellung (erhöhter Schutzbedarf in der Verfügbarkeit) identifiziert werden. Die Wiederanlaufzeit kann dann nur grob anhand der Ergebnisse der Informationssicherheitseinstufung geschätzt werden. Zeitkritisch sind IT-Systeme und Anwendungen genau dann, wenn ihre fortlaufende Verfügbarkeit für die Aufrechterhaltug des Geschäftsbetriebes auch im Notfall zwingend erforderlich ist. Nähere Informationen können dem BSI-Standard 200-4 Kapitel 12 Wiederanlauf- und Wiederherstellungsplanung (AS) entnommen werden."
                   }
                 ]
               },
@@ -46671,6 +46962,12 @@
                     "value": "5"
                   }
                 ],
+                "links": [
+                  {
+                    "href": "#NOT.2.1.4",
+                    "rel": "related"
+                  }
+                ],
                 "parts": [
                   {
                     "id": "NOT.3.4_stm",
@@ -46707,7 +47004,7 @@
                   {
                     "id": "NOT.3.4_gdn",
                     "name": "guidance",
-                    "prose": "Eine regelmäßige Überprüfung hilft zu erkennen, ob die verschiedenen Notfallpläne (z. B. Wiederanlaufplan, Geschäftsfortführungsplan) und Notbetriebsressourcen tatsächlich funktionieren und die Zuständigen die Verfahrensweisen beherrschen. Mit der tatsächlichen Funktionstüchtigkeit ist gemeint, dass nicht nur die Aktualität der Pläne betrachtet wird, sondern soweit möglich auch die konkreten Ressourcen geprüft werden (z.B. laufen die Meldewege wie vorgesehen, lassen sich Ausfallleitungen aktivieren, sind Ersatzgeräte nutzbar). Ist hierzu noch nicht die erforderliche Reife erlangt, können in einem ersten Schritt Planbesprechungen, die nur virtuell einen Plan überprüfen, eingesetzt werden. Nähere Informationen können dem BSI-Standard 200-4 Kapitel 13.9 Funktionstest (R optional +AS) und 13.5 Planbesprechung (R optional +AS) entnommen werden."
+                    "prose": "Eine regelmäßige Überprüfung hilft zu erkennen, ob die verschiedenen Notfallpläne (z. B. Wiederanlaufplan, Geschäftsfortführungsplan) und Notbetriebsressourcen tatsächlich funktionieren und die Zuständigen die Verfahrensweisen beherrschen. Mit der tatsächlichen Funktionstüchtigkeit ist gemeint, dass nicht nur die Aktualität der Pläne theoretisch betrachtet wird, sondern soweit möglich auch die konkreten Ressourcen geprüft werden (z.B. laufen die Meldewege wie vorgesehen, lassen sich Ausfallleitungen aktivieren, sind Ersatzgeräte nutzbar). Ist hierzu noch nicht die erforderliche Reife erlangt, können in einem ersten Schritt Planbesprechungen, die nur virtuell einen Plan überprüfen, eingesetzt werden. Nähere Informationen können dem BSI-Standard 200-4 Kapitel 13.9 Funktionstest (R optional +AS) und 13.5 Planbesprechung (R optional +AS) entnommen werden."
                   }
                 ]
               },
@@ -46893,7 +47190,7 @@
                   {
                     "id": "NOT.4.1_gdn",
                     "name": "guidance",
-                    "prose": "Datensicherungen dienen der Wiederherstellung von Daten nach Vorfällen. Aufgrund der besonderen Bedeutung fordert auch die ISO/IEC 27001 die Sicherung von Informationen in Übereinstimmung mit themenspezifischen Regelungen zur Datensicherung. Hierzu gehört die Regelung, welche Daten konkret gesichert werden (Quellen, Datenkategorien, Umfang). Relevant sind dabei auch Daten, die bei Dienstleistern oder in der Cloud aufbewahrt werden. Die Datensicherung kann auch durch die Sicherung ganzer IT-Systeme, Datenträger oder Netzlaufwerke umgesetzt werden. Es empfiehlt sich auch zu prüfen, wie die Institution ihre Daten, welche bei einem Outsourcing Dienstleister liegen, sichern will. Es ist möglich eine Datensicherung durch den Dienstleister oder auch bei sich selbst zu erstellen."
+                    "prose": "Datensicherungen dienen der Wiederherstellung von Daten nach Vorfällen. Aufgrund der besonderen Bedeutung fordert auch die ISO/IEC 27001 die Sicherung von Informationen in Übereinstimmung mit themenspezifischen Regelungen zur Datensicherung. Hierzu gehört die Regelung, welche Daten konkret gesichert werden (Quellen, Kategorien oder Klassifikation der Daten, Umfang). Relevant sind dabei auch Daten, die bei Dienstleistern oder in der Cloud aufbewahrt werden. Die Datensicherung kann auch durch die Sicherung ganzer IT-Systeme, Datenträger oder Netzlaufwerke umgesetzt werden. Es empfiehlt sich auch zu prüfen, wie die Institution ihre Daten, welche bei einem Outsourcing Dienstleister liegen, sichern will. Es ist möglich eine Datensicherung durch den Dienstleister oder auch bei sich selbst zu erstellen."
                   }
                 ]
               },
@@ -47418,7 +47715,7 @@
                   {
                     "id": "NOT.4.6_gdn",
                     "name": "guidance",
-                    "prose": "Eine geschützte Aufbewahrung von Datensicherungen bedeutet, dass Sicherungskopien nicht nur vorhanden sind, sondern auch vor Verlust, Manipulation oder unbefugtem Zugriff bewahrt werden. Dabei wird berücksichtigt, dass Datensicherungen häufig ein attraktives Ziel für Angriffe darstellen und gleichzeitig im Notfall die einzige Möglichkeit zur Wiederherstellung von Systemen und Daten sein können. Beispiele für Schutzmaßnahmen sind die Ablage von Sicherungsmedien in feuer- und wasserfesten Tresoren, die Nutzung getrennter Räumlichkeiten oder externer Rechenzentren mit physischen Sicherheitsvorkehrungen sowie die Verschlüsselung von Backups, wenn diese an externen Standorten oder in Cloud-Umgebungen gespeichert werden. Auch organisatorische Maßnahmen wie eine klare Regelung, wer Zugriff auf die Sicherungen erhält, tragen zum Schutz bei."
+                    "prose": "Eine geschützte Aufbewahrung von Datensicherungen bedeutet, dass Sicherungskopien nicht nur vorhanden sind, sondern auch vor Verlust, Manipulation, versehentlicher Löschung oder unbefugtem Zugriff bewahrt werden. Dabei wird berücksichtigt, dass Datensicherungen häufig ein attraktives Ziel für Angriffe darstellen und gleichzeitig im Notfall die einzige Möglichkeit zur Wiederherstellung von Systemen und Daten sein können. Beispiele für Schutzmaßnahmen sind die Ablage von Sicherungsmedien in feuer- und wasserfesten Tresoren, die Nutzung getrennter Räumlichkeiten oder externer Rechenzentren mit physischen Sicherheitsvorkehrungen sowie die Verschlüsselung von Backups, wenn diese an externen Standorten oder in Cloud-Umgebungen gespeichert werden. Auch organisatorische Maßnahmen wie eine klare Regelung, wer Zugriff auf die Sicherungen erhält, tragen zum Schutz bei."
                   }
                 ]
               },
@@ -47939,7 +48236,7 @@
                   {
                     "id": "NOT.4.14_gdn",
                     "name": "guidance",
-                    "prose": "Eine Offline-Kopie ist eine Datensicherung, die physisch oder logisch von produktiven Systemen und dem laufenden Netzwerk getrennt ist („offline backup“ oder „air-gapped backup“). „Regelmäßig“ bedeutet, dass die Institution in Abhängigkeit von Verfügbarkeit und Kritikalität ihrer Daten feste Intervalle definiert, beispielsweise täglich, wöchentlich oder monatlich. Der Sinn und Zweck dieser Vorgabe liegt darin, sicherzustellen, dass im Falle von Schadsoftwarebefall oder gezielten Angriffen keine gleichzeitige Kompromittierung aller Sicherungskopien stattfinden kann; ein Angriff könnte sonst auch Backups verschlüsseln oder löschen. Eine Offline-Kopie kann dagegen die Wiederherstellung kritischer Systeme nach einem Ransomware-Angriff oder auch nach einem physischen Ausfall, etwa durch Stromschaden oder Brand, unterstützen. Eine Institution kann dies umsetzen, indem sie (1) Backups auf wechselbare Medien wie externe Festplatten, RDX-Kassetten oder Bänder erstellt, die nach dem Backup-Vorgang vom Netzwerk getrennt und sicher aufbewahrt werden, (2) Cloud-Backups so konfiguriert, dass sie durch Write-Once-Read-Many-(WORM)-Speicher geschützt und logisch von aktiven Systemen isoliert sind, oder (3) eine Rotation von Datenträgern einführt, bei der Kopien an einem separaten, physischen Standort verwahrt werden."
+                    "prose": "Eine Offline-Kopie ist eine Datensicherung, die physisch oder logisch von produktiven Systemen und dem laufenden Netzwerk getrennt ist („offline backup“ oder „air-gapped backup“). „Regelmäßig“ bedeutet, dass die Institution in Abhängigkeit von Verfügbarkeit und Kritikalität ihrer Daten feste Intervalle definiert, beispielsweise täglich, wöchentlich oder monatlich. Der Sinn und Zweck dieser Vorgabe liegt darin, sicherzustellen, dass im Falle von Schadsoftwarebefall oder gezielten Angriffen keine gleichzeitige Kompromittierung aller Sicherungskopien stattfinden kann; ein Angriff könnte sonst auch Backups verschlüsseln oder löschen. Eine Offline-Kopie kann dagegen die Wiederherstellung kritischer Systeme nach einem Ransomware-Angriff oder auch nach einem physischen Ausfall, etwa durch Stromschaden oder Brand, unterstützen. Eine Institution kann dies umsetzen, indem sie (1) Kopien in Papierform oder auf wechselbaren Medien wie externen Festplatten, RDX-Kassetten oder Bändern erstellt, die nach dem Backup-Vorgang vom Netzwerk getrennt und geschützt aufbewahrt werden, (2) Cloud-Backups so konfiguriert, dass sie durch Write-Once-Read-Many-(WORM)-Speicher geschützt und logisch von aktiven Systemen isoliert sind, oder (3) eine Rotation von Datenträgern einführt, bei der Kopien an einem separaten, physischen Standort verwahrt werden."
                   }
                 ]
               },
@@ -59938,10 +60235,10 @@
                       {
                         "name": "modal_verb",
                         "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/Dokumentation/namespaces/modal_verbs.csv",
-                        "value": "SOLLTE"
+                        "value": "KANN"
                       }
                     ],
-                    "prose": "Konfiguration für IT-Systeme SOLLTE Host-basierte Angriffserkennung aktivieren."
+                    "prose": "Konfiguration für IT-Systeme KANN Host-basierte Angriffserkennung aktivieren."
                   },
                   {
                     "id": "KONF.7.3_gdn",
@@ -68914,7 +69211,7 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "6a598493-8f3b-4ad3-ad73-9fb1495916e6",
+          "uuid": "0cf8023f-9a7a-435e-852c-fa3347c8af8d",
           "title": "BSI IT-Grundschutz Edition 2023",
           "rlinks": [
             {
