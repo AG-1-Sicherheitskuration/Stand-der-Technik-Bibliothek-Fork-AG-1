@@ -1,1 +1,2565 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BSI IT-Grundschutz — Glossar</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap');
+
+:root {
+  --ink:       #1A1916;
+  --ink2:      #4A4640;
+  --ink3:      #9E9B96;
+  --paper:     #FAF8F4;
+  --paper2:    #F3F0EB;
+  --paper3:    #EAE6DF;
+  --rule:      #D8D4CD;
+  --bsi-blue:  #1A3A5C;
+  --bsi-red:   #C0392B;
+  --bsi-gold:  #B8860B;
+  --accent:    #2C5F8F;
+  --accent2:   #3D7AB5;
+  --ok:        #1A6640;
+  --warn:      #8B6000;
+  --mono: 'IBM Plex Mono', monospace;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --display: 'DM Serif Display', Georgia, serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ── Grain overlay ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* ── Header ── */
+header {
+  position: relative;
+  background: var(--bsi-blue);
+  padding: 60px 0 50px;
+  overflow: hidden;
+}
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--bsi-red) 33%, var(--bsi-gold) 33%, var(--bsi-gold) 66%, var(--bsi-blue) 66%);
+}
+.header-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: flex-end;
+  gap: 32px;
+}
+.bsi-emblem {
+  width: 72px; height: 72px; flex-shrink: 0;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 36px;
+}
+.header-text { flex: 1; }
+.header-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 6px;
+}
+h1 {
+  font-family: var(--display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+h1 em {
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+}
+.header-sub {
+  margin-top: 8px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  font-family: var(--mono);
+}
+
+/* ── Layout ── */
+.layout {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+  align-items: start;
+  position: relative; z-index: 1;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  position: sticky;
+  top: 24px;
+}
+.sidebar-title {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+.alpha-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-bottom: 24px;
+}
+.alpha-link {
+  width: 26px; height: 26px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink2);
+  text-decoration: none;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--paper2);
+  transition: all 0.15s;
+}
+.alpha-link:hover {
+  background: var(--bsi-blue);
+  border-color: var(--bsi-blue);
+  color: #fff;
+}
+.alpha-link.has { color: var(--accent); border-color: var(--accent2); background: #EFF5FB; }
+.alpha-link.has:hover { background: var(--bsi-blue); color: #fff; }
+
+.cat-nav { margin-bottom: 24px; }
+.cat-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  margin-bottom: 2px;
+  font-size: 12px;
+  color: var(--ink2);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.12s;
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+.cat-link:hover { background: var(--paper2); }
+.cat-link.active { background: var(--paper3); color: var(--accent); font-weight: 600; }
+.cat-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+
+.search-wrap {
+  position: relative;
+  margin-bottom: 24px;
+}
+.search-wrap input {
+  width: 100%;
+  padding: 9px 12px 9px 34px;
+  font-family: var(--serif);
+  font-size: 13px;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--paper2);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.search-wrap input:focus { border-color: var(--accent2); background: #fff; }
+.search-wrap::before {
+  content: '⌕';
+  position: absolute;
+  left: 10px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: var(--ink3);
+  pointer-events: none;
+}
+#search-count {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink3);
+  margin-top: 5px;
+}
+
+/* ── Main content ── */
+.main { min-width: 0; }
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-top: 48px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--bsi-blue);
+}
+.section-header:first-child { margin-top: 0; }
+.section-letter {
+  font-family: var(--display);
+  font-size: 52px;
+  line-height: 1;
+  color: var(--bsi-blue);
+  opacity: 0.15;
+  flex-shrink: 0;
+  line-height: .9;
+}
+.section-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink3);
+  text-transform: uppercase;
+}
+
+/* ── Term card ── */
+.term-card {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--paper3);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  align-items: start;
+  transition: opacity 0.2s;
+}
+.term-card:last-child { border-bottom: none; }
+.term-card.hidden { display: none; }
+
+.term-head { }
+.term-name {
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+.term-abbr {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 3px;
+  background: var(--paper3);
+  color: var(--ink2);
+  letter-spacing: .5px;
+  margin-bottom: 4px;
+}
+.term-cat {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.term-body { }
+.term-def {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.term-def strong { color: var(--ink); font-weight: 600; }
+
+.term-refs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+}
+.ref-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  border: 1px solid;
+  cursor: default;
+}
+.ref-bsi { background: #EFF5FB; border-color: #9EC6E8; color: var(--bsi-blue); }
+.ref-iso { background: #F0FFF5; border-color: #9DC89D; color: var(--ok); }
+.ref-gs  { background: #FEF8E4; border-color: #D4B84A; color: var(--warn); }
+.ref-krt { background: #FFF0F0; border-color: #D49494; color: var(--bsi-red); }
+
+.term-note {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: var(--paper2);
+  border-left: 3px solid var(--bsi-gold);
+  font-size: 12px;
+  color: var(--ink2);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ── Category color map ── */
+.cat-methodik .term-cat { color: var(--bsi-blue); }
+.cat-organisation .term-cat { color: #6B3A8B; }
+.cat-technik .term-cat { color: #1A6640; }
+.cat-risiko .term-cat { color: var(--bsi-red); }
+.cat-norm .term-cat { color: var(--warn); }
+.cat-tool .term-cat { color: #2C7A7B; }
+
+/* ── No results ── */
+#no-results {
+  display: none;
+  padding: 48px;
+  text-align: center;
+  color: var(--ink3);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+/* ── Footer ── */
+footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid var(--rule);
+  padding: 24px 40px;
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink3);
+}
+footer a { color: var(--ink3); text-decoration: none; }
+footer a:hover { color: var(--accent); }
+
+/* ── Print ── */
+@media print {
+  body::before { display: none; }
+  header { background: #fff; border-bottom: 2px solid var(--bsi-blue); }
+  h1 { color: var(--bsi-blue); }
+  .header-eyebrow, .header-sub { color: var(--ink2); }
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .term-card { break-inside: avoid; }
+  .section-header { break-after: avoid; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .header-inner { flex-direction: column; gap: 16px; }
+  .term-card { grid-template-columns: 1fr; gap: 8px; }
+  .section-letter { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="bsi-emblem">🔐</div>
+    <div class="header-text">
+      <div class="header-eyebrow">BSI IT-Grundschutz · GS++ Methodik · ISO 27001:2022</div>
+      <h1>Glossar <em>Informationssicherheit</em></h1>
+      <div class="header-sub">Fachbegriffe · Methodik · Normen · Werkzeuge — Stand 2026</div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- ── Sidebar ── -->
+  <aside class="sidebar">
+    <div class="search-wrap">
+      <input type="text" id="search-input" placeholder="Begriff suchen…" oninput="filterGlossar(this.value)">
+      <div id="search-count"></div>
+    </div>
+
+    <div class="sidebar-title">Kategorien</div>
+    <nav class="cat-nav">
+      <button class="cat-link active" onclick="filterCat('all',this)">
+        <span class="cat-dot" style="background:var(--ink3)"></span> Alle Begriffe
+      </button>
+      <button class="cat-link" onclick="filterCat('methodik',this)">
+        <span class="cat-dot" style="background:var(--bsi-blue)"></span> Methodik &amp; Vorgehen
+      </button>
+      <button class="cat-link" onclick="filterCat('organisation',this)">
+        <span class="cat-dot" style="background:#6B3A8B"></span> Organisation &amp; Rollen
+      </button>
+      <button class="cat-link" onclick="filterCat('technik',this)">
+        <span class="cat-dot" style="background:#1A6640"></span> Technik &amp; Infrastruktur
+      </button>
+      <button class="cat-link" onclick="filterCat('risiko',this)">
+        <span class="cat-dot" style="background:var(--bsi-red)"></span> Risiko &amp; Gefährdung
+      </button>
+      <button class="cat-link" onclick="filterCat('norm',this)">
+        <span class="cat-dot" style="background:var(--warn)"></span> Normen &amp; Standards
+      </button>
+      <button class="cat-link" onclick="filterCat('tool',this)">
+        <span class="cat-dot" style="background:#2C7A7B"></span> Werkzeuge &amp; Formate
+      </button>
+    </nav>
+
+    <div class="sidebar-title">Alphabetisch</div>
+    <div class="alpha-index" id="alpha-index"></div>
+
+    <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--rule)">
+      <button onclick="window.print()" style="font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;border:1px solid var(--rule);background:none;padding:7px 12px;border-radius:3px;cursor:pointer;color:var(--ink2);width:100%">🖨 Drucken / PDF</button>
+    </div>
+  </aside>
+
+  <!-- ── Main ── -->
+  <main class="main" id="glossar-main">
+
+    <div id="no-results">Kein Begriff gefunden. Bitte Suche anpassen.</div>
+
+    <!-- ──────────── A ──────────── -->
+    <div class="section-header" id="sec-A">
+      <span class="section-letter">A</span>
+      <span class="section-label">A</span>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="anforderung anforderungspaket">
+      <div class="term-head">
+        <div class="term-name">Anforderung</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Beschreibt, <strong>was</strong> getan werden muss, um ein bestimmtes Informationssicherheitsniveau zu erreichen. Anforderungen behandeln organisatorische, personelle, infrastrukturelle und technische Themen. Das Modalverb zeigt den Pflichtcharakter an: <strong>MUSS</strong> (verpflichtend), <strong>SOLLTE</strong> (i.d.R. verpflichtend, begründete Ausnahmen möglich), <strong>KANN</strong> (optional).</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.3</span>
+          <span class="ref-tag ref-gs">GS++ 7.1</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.6</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="anforderungspaket modellierung">
+      <div class="term-head">
+        <div class="term-name">Anforderungspaket</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Die individuelle Zusammenstellung aller relevanten Anforderungen für einen konkreten <strong>Informationsverbund</strong>. Entsteht in GS++ Prozessschritt 2 (Anforderungsanalyse) durch Zuordnung von ISMS-Praktiken, Zielobjektkategorie-Anforderungen und ggf. zusätzlichen Anforderungen aus externen Verpflichtungen.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ PS 2</span>
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8</span>
+        </div>
+        <div class="term-note">Das Anforderungspaket ist exakt auf den IV zugeschnitten und bildet die Basis für Umsetzung (PS 3) und Überwachung (PS 4).</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="asset modellierung inventar">
+      <div class="term-head">
+        <div class="term-name">Asset-Modellierung</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Zentraler Schritt in GS++ Prozessschritt 2: Identifikation, Dokumentation und Zuordnung aller sicherheitsrelevanten Werte (Assets) zu <strong>Zielobjektkategorien</strong>. Ermöglicht die spätere automatische Ableitung von Anforderungen. Assets umfassen Informationen, Systeme, Netze, Infrastruktur sowie personelle und organisatorische Werte.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ 3.4</span>
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.1</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.5.9</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="abgrenzung informationsverbund scope geltungsbereich negativ positiv">
+      <div class="term-head">
+        <div class="term-name">Abgrenzung</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Präzise Definition der Grenzen eines Informationsverbunds. Die <strong>Positiv-Abgrenzung</strong> beschreibt, was eingeschlossen ist (Systeme, Prozesse, Standorte). Die <strong>Negativ-Abgrenzung</strong> dokumentiert explizit ausgeschlossene Bereiche. Grundlage für alle nachfolgenden Analysen und die spätere Zertifizierung.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8</span>
+          <span class="ref-tag ref-gs">GS++ STM.1.1</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.4.3</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-norm" data-cat="norm" data-term="audit revision interne prüfung auditprogramm">
+      <div class="term-head">
+        <div class="term-name">Audit</div>
+        <div class="term-abbr">IS-Revision</div>
+        <div class="term-cat">Methodik · Norm</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Systematische, unabhängige und dokumentierte Prüfung des ISMS auf Wirksamkeit, Konformität und Eignung. Unterschieden wird zwischen <strong>internen Audits</strong> (durch die Institution selbst oder Beauftragte) und <strong>externen Audits</strong> (durch Zertifizierungsstellen). Ein <strong>Auditprogramm</strong> plant risikoorientiert die Abdeckung aller Praktiken. Ergebnisse fließen in PS 5 (Verbesserung) ein. Im BSI-Kontext: IS-Revision nach DER.3.1 und DER.3.2.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">DER.3.1 · DER.3.2</span>
+          <span class="ref-tag ref-gs">GS++ PS 4 · PERF</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.9.2</span>
+        </div>
+        <div class="term-note">BSI-Werkzeug: IS-Revisionen nach Leitfaden IS-Revision (DER.3.2) ermöglichen strukturierte interne Überprüfungen ohne externe Zertifizierung.</div>
+      </div>
+    </div>
+
+    <!-- ──────────── B ──────────── -->
+    <div class="section-header" id="sec-B">
+      <span class="section-letter">B</span>
+      <span class="section-label">B</span>
+    </div>
+
+    <div class="term-card cat-norm" data-cat="norm" data-term="baustein it-grundschutz kompendium">
+      <div class="term-head">
+        <div class="term-name">Baustein</div>
+        <div class="term-abbr">IT-GS</div>
+        <div class="term-cat">Norm · Standard</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Strukturiertes Dokument im <strong>IT-Grundschutz-Kompendium</strong>, das für einen bestimmten Zielobjekttyp alle relevanten Gefährdungen und Anforderungen zusammenfasst. Bausteine sind nach Schichten organisiert: ISMS, ORP (Organisation), CON (Konzepte), OPS (Betrieb), DER (Detektion), APP, SYS, IND, NET, INF. Das Kompendium 2023 enthält über 100 Bausteine.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">IT-GS Kompendium 2023</span>
+          <span class="ref-tag ref-krt">KRT2023</span>
+        </div>
+        <div class="term-note">Beispiel: SYS.1.1 „Allgemeiner Server", NET.3.2 „Firewall", APP.5.3 „Allgemeiner E-Mail-Client und -Server".</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="bcm business continuity notfallmanagement wiederanlauf">
+      <div class="term-head">
+        <div class="term-name">Business Continuity Management</div>
+        <div class="term-abbr">BCM</div>
+        <div class="term-cat">Methodik · Notfall</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Gesamtheit aller organisatorischen und technischen Maßnahmen, um den Betrieb kritischer Geschäftsprozesse auch bei Ausfällen, Katastrophen oder Krisen aufrechtzuerhalten oder schnell wiederherzustellen. Umfasst Notfallplanung, Wiederanlaufplanung (RTO/RPO), regelmäßige Tests und Übungen. Im BSI-Kontext: BSI-Standard 200-4 und Baustein DER.4.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-4 · DER.4</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.5.29–5.30 · ISO 22301</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool als MGMT-04 Notfallmanagement/BCM erfasst. Empfohlener Prozess mit Verantwortlichen und Statusbewertung.</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-risiko" data-cat="risiko" data-term="bedrohung gefährdung angriff risiko schadenszenario">
+      <div class="term-head">
+        <div class="term-name">Bedrohung / Gefährdung</div>
+        <div class="term-cat">Risiko</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Eine <strong>Bedrohung</strong> ist ein potenzielles Ereignis, das Informationswerte schädigen könnte (z. B. Cyberangriff, Feuer, Fehlbedienung). Eine <strong>Gefährdung</strong> entsteht, wenn eine Bedrohung auf eine Schwachstelle trifft. Im IT-Grundschutz werden 48 <strong>Elementare Gefährdungen</strong> (G 0.1–G 0.48) definiert, die den gesamten Gefährdungskatalog abdecken — von höherer Gewalt (G 0.1–G 0.7) über technisches Versagen (G 0.25–G 0.29) bis zu vorsätzlichen Handlungen (G 0.36–G 0.46).</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-3 · IT-GS Kompendium</span>
+          <span class="ref-tag ref-krt">KRT2023</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.6.1.2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-norm" data-cat="norm" data-term="bsi-standard 200-1 200-2 200-3 200-4">
+      <div class="term-head">
+        <div class="term-name">BSI-Standard 200-x</div>
+        <div class="term-abbr">BSI Std.</div>
+        <div class="term-cat">Norm · Standard</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Vierteilige Standardreihe des Bundesamts für Sicherheit in der Informationstechnik:<br>
+          <strong>200-1</strong>: Managementsystem für Informationssicherheit (ISMS) — strategischer Rahmen.<br>
+          <strong>200-2</strong>: IT-Grundschutz-Methodik — Vorgehensweise Strukturanalyse, Schutzbedarfsfeststellung, Modellierung.<br>
+          <strong>200-3</strong>: Risikoanalyse auf Basis von IT-Grundschutz.<br>
+          <strong>200-4</strong>: Business Continuity Management (BCM) / Notfallmanagement.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-1</span>
+          <span class="ref-tag ref-bsi">BSI 200-2</span>
+          <span class="ref-tag ref-bsi">BSI 200-3</span>
+          <span class="ref-tag ref-iso">Basis ISO 27001</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── C ──────────── -->
+    <div class="section-header" id="sec-C">
+      <span class="section-letter">C</span>
+      <span class="section-label">C</span>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="compliance management anforderungsmanagement gesetz regulierung">
+      <div class="term-head">
+        <div class="term-name">Compliance-Management</div>
+        <div class="term-abbr">ORP.5</div>
+        <div class="term-cat">Methodik · Organisation</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Systematische Erfassung, Überwachung und Einhaltung aller gesetzlichen, regulatorischen und vertraglichen Verpflichtungen, die für das ISMS relevant sind. Im GS++ Prozessschritt 1 (Erhebung &amp; Planung): Rechtskataster analysieren, gesetzliche Verpflichtungen dokumentieren, vertragliche Verpflichtungen (SLAs, NDA, etc.) erfassen. Compliance-Lücken lösen Korrekturmaßnahmen aus (PS 5). Relevante Gesetze: DSGVO, IT-SiG 2.0, NIS2, KRITIS-DACHG, sektorspezifische Gesetze.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">ORP.5 · BSI 200-1 Kap.4</span>
+          <span class="ref-tag ref-gs">GS++ 2.2 · GC.2</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.5.31–5.36</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── D ──────────── -->
+    <div class="section-header" id="sec-D">
+      <span class="section-letter">D</span>
+      <span class="section-label">D</span>
+    </div>
+
+    <div class="term-card cat-organisation" data-cat="organisation" data-term="dsb datenschutzbeauftragter">
+      <div class="term-head">
+        <div class="term-name">Datenschutzbeauftragter</div>
+        <div class="term-abbr">DSB</div>
+        <div class="term-cat">Organisation · Rolle</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Gesetzlich vorgeschriebene Rolle (Art. 37 DSGVO) zur Überwachung der Einhaltung des Datenschutzrechts. Arbeitet eng mit dem ISB zusammen, da Datenschutz und Informationssicherheit viele Überschneidungspunkte haben (z. B. Schutz personenbezogener Daten, Zugriffskonzepte, Datenpannen-Meldung).</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">ORP.2 · ORP.5</span>
+          <span class="ref-tag ref-iso">ISO A.5.34</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-technik" data-cat="technik" data-term="dmz demilitarisierte zone netz segmentierung perimeter">
+      <div class="term-head">
+        <div class="term-name">Demilitarisierte Zone</div>
+        <div class="term-abbr">DMZ</div>
+        <div class="term-cat">Technik · Netze</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Netzwerksegment zwischen dem internen Netz einer Organisation und dem Internet, das als Pufferzone dient. Systeme in der DMZ (z. B. Webserver, E-Mail-Gateway, Proxy) sind von außen erreichbar, aber vom internen Netz getrennt. Schützt das interne Netz vor direktem Zugriff bei kompromittierten DMZ-Systemen. Implementiert durch zwei Firewalls (P-A-P-Struktur: Packet filter – Application layer firewall – Packet filter).</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">NET.1.1 · NET.3.2</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.8.22</span>
+          <span class="ref-tag ref-gs">GS++ ARCH.2</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool: Netztyp „DMZ" in der Netzsegment-Erfassung der Strukturmodellierung (Ebene I/H).</div>
+      </div>
+    </div>
+
+    <!-- ──────────── E ──────────── -->
+    <div class="section-header" id="sec-E">
+      <span class="section-letter">E</span>
+      <span class="section-label">E</span>
+    </div>
+
+    <div class="term-card cat-risiko" data-cat="risiko" data-term="elementare gefährdung g0 bedrohung">
+      <div class="term-head">
+        <div class="term-name">Elementare Gefährdung</div>
+        <div class="term-abbr">G 0.x</div>
+        <div class="term-cat">Risiko · Gefährdung</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Grundlegende Gefährdungskategorien des IT-Grundschutzes (G 0.1 bis G 0.48). Jeder Baustein referenziert die für ihn relevanten elementaren Gefährdungen. Die <strong>Kreuzreferenztabelle (KRT2023)</strong> dokumentiert, welche Gefährdungen für welche Anforderungen eines Bausteins relevant sind. Beispiele: G 0.39 Schadprogramme, G 0.23 Unbefugtes Eindringen, G 0.45 Datenverlust.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-3</span>
+          <span class="ref-tag ref-krt">KRT2023</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.6.1.2</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool werden KRT2023-Vorschläge automatisch aus den gewählten Anwendungen und Prozesstypen abgeleitet und in S6 zur Bewertung vorgelegt.</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-risiko" data-cat="risiko" data-term="eintrittswahrscheinlichkeit wahrscheinlichkeit risiko">
+      <div class="term-head">
+        <div class="term-name">Eintrittswahrscheinlichkeit</div>
+        <div class="term-cat">Risiko · Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Einschätzung, wie wahrscheinlich es ist, dass eine Gefährdung tatsächlich eintritt. Im 4-stufigen BSI-Modell: <strong>selten</strong> (einmal in 10 Jahren), <strong>möglich</strong> (einmal in 5 Jahren), <strong>wahrscheinlich</strong> (einmal pro Jahr), <strong>sicher</strong> (mehrfach pro Jahr). Zusammen mit der Schadensauswirkung ergibt sich die Risikoeinstufung aus der Risikomatrix.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-3 Kap.4</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.6.1.2</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── F ──────────── -->
+    <div class="section-header" id="sec-F">
+      <span class="section-letter">F</span>
+      <span class="section-label">F</span>
+    </div>
+
+    <div class="term-card cat-technik" data-cat="technik" data-term="firewall utm perimeter netzschutz paketfilter">
+      <div class="term-head">
+        <div class="term-name">Firewall / UTM</div>
+        <div class="term-abbr">NET.3.2</div>
+        <div class="term-cat">Technik · Netze</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Netzkomponente, die den Datenverkehr zwischen Netzsegmenten nach definierten Regeln filtert und kontrolliert. Eine <strong>Unified Threat Management (UTM)</strong>-Appliance kombiniert Firewall, IDS/IPS, VPN, Proxy und weitere Sicherheitsfunktionen. Grundlage jedes Perimeterschutzes. Nach BSI sind Firewalls an jedem Netzübergang zwischen Sicherheitszonen erforderlich. Die P-A-P-Struktur (Paketfilter – Application-Layer-Gateway – Paketfilter) bildet das Standard-Sicherheitsmodell.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">NET.3.2 · NET.1.1</span>
+          <span class="ref-tag ref-gs">GS++ ARCH.5 · KONF.2</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.8.20–8.22</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card" style="border-left:4px solid #2C5F8F" data-cat="norm" data-term="föderale it-architekturrichtlinie fitarl national föderal bund länder verwaltung">
+      <div class="term-head">
+        <div class="term-name">Föderale IT-Architektur­richtlinie</div>
+        <div class="term-abbr">FITArl V1.9</div>
+        <div class="term-cat">Norm · Verwaltungsdigitalisierung</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Verbindliches Rahmenwerk des IT-Planungsrats für die IT-Architektur der deutschen öffentlichen Verwaltung auf allen föderalen Ebenen (Bund, Länder, Kommunen). <strong>Version 1.9</strong> wurde am 26. März 2025 in der 46. Sitzung des IT-Planungsrats beschlossen (Beschluss 2025/17) und löst Version 1.0 für neue Vorhaben ab. Zweck: Harmonisierung der IT-Landschaft, Stärkung der Interoperabilität und Ermöglichung durchgehender Ende-zu-Ende-Digitalisierung über Verwaltungsgrenzen hinweg. Die Richtlinie umfasst nun <strong>27 Architekturvorgaben</strong> (bisher 13) in vier Kategorien: Allgemeine, Geschäftliche, Funktionale und Technische Vorgaben. Sie ist auf der Entwicklungsplattform <strong>openCode</strong> offen zugänglich und in mehreren maschinenlesbaren Formaten (CSV, JSON, PDF, Web) verfügbar.</div>
+        <div class="term-refs">
+          <span class="ref-tag" style="background:#EFF5FB;border-color:#9EC6E8;color:#1A3A5C">Beschluss 2025/17</span>
+          <span class="ref-tag" style="background:#EFF5FB;border-color:#9EC6E8;color:#1A3A5C">IT-Planungsrat 46. Sitzung 2025</span>
+          <span class="ref-tag ref-iso">OZG § 6 Abs.1 Nr.1</span>
+        </div>
+        <div class="term-note">Relevanz für das ISMS: Die FITArl ist für Behörden bei allen IT-Neuvorhaben und IT-Produkten verbindlich anzuwenden. Sie ist damit ein Compliance-Objekt im Rahmen des Compliance-Managements (ORP.5) und beeinflusst die Beschaffungsrichtlinien sowie die technische Architektur des Informationsverbunds.</div>
+      </div>
+    </div>
+
+    <div class="term-card" style="border-left:4px solid #2C5F8F" data-cat="norm" data-term="föderales it-architekturboard fitab gremium fortschreibung">
+      <div class="term-head">
+        <div class="term-name">Föderales IT-Architekturboard</div>
+        <div class="term-abbr">FIT-AB</div>
+        <div class="term-cat">Organisation · Verwaltungsdigitalisierung</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Fachgremium des IT-Planungsrats, das mit der permanenten Fortschreibung der Föderalen IT-Architekturrichtlinie beauftragt ist. Sorgt dafür, dass die Richtlinie stets dem <strong>aktuellen Stand der Technik</strong> entspricht. Arbeitet im <em>Open-Innovation-Ansatz</em> auf openCode — Vorschläge und Beiträge von außen sind ausdrücklich erwünscht. Das FIT-AB koordiniert die Abstimmung zwischen der Nationalen IT-Architekturrichtlinie (Basiswerk) und den föderalspezifischen Ergänzungen.</div>
+        <div class="term-refs">
+          <span class="ref-tag" style="background:#EFF5FB;border-color:#9EC6E8;color:#1A3A5C">Beschluss 2021/37 · 2025/17</span>
+          <span class="ref-tag" style="background:#EFF5FB;border-color:#9EC6E8;color:#1A3A5C">IT-Planungsrat</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card" style="border-left:4px solid #2C5F8F" data-cat="norm" data-term="fitko föderale it-kooperation bund länder digitalisierung">
+      <div class="term-head">
+        <div class="term-name">Föderale IT-Kooperation</div>
+        <div class="term-abbr">FITKO</div>
+        <div class="term-cat">Organisation · Verwaltungsdigitalisierung</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Gemeinsame Einrichtung von Bund und Ländern zur operativen Unterstützung des IT-Planungsrats und der föderalen IT-Kooperation. Die FITKO koordiniert Vorhaben der Verwaltungsdigitalisierung, betreibt die zentrale Steuerungsplattform und stellt den Sekretariatsdienst für den IT-Planungsrat bereit. Sie ist u. a. federführend an der Entwicklung der Zielarchitektur für Postfachlösungen (ZaPuK) und der Nutzung von openDesk als Office-Suite beteiligt.</div>
+        <div class="term-refs">
+          <span class="ref-tag" style="background:#EFF5FB;border-color:#9EC6E8;color:#1A3A5C">IT-Planungsrat</span>
+          <span class="ref-tag ref-iso">OZG</span>
+        </div>
+      </div>
+    </div>
+      <div class="term-head">
+        <div class="term-name">Firewall / UTM</div>
+        <div class="term-abbr">NET.3.2</div>
+        <div class="term-cat">Technik · Netze</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Netzkomponente, die den Datenverkehr zwischen Netzsegmenten nach definierten Regeln filtert und kontrolliert. Eine <strong>Unified Threat Management (UTM)</strong>-Appliance kombiniert Firewall, IDS/IPS, VPN, Proxy und weitere Sicherheitsfunktionen. Grundlage jedes Perimeterschutzes. Nach BSI sind Firewalls an jedem Netzübergang zwischen Sicherheitszonen erforderlich. Die P-A-P-Struktur (Paketfilter – Application-Layer-Gateway – Paketfilter) bildet das Standard-Sicherheitsmodell.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">NET.3.2 · NET.1.1</span>
+          <span class="ref-tag ref-gs">GS++ ARCH.5 · KONF.2</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.8.20–8.22</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── G ──────────── -->
+    <div class="section-header" id="sec-G">
+      <span class="section-letter">G</span>
+      <span class="section-label">G</span>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="geltungsbereich scope isms">
+      <div class="term-head">
+        <div class="term-name">Geltungsbereich</div>
+        <div class="term-abbr">Scope</div>
+        <div class="term-cat">Methodik · ISMS</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Formaler und organisatorischer Umfang, in dem das ISMS angewendet wird. Beschreibt, <strong>wo</strong> und <strong>für wen</strong> das ISMS gilt. Umfasst alle relevanten Institutionseinheiten, Geschäftsprozesse, Standorte und Systeme. Muss verbindlich dokumentiert und von der Leitungsebene genehmigt werden. Nicht zu verwechseln mit dem <em>Informationsverbund</em>, der die inhaltlich-technische Abbildung ist.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.3.3.4</span>
+          <span class="ref-tag ref-gs">GS++ 7.3</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.4.3</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="grundschutz++ gs++ methodik">
+      <div class="term-head">
+        <div class="term-name">Grundschutz++</div>
+        <div class="term-abbr">GS++</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Weiterentwickelte ISMS-Methodik des BSI, die auf den bisherigen IT-Grundschutz-Standards aufbaut und diese mit modernen Ansätzen kombiniert. Strukturiert in 5 Prozessschritte (PDCA): <strong>PS 1</strong> Erhebung &amp; Planung, <strong>PS 2</strong> Anforderungsanalyse, <strong>PS 3</strong> Realisierung, <strong>PS 4</strong> Überwachung, <strong>PS 5</strong> Kontinuierliche Verbesserung. Nutzt OSCAL-basierte maschinenlesbare Kataloge. Stand: Einführungs- und Erprobungsphase (März 2026).</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">Leitfaden GS++ März 2026</span>
+          <span class="ref-tag ref-bsi">BSI 200-1/2/3</span>
+          <span class="ref-tag ref-iso">ISO 27001:2022</span>
+        </div>
+        <div class="term-note">Kombination aus BSI-Methodik und internationalem Standard — ermöglicht gleichzeitig IT-Grundschutz-Konformität und ISO 27001-Zertifizierung.</div>
+      </div>
+    </div>
+
+    <!-- ──────────── I ──────────── -->
+    <div class="section-header" id="sec-I">
+      <span class="section-letter">I</span>
+      <span class="section-label">I</span>
+    </div>
+
+    <div class="term-card" style="border-left:4px solid #2C5F8F" data-cat="norm" data-term="it-planungsrat itplr steuerungsgremium bund länder digitalisierung beschluss">
+      <div class="term-head">
+        <div class="term-name">IT-Planungsrat</div>
+        <div class="term-abbr">IT-PlR</div>
+        <div class="term-cat">Organisation · Verwaltungsdigitalisierung</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Zentrales politisches Steuerungsgremium bei der Digitalisierung der öffentlichen Verwaltung in Deutschland. Bestehend aus dem Beauftragten der Bundesregierung für Informationstechnik sowie den für IT zuständigen Ministerinnen und Ministern der Länder. Trifft verbindliche Entscheidungen in Form von <strong>Beschlüssen</strong>, die für Bund und Länder gelten. Gegründet 2010 auf Basis des IT-Staatsvertrags (Artikel 91c GG). Wichtige Beschlüsse mit ISMS-Relevanz: Beschluss 2021/37 (Föderale IT-Architekturrichtlinien verbindlich), Beschluss 2025/17 (FITArl V1.9), sowie Beschlüsse zu IT-Sicherheitsstandards und KRITIS-Schutz.</div>
+        <div class="term-refs">
+          <span class="ref-tag" style="background:#EFF5FB;border-color:#9EC6E8;color:#1A3A5C">Art. 91c GG</span>
+          <span class="ref-tag" style="background:#EFF5FB;border-color:#9EC6E8;color:#1A3A5C">IT-Staatsvertrag</span>
+          <span class="ref-tag ref-iso">OZG</span>
+        </div>
+        <div class="term-note">Für Behörden als ISMS-Betreiber: Beschlüsse des IT-Planungsrats sind im Compliance-Management zu erfassen (ORP.5) und bei der IT-Beschaffung sowie Architekturentscheidungen zu berücksichtigen.</div>
+      </div>
+    </div>
+
+    <div class="term-card" style="border-left:4px solid #2C5F8F" data-cat="norm" data-term="interoperabilität schnittstellen föderales zusammenwirken verwaltung standard">
+      <div class="term-head">
+        <div class="term-name">Interoperabilität</div>
+        <div class="term-cat">Norm · Architektur</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Fähigkeit unterschiedlicher IT-Systeme und Anwendungen, Informationen auszutauschen und diese Informationen gemeinsam zu nutzen — über Organisationsgrenzen (Bund, Länder, Kommunen) hinweg. Kernziel der Föderalen IT-Architekturrichtlinie und des OZG: Durchgehende Ende-zu-Ende-Digitalisierung von Verwaltungsprozessen setzt technische, semantische und organisatorische Interoperabilität voraus. Technisch umgesetzt durch offene Standards, XÖV-Standards, einheitliche APIs und das NOOTS (Nationales Once-Only Technical System).</div>
+        <div class="term-refs">
+          <span class="ref-tag" style="background:#EFF5FB;border-color:#9EC6E8;color:#1A3A5C">FITArl V1.9 · Beschluss 2025/17</span>
+          <span class="ref-tag ref-iso">OZG § 6</span>
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.1</span>
+        </div>
+        <div class="term-note">Im ISMS-Kontext: Externe Schnittstellen (S1, STM.1.2) müssen auf Interoperabilität geprüft werden. Fehlende Interoperabilität kann zu Sicherheitslücken an Systemgrenzen führen.</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-technik" data-cat="technik" data-term="iam identitätsmanagement berechtigungsmanagement verzeichnisdienst active directory">
+      <div class="term-head">
+        <div class="term-name">Identitäts- &amp; Berechtigungs­management</div>
+        <div class="term-abbr">IAM</div>
+        <div class="term-cat">Technik · Organisation</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Gesamtheit aller Prozesse und Systeme zur Verwaltung von digitalen Identitäten und zugehörigen Zugriffsberechtigungen. Kernprinzipien: <strong>Need-to-know</strong> (nur benötigte Informationen), <strong>Least Privilege</strong> (minimale Rechte), <strong>Aufgabentrennung</strong> (Vier-Augen-Prinzip). Technisch umgesetzt durch Verzeichnisdienste (Active Directory, LDAP), IAM-Systeme und Privileged Access Management (PAM). Umfasst den gesamten Lebenszyklus: Anlegen, Ändern, Deaktivieren, Löschen von Konten.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">ORP.4 · APP.2.1 · APP.2.2</span>
+          <span class="ref-tag ref-gs">GS++ BER.1–BER.7</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.5.15–5.18</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="incident management sicherheitsvorfall behandlung reaktion detektion">
+      <div class="term-head">
+        <div class="term-name">Incident Management</div>
+        <div class="term-abbr">DER.2.1</div>
+        <div class="term-cat">Methodik · Betrieb</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Strukturierter Prozess zur Erkennung, Meldung, Analyse, Eindämmung und Nachbereitung von Sicherheitsvorfällen. Umfasst: Meldewege, Eskalationsstufen, Erstreaktion, forensische Sicherung, Wiederherstellung und Lessons Learned. Im BSI: Baustein DER.2.1 ist Pflichtbaustein.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">DER.2.1 · DER.1 · DER.2.2</span>
+          <span class="ref-tag ref-gs">GS++ REA · DET</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.5.24–5.28</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool als SUPP-05 erfasst. Meldepflichten nach IT-SiG 2.0 / NIS2 beachten (24h für KRITIS).</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-organisation" data-cat="organisation" data-term="informationseigentümer information owner fachverantwortlicher">
+      <div class="term-head">
+        <div class="term-name">Informationseigentümer</div>
+        <div class="term-abbr">Information Owner</div>
+        <div class="term-cat">Organisation · Rolle</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Fachlich verantwortliche Rolle für einen Informationsverbund oder spezifische Informationswerte. Entscheidet über den Schutzbedarf und trägt die fachliche Verantwortung für die Angemessenheit der Schutzmaßnahmen.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.2</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.5.9–5.10</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-organisation" data-cat="organisation" data-term="isb informationssicherheitsbeauftragter">
+      <div class="term-head">
+        <div class="term-name">Informationssicherheits­beauftragter</div>
+        <div class="term-abbr">ISB</div>
+        <div class="term-cat">Organisation · Rolle</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Zentrale Rolle im ISMS. Der ISB ist für den Aufbau, Betrieb und die kontinuierliche Verbesserung des ISMS verantwortlich. Muss organisatorisch <strong>unabhängig</strong> sein — direkt der Leitungsebene unterstellt, nicht dem IT-Leiter. Benötigt Bestellungsurkunde und Stellvertreterregelung.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.4</span>
+          <span class="ref-tag ref-gs">GS++ 2.7</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.5.3</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="isms informationssicherheitsmanagementsystem">
+      <div class="term-head">
+        <div class="term-name">Informationssicherheits­managementsystem</div>
+        <div class="term-abbr">ISMS</div>
+        <div class="term-cat">Methodik · System</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Planungs-, Lenkungs- und Kontrollsystem für die ganzheitliche Informationssicherheit einer Institution. Kein einmaliges Projekt, sondern ein <strong>kontinuierlicher PDCA-Prozess</strong>. Bildet die Grundlage für BSI-IT-Grundschutz und ISO 27001-Zertifizierungen.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-1</span>
+          <span class="ref-tag ref-gs">GS++ 7.4</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.4.4</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="informationsverbund iv verbund">
+      <div class="term-head">
+        <div class="term-name">Informationsverbund</div>
+        <div class="term-abbr">IV</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Gesamtheit aller infrastrukturellen, organisatorischen, personellen und technischen Objekte, die der Aufgabenerfüllung in einem bestimmten Anwendungsbereich dienen. Für jeden IV wird ein eigenes Sicherheitskonzept erstellt.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8</span>
+          <span class="ref-tag ref-gs">GS++ 7.5 · STM.1</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="integrität schutzziel datenintegrität unverändertheit">
+      <div class="term-head">
+        <div class="term-name">Integrität</div>
+        <div class="term-cat">Schutzziel</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Eines der drei klassischen Schutzziele: Daten und Systeme sind vollständig, korrekt und unverändert — Manipulationen oder Verlust werden erkannt. Technisch umgesetzt durch Prüfsummen, digitale Signaturen, Versionierung und Zugriffskontrollen.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.2</span>
+          <span class="ref-tag ref-gs">GS++ STM.3</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.8.46</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-norm" data-cat="norm" data-term="iso 27001 2022 norm standard zertifizierung">
+      <div class="term-head">
+        <div class="term-name">ISO/IEC 27001:2022</div>
+        <div class="term-cat">Norm · Zertifizierung</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Internationale Norm für ISMS. 93 Maßnahmenkontrollen in 4 Bereichen. Ein BSI-konformes IT-Grundschutz-ISMS erfüllt die Anforderungen der ISO 27001.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-iso">ISO/IEC 27001:2022</span>
+          <span class="ref-tag ref-iso">ISO/IEC 27002:2022</span>
+          <span class="ref-tag ref-bsi">BSI Zuordnung 6. Edition 2023</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-norm" data-cat="norm" data-term="it-grundschutz kompendium 2023 katalog bsi standard">
+      <div class="term-head">
+        <div class="term-name">IT-Grundschutz-Kompendium</div>
+        <div class="term-abbr">IT-GS Kp. 2023</div>
+        <div class="term-cat">Norm · Katalog</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Jährlich aktualisierter BSI-Katalog mit über 100 Bausteinen für alle sicherheitsrelevanten Bereiche moderner IT. Die 6. Edition 2023 ist die aktuelle Fassung, Basis für KRT2023. Struktur: ISMS · ORP · CON · OPS · DER · APP · SYS · IND · NET · INF.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">IT-GS Kompendium 6. Edition 2023</span>
+          <span class="ref-tag ref-krt">KRT2023</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="informationssicherheitseinstufung einstufung schutzbedarf prozess">
+      <div class="term-head">
+        <div class="term-name">Informationssicherheits­einstufung</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Prozessorientierte Zuordnung eines Schutzbedarfs zu Geschäftsprozessen und den darin verarbeiteten Informationen (GS++ STM.3). Ergebnis: Priorisierte Liste kritischer Geschäftsprozesse als Grundlage für die Anforderungsanalyse.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ STM.3 · 2.6</span>
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.2</span>
+        </div>
+      </div>
+    </div>
+      <div class="term-head">
+        <div class="term-name">Identitäts- &amp; Berechtigungs­management</div>
+        <div class="term-abbr">IAM</div>
+        <div class="term-cat">Technik · Organisation</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Gesamtheit aller Prozesse und Systeme zur Verwaltung von digitalen Identitäten und zugehörigen Zugriffsberechtigungen. Kernprinzipien: <strong>Need-to-know</strong> (nur benötigte Informationen), <strong>Least Privilege</strong> (minimale Rechte), <strong>Aufgabentrennung</strong> (Vier-Augen-Prinzip). Technisch umgesetzt durch Verzeichnisdienste (Active Directory, LDAP), IAM-Systeme und Privileged Access Management (PAM). Umfasst den gesamten Lebenszyklus: Anlegen, Ändern, Deaktivieren, Löschen von Konten.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">ORP.4 · APP.2.1 · APP.2.2</span>
+          <span class="ref-tag ref-gs">GS++ BER.1–BER.7</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.5.15–5.18</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool: Zielobjekt „IAM/AD/LDAP" in S4 mit zugehörigen BER-Praktiken aus dem Anwenderkatalog GS++ 2026.</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="incident management sicherheitsvorfall behandlung reaktion detektion">
+      <div class="term-head">
+        <div class="term-name">Incident Management</div>
+        <div class="term-abbr">DER.2.1</div>
+        <div class="term-cat">Methodik · Betrieb</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Strukturierter Prozess zur Erkennung, Meldung, Analyse, Eindämmung und Nachbereitung von Sicherheitsvorfällen. Umfasst: Meldewege, Eskalationsstufen, Erstreaktion, forensische Sicherung, Wiederherstellung und Lessons Learned. Ein <strong>Security Operations Center (SOC)</strong> übernimmt oft die kontinuierliche Überwachung und erste Reaktion. Im BSI: Baustein DER.2.1 „Behandlung von Sicherheitsvorfällen" ist Pflichtbaustein.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">DER.2.1 · DER.1 · DER.2.2</span>
+          <span class="ref-tag ref-gs">GS++ REA · DET</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.5.24–5.28</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool als SUPP-05 Incident Management erfasst. Meldepflichten nach IT-SiG 2.0 / NIS2 beachten (24h für KRITIS).</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-organisation" data-cat="organisation" data-term="informationseigentümer information owner fachverantwortlicher">
+      <div class="term-head">
+        <div class="term-name">Informationseigentümer</div>
+        <div class="term-abbr">Information Owner</div>
+        <div class="term-cat">Organisation · Rolle</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Fachlich verantwortliche Rolle für einen Informationsverbund oder spezifische Informationswerte. Der Informationseigentümer entscheidet über den <strong>Schutzbedarf</strong> der ihm anvertrauten Informationen und Prozesse und trägt die fachliche Verantwortung für die Angemessenheit der Schutzmaßnahmen. Nicht zu verwechseln mit dem ISB (methodische Verantwortung) oder dem IT-Betrieb (technische Umsetzung).</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.2</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.5.9–5.10</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool in S1 (Verbund-Definition) erfasst. Unterschied zum Risikoeigentümer: Der Risikoeigentümer akzeptiert Restrisiken, der Informationseigentümer definiert den Schutzbedarf.</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-organisation" data-cat="organisation" data-term="isb informationssicherheitsbeauftragter">
+      <div class="term-head">
+        <div class="term-name">Informationssicherheits­beauftragter</div>
+        <div class="term-abbr">ISB</div>
+        <div class="term-cat">Organisation · Rolle</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Zentrale Rolle im ISMS. Der ISB ist für den Aufbau, Betrieb und die kontinuierliche Verbesserung des ISMS verantwortlich. Muss organisatorisch <strong>unabhängig</strong> sein — direkt der Leitungsebene unterstellt, nicht dem IT-Leiter. Benötigt eine Bestellungsurkunde. Braucht Stellvertreterregelung für Vertretungsfähigkeit.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.4</span>
+          <span class="ref-tag ref-gs">GS++ 2.7</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.5.3</span>
+        </div>
+        <div class="term-note">Der ISB ist nicht der „IT-Sicherheitsbeauftragte" — er umfasst die gesamte organisatorische, technische und physische Informationssicherheit.</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="isms informationssicherheitsmanagementsystem">
+      <div class="term-head">
+        <div class="term-name">Informationssicherheits­managementsystem</div>
+        <div class="term-abbr">ISMS</div>
+        <div class="term-cat">Methodik · System</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Planungs-, Lenkungs- und Kontrollsystem für die ganzheitliche Informationssicherheit einer Institution. Kein einmaliges Projekt, sondern ein <strong>kontinuierlicher PDCA-Prozess</strong>. Umfasst Strategien, Richtlinien, Prozesse, technische Maßnahmen und deren regelmäßige Überprüfung. Bildet die Grundlage für BSI-IT-Grundschutz und ISO 27001-Zertifizierungen.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-1</span>
+          <span class="ref-tag ref-gs">GS++ 7.4</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.4.4</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="informationsverbund iv verbund">
+      <div class="term-head">
+        <div class="term-name">Informationsverbund</div>
+        <div class="term-abbr">IV</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Gesamtheit aller <strong>infrastrukturellen, organisatorischen, personellen und technischen Objekte</strong>, die der Aufgabenerfüllung in einem bestimmten Anwendungsbereich dienen. Ein IV kann den gesamten ISMS-Geltungsbereich oder Teilbereiche umfassen. Für jeden IV wird ein eigenes Sicherheitskonzept erstellt. Mehrere IVs können einen gemeinsamen Geltungsbereich teilen.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8</span>
+          <span class="ref-tag ref-gs">GS++ 7.5 · STM.1</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool bildet ein IV die Schleife-1-Erfassung: Verbund-Definition, Stakeholder, Prozesse, Zielobjekte, Strukturmodell, Schutzbedarf.</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="integrität schutzziel datenintegrität unverändertheit">
+      <div class="term-head">
+        <div class="term-name">Integrität</div>
+        <div class="term-cat">Schutzziel</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Eines der drei klassischen <strong>Schutzziele</strong> der Informationssicherheit. Integrität bedeutet, dass Daten und Systeme vollständig, korrekt und unverändert sind — Manipulationen, Fehler oder Verlust von Daten werden erkannt. Technische Maßnahmen: Prüfsummen, digitale Signaturen, Versionierung, Zugriffskontrolle, Protokollierung. Integrität ist besonders kritisch bei Finanzdaten, medizinischen Daten und Steuerdaten.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.2</span>
+          <span class="ref-tag ref-gs">GS++ STM.3 · KONF</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.8.46</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-norm" data-cat="norm" data-term="iso 27001 2022 norm standard zertifizierung">
+      <div class="term-head">
+        <div class="term-name">ISO/IEC 27001:2022</div>
+        <div class="term-cat">Norm · Zertifizierung</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Internationale Norm für ISMS. Definiert Anforderungen an Aufbau, Betrieb, Überwachung und Verbesserung eines ISMS. Der Anhang A enthält 93 Maßnahmenkontrollen (Controls) gegliedert in 4 Bereiche: Organisatorische Maßnahmen (5), Personenbezogene Maßnahmen (6), Physische Maßnahmen (7), Technologische Maßnahmen (8). Ein BSI-konformes IT-Grundschutz-ISMS erfüllt die Anforderungen der ISO 27001.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-iso">ISO/IEC 27001:2022</span>
+          <span class="ref-tag ref-iso">ISO/IEC 27002:2022</span>
+          <span class="ref-tag ref-bsi">BSI Zuordnung 6. Edition 2023</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-norm" data-cat="norm" data-term="it-grundschutz kompendium 2023 katalog bsi standard">
+      <div class="term-head">
+        <div class="term-name">IT-Grundschutz-Kompendium</div>
+        <div class="term-abbr">IT-GS Kp. 2023</div>
+        <div class="term-cat">Norm · Katalog</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Jährlich aktualisierter BSI-Katalog mit über 100 Bausteinen für alle sicherheitsrelevanten Bereiche moderner IT. Bildet die technische und organisatorische Grundlage des IT-Grundschutzes. Jeder Baustein enthält: Beschreibung, Gefährdungen, Anforderungen (Basis, Standard, erhöhter Bedarf). Die <strong>6. Edition 2023</strong> ist die aktuelle Fassung, Basis für KRT2023 und die BSI-Zuordnungstabelle zur ISO 27001:2022.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">IT-GS Kompendium 6. Edition 2023</span>
+          <span class="ref-tag ref-krt">KRT2023</span>
+        </div>
+        <div class="term-note">Kostenlos verfügbar unter bsi.bund.de. Bausteinstruktur: ISMS · ORP · CON · OPS · DER · APP · SYS · IND · NET · INF.</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="informationssicherheitseinstufung einstufung schutzbedarf prozess">
+      <div class="term-head">
+        <div class="term-name">Informationssicherheits­einstufung</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Prozessorientierte Zuordnung eines Schutzbedarfs zu Geschäftsprozessen und den darin verarbeiteten Informationen (GS++ STM.3). Stellt die Verbindung zwischen <strong>Geschäftsprozessen</strong> und <strong>Informationen</strong> in den Vordergrund. Ergebnis: Priorisierte Liste kritischer Geschäftsprozesse als Grundlage für die Anforderungsanalyse.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ STM.3 · 2.6</span>
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.2</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── K ──────────── -->
+    <div class="section-header" id="sec-K">
+      <span class="section-letter">K</span>
+      <span class="section-label">K</span>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="kernprozess geschäftsprozess kritisch">
+      <div class="term-head">
+        <div class="term-name">Kernprozess</div>
+        <div class="term-cat">Methodik · Prozess</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Im ISMS-Kontext: Die für den Informationsverbund zentralen Geschäftsprozesse, die direkt zur Aufgabenerfüllung beitragen. Kernprozesse sind das primäre Objekt der <strong>Schutzbedarfsfeststellung</strong>. Sie erhalten einen IV-spezifischen Schutzbedarf (Normal / Hoch) und lösen bei Hoch eine vollständige Risikoanalyse nach BSI 200-3 aus.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.2</span>
+          <span class="ref-tag ref-gs">GS++ 2.6</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.8.2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-tool" data-cat="tool" data-term="krt kreuzreferenztabelle 2023 gefährdung baustein">
+      <div class="term-head">
+        <div class="term-name">Kreuzreferenz­tabelle</div>
+        <div class="term-abbr">KRT2023</div>
+        <div class="term-cat">Werkzeug</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Excel-basiertes BSI-Werkzeug, das für jeden Baustein des IT-Grundschutz-Kompendiums 2023 dokumentiert, welche <strong>Elementaren Gefährdungen (G 0.x)</strong> welche Anforderungen beeinflussen. Enthält 111 Bausteine und über 1.836 Anforderungen mit Gefährdungszuordnung. Ermöglicht eine strukturierte Risikoanalyse nach BSI 200-3.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-krt">KRT2023</span>
+          <span class="ref-tag ref-bsi">IT-GS Kompendium 2023</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── M ──────────── -->
+    <div class="section-header" id="sec-M">
+      <span class="section-letter">M</span>
+      <span class="section-label">M</span>
+    </div>
+
+    <div class="term-card cat-organisation" data-cat="organisation" data-term="managementprozess isms leitungsebene steuerung governance">
+      <div class="term-head">
+        <div class="term-name">Managementprozess</div>
+        <div class="term-cat">Organisation · Prozess</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Organisationsweite ISMS-Prozesse auf Leitungsebene, die für alle Informationsverbünde der Organisation gelten. Im GS++ ISMS-Tool (S0-1): 7 obligatorische und empfohlene Mgmt-Prozesse — Leitungsverantwortung, IS-Leitlinie, Risikobehandlung, Notfallmanagement, Compliance, Auditmanagement, Lieferantenmanagement. Jedem Mgmt-Prozess wird ein <strong>Verantwortlicher</strong> zugeordnet, der als Owner (Ebene O) im Strukturmodell erscheint.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">ISMS.1 · BSI 200-1 Kap.4</span>
+          <span class="ref-tag ref-gs">GS++ GC.1–GC.4</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.5–10</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-risiko" data-cat="risiko" data-term="maximalprinzip schutzbedarfsvererbung vererbung">
+      <div class="term-head">
+        <div class="term-name">Maximalprinzip</div>
+        <div class="term-cat">Risiko · Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Regelung der <strong>Schutzbedarfsvererbung</strong> in der Strukturmodellierung: Ein Objekt erbt den höchsten Schutzbedarf aller Prozesse oder Objekte, die von ihm abhängen. Beispiel: Verarbeitet ein Server sowohl Prozesse mit Schutzbedarf Normal als auch Hoch, erhält der Server insgesamt Schutzbedarf Hoch. Verhindert, dass kritische Komponenten unzureichend geschützt werden.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.3</span>
+          <span class="ref-tag ref-gs">GS++ STM.4</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="maßnahme sicherheitsmaßnahme umsetzung">
+      <div class="term-head">
+        <div class="term-name">Maßnahme</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Alle Aktionen, die dazu dienen, Sicherheitsrisiken zu steuern und Anforderungen zu erfüllen. Maßnahmen beschreiben das <strong>Wie</strong> — im Gegensatz zu Anforderungen, die das <strong>Was</strong> definieren. Umfasst organisatorische, personelle, technische und infrastrukturelle Maßnahmen.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ 7.6</span>
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.9</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-technik" data-cat="technik" data-term="mfa multi-faktor-authentifizierung zwei-faktor authentifizierung">
+      <div class="term-head">
+        <div class="term-name">Multi-Faktor-Authentifizierung</div>
+        <div class="term-abbr">MFA / 2FA</div>
+        <div class="term-cat">Technik · Sicherheit</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Authentifizierungsverfahren, das mindestens zwei unabhängige Nachweise der Identität erfordert: <strong>Wissen</strong> (Passwort, PIN), <strong>Besitz</strong> (Hardware-Token, Smartphone) und/oder <strong>Biometrie</strong> (Fingerabdruck, Gesichtserkennung). Pflicht nach BSI GS++ für privilegierte Zugänge, Remote-Zugriff (VPN) und Perimeter-Zugang. Schützt effektiv vor Passwort-Angriffen, Phishing und Credential-Diebstahl.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">ORP.4 · NET.3.3</span>
+          <span class="ref-tag ref-gs">GS++ BER.6.4–6.5 · DLS.2.1</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.8.5</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool in S1 (Authentifizierungskontext) als Pflichtfrage erfasst. MFA-Pflicht gilt nach BSI mindestens für alle Fernzugriffe und privilegierten Konten.</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-organisation" data-cat="organisation" data-term="mssp managed security service provider soc siem dienstleister">
+      <div class="term-head">
+        <div class="term-name">Managed Security Service Provider</div>
+        <div class="term-abbr">MSSP</div>
+        <div class="term-cat">Organisation · Dienstleister</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Externer Dienstleister, der dauerhaft Sicherheitsüberwachungs- und -managementdienstleistungen erbringt. Typische Leistungen: 24/7 Security Operations Center (SOC), SIEM-Betrieb, Incident Response, Threat Intelligence, Schwachstellenmanagement. Bei Beauftragung eines MSSP gelten besondere Anforderungen: SLA, Audit-Recht, Vorfallsmeldepflichten, Datenlokalisation müssen vertraglich gesichert sein.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">OPS.2.3 · DER.2.1</span>
+          <span class="ref-tag ref-gs">GS++ DLS.2–DLS.3 · BES.5</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.5.19–5.22</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── N ──────────── -->
+    <div class="section-header" id="sec-N">
+      <span class="section-letter">N</span>
+      <span class="section-label">N</span>
+    </div>
+
+    <div class="term-card cat-technik" data-cat="technik" data-term="netzsegmentierung netzsegment segmentierung vlan intern internet dmz">
+      <div class="term-head">
+        <div class="term-name">Netzsegmentierung</div>
+        <div class="term-abbr">ARCH.2</div>
+        <div class="term-cat">Technik · Netze</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Aufteilung des Netzwerks in logisch oder physisch getrennte Bereiche mit kontrollierten Übergängen. Standardsegmente: <strong>Internes Netz</strong> (interne Nutzer und Systeme), <strong>Internet-Uplink</strong> (Anbindung ans Internet), <strong>DMZ</strong> (öffentlich erreichbare Server), <strong>Management-Netz</strong> (Verwaltung der Netzkomponenten), <strong>Gast-WLAN</strong> (Besucher, isoliert), <strong>OT/IoT-Netz</strong> (Betriebstechnik). Verhindert laterale Bewegung bei Angriffen. Technisch: Firewalls, VLANs, Router, Access Control Lists (ACL).</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">NET.1.1 · NET.3.2</span>
+          <span class="ref-tag ref-gs">GS++ ARCH.2.1–2.3</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.8.22</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool: Netzsegmente werden in S0-4 (org-weit) und S1 (IV-spezifisch) erfasst und erscheinen in der Strukturmodellierung auf Ebene I (Infrastruktur).</div>
+      </div>
+    </div>
+
+    <div class="term-card" style="border-left:4px solid #2C5F8F" data-cat="norm" data-term="nationale it-architekturrichtlinie national bund architektur rahmenwerk">
+      <div class="term-head">
+        <div class="term-name">Nationale IT-Architektur­richtlinie</div>
+        <div class="term-abbr">Nat. ITArl V1.0</div>
+        <div class="term-cat">Norm · Verwaltungsdigitalisierung</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Gemeinsamer Kern aller IT-Architekturrichtlinien in der deutschen öffentlichen Verwaltung. Am 26. März 2025 vom IT-Planungsrat zur Anwendung empfohlen. Entstand durch Zusammenführung der bisherigen <em>IT-Architekturrichtlinie Bund</em> und der <em>Föderalen IT-Architekturrichtlinie</em>. Dient als <strong>Rahmenwerk</strong> für Neuentwicklung und Fortschreibung von Architekturvorgaben auf Bundes- und Landesebene. Liegt in Version 1.0 auf openCode bereit. Hilft, IT-Architekturentscheidungen systematisch, nachvollziehbar und transparent zu treffen.</div>
+        <div class="term-refs">
+          <span class="ref-tag" style="background:#EFF5FB;border-color:#9EC6E8;color:#1A3A5C">IT-Planungsrat März 2025</span>
+          <span class="ref-tag" style="background:#EFF5FB;border-color:#9EC6E8;color:#1A3A5C">openCode</span>
+          <span class="ref-tag ref-iso">OZG § 6</span>
+        </div>
+        <div class="term-note">Gliederung: Allgemeine Vorgaben (Digitale Souveränität, Offene Standards, Open Source) · Geschäftliche Vorgaben (Prozessdigitalisierung, Once-Only) · Funktionale Vorgaben (API-First, Datenschutz by Design) · Technische Vorgaben (Cloud, Sicherheitsarchitektur, Interoperabilität).</div>
+      </div>
+    </div>
+
+    <div class="term-card" style="border-left:4px solid #2C5F8F" data-cat="norm" data-term="nis2 nis-2 netzwerk informationssicherheit richtlinie eu kritische infrastruktur kritis">
+      <div class="term-head">
+        <div class="term-name">NIS2-Richtlinie</div>
+        <div class="term-abbr">NIS2 / EU 2022/2555</div>
+        <div class="term-cat">Norm · EU-Recht</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">EU-Richtlinie über Maßnahmen für ein hohes gemeinsames Cybersicherheitsniveau (Network and Information Security Directive 2), in Kraft seit Januar 2023. Erweitert den Anwendungsbereich erheblich auf <strong>wesentliche</strong> (Energie, Verkehr, Banken, Gesundheit, öffentliche Verwaltung) und <strong>wichtige Einrichtungen</strong> (Post, Lebensmittel, digitale Dienste). Kernpflichten: Risikomanagement, Meldepflichten (24h Erstmeldung bei erheblichen Vorfällen), Lieferkettensicherheit, persönliche Managementhaftung. Nationale Umsetzung durch NIS2UmsuCG.</div>
+        <div class="term-refs">
+          <span class="ref-tag" style="background:#F0FFF5;border-color:#9DC89D;color:#1A6640">EU 2022/2555</span>
+          <span class="ref-tag ref-bsi">IT-SiG 2.0 · KRITIS</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.6.1</span>
+        </div>
+        <div class="term-note">Behörden der öffentlichen Verwaltung fallen i. d. R. unter NIS2 als wesentliche Einrichtungen. NIS2-Anforderungen im Rechtskataster (ORP.5) führen. BSI-Grundschutz erfüllt die technischen NIS2-Anforderungen.</div>
+      </div>
+    </div>
+
+    <div class="term-card" style="border-left:4px solid #2C5F8F" data-cat="norm" data-term="noots once-only national registermodernisierung datenaustausch">
+      <div class="term-head">
+        <div class="term-name">NOOTS</div>
+        <div class="term-abbr">Nationales Once-Only Technical System</div>
+        <div class="term-cat">Technik · Verwaltungsdigitalisierung</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Technische Plattform zur Umsetzung des <strong>Once-Only-Prinzips</strong>: Bürger und Unternehmen müssen Daten nur einmalig mitteilen; diese werden sicher zwischen Behörden geteilt. Grundlage: Registermodernisierungsgesetz. Auf der 47. IT-Planungsratssitzung (Juni 2025) Governance-Übergang zu einer Steuerungsgruppe mit Bayern, Brandenburg, Hamburg, Hessen, NRW, Saarland und Bund vollzogen. Als Baustein der Deutschland-Architektur eingeordnet.</div>
+        <div class="term-refs">
+          <span class="ref-tag" style="background:#EFF5FB;border-color:#9EC6E8;color:#1A3A5C">IT-Planungsrat 47. Sitzung 2025</span>
+          <span class="ref-tag" style="background:#EFF5FB;border-color:#9EC6E8;color:#1A3A5C">RegMoG · NOOTS-Staatsvertrag</span>
+        </div>
+        <div class="term-note">ISMS-Relevanz: NOOTS-Anbindung ist eine externe Schnittstelle mit hohem Schutzbedarf (Vertraulichkeit, Integrität). Datenschutzfolgenabschätzung nach DSGVO Art. 35 erforderlich.</div>
+      </div>
+    </div>
+
+
+    <!-- ──────────── O ──────────── -->
+    <div class="section-header" id="sec-O">
+      <span class="section-letter">O</span>
+      <span class="section-label">O</span>
+    </div>
+
+    <div class="term-card cat-tool" data-cat="tool" data-term="oscal open security controls format maschinenlesbar">
+      <div class="term-head">
+        <div class="term-name">OSCAL</div>
+        <div class="term-abbr">Open Security Controls Assessment Language</div>
+        <div class="term-cat">Werkzeug · Format</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Maschinenlesbares, standardisiertes Datenformat (NIST) für Sicherheitskontrollen und -anforderungen. Der GS++ Anwenderkatalog ist in OSCAL-basiertem JSON/XML verfügbar, was Automatisierung, Tool-Integration und interoperable Verarbeitung ermöglicht.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ Leitfaden 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-organisation" data-cat="organisation" data-term="outsourcing it-auslagerung dienstleister extern cloud SaaS">
+      <div class="term-head">
+        <div class="term-name">Outsourcing</div>
+        <div class="term-abbr">OPS.2.3</div>
+        <div class="term-cat">Organisation · Dienstleister</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Auslagerung von IT-Betrieb, Prozessen oder Diensten an externe Anbieter. Das auslagernde Unternehmen bleibt für die Informationssicherheit <strong>verantwortlich</strong> — auch wenn Dritte die technische Umsetzung übernehmen. Sicherheitsanforderungen müssen vertraglich verankert sein (SLA, Audit-Recht, Vorfallsmeldung, Datenlöschung bei Exit). Besondere Risikoklassen: Cloud-Dienste (OPS.2.2), Rechenzentrumsbetrieb, IT-Betrieb allgemein.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">OPS.2.2 · OPS.2.3</span>
+          <span class="ref-tag ref-gs">GS++ BES.1–BES.8 · DLS.3–4</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.5.19–5.23</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool: Externer Dienstleister kann in S0-1/S0-2 zu jedem Prozess zugelassen werden und erscheint als eigener O-Knoten im Strukturmodell.</div>
+      </div>
+    </div>
+
+    <!-- ──────────── P ──────────── -->
+    <div class="section-header" id="sec-P">
+      <span class="section-letter">P</span>
+      <span class="section-label">P</span>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="pdca plan do check act zyklus verbesserung">
+      <div class="term-head">
+        <div class="term-name">PDCA-Zyklus</div>
+        <div class="term-abbr">Plan · Do · Check · Act</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Grundstruktur für kontinuierliche Verbesserung im ISMS. <strong>Plan</strong>: Planung (GS++ PS 1–2). <strong>Do</strong>: Umsetzung (PS 3). <strong>Check</strong>: Überwachung (PS 4). <strong>Act</strong>: Verbesserung (PS 5). Das ISMS ist kein Projekt, sondern ein dauerhafter Kreislauf.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-1</span>
+          <span class="ref-tag ref-gs">GS++ 1.4.6</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.10</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-technik" data-cat="technik" data-term="patch-management schwachstellen updates software sicherheitslücken">
+      <div class="term-head">
+        <div class="term-name">Patch-Management</div>
+        <div class="term-abbr">OPS.1.1.3</div>
+        <div class="term-cat">Technik · Betrieb</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Systematischer Prozess zur Identifikation, Priorisierung, Testung und Einspielung von Software-Updates und Sicherheits-Patches. Ziel: Bekannte Schwachstellen zeitnah schließen, bevor sie ausgenutzt werden. Kritische Security-Patches: innerhalb von 72 Stunden (KRITIS) bis 30 Tagen einzuspielen. Umfasst Betriebssysteme, Anwendungen, Firmware und Netzwerkkomponenten. Eng verzahnt mit Change Management und Schwachstellenmanagement.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">OPS.1.1.3 · OPS.1.1.1</span>
+          <span class="ref-tag ref-gs">GS++ KONF.7 · TEST</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.8.8</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool als SUPP-06 Patch- &amp; Schwachstellenmanagement erfasst.</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="praktik gs++ anforderungen tätigkeiten">
+      <div class="term-head">
+        <div class="term-name">Praktik</div>
+        <div class="term-cat">Methodik · GS++</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">GS++-spezifisches Konzept: Praktiken bündeln Anforderungen nach Tätigkeiten, deren Zuständigkeit bestimmten <strong>Rollen</strong> zuordenbar ist. Jede Anforderung ist in genau einer Praktik. Drei Typen: <strong>ISMS-Praktiken</strong> (übergreifend, z. B. GC, STM, UMS, VRB, PERF), <strong>Organisatorische Praktiken</strong> (ASST, PERS, BES, DLS, TEST, GEB, SENS), <strong>Technische Praktiken</strong> (ARCH, BER, NOT, DET, REA, KONF, DEV).</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ 7.7</span>
+          <span class="ref-tag ref-gs">Anwenderkatalog GS++ 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-technik" data-cat="technik" data-term="pki public key infrastructure zertifikat schlüsselmanagement">
+      <div class="term-head">
+        <div class="term-name">Public-Key-Infrastruktur</div>
+        <div class="term-abbr">PKI</div>
+        <div class="term-cat">Technik · Kryptographie</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">System zur Ausstellung, Verwaltung und Überprüfung digitaler Zertifikate und kryptographischer Schlüssel. Grundlage für: HTTPS/TLS (Transportverschlüsselung), E-Mail-Signatur und -Verschlüsselung (S/MIME), Code-Signing, VPN-Authentifizierung, Smart-Card-Anmeldung. Besteht aus: Certification Authority (CA), Registration Authority (RA), Zertifikats-Repository und Sperrliste (CRL/OCSP). Im BSI: CON.1 Kryptokonzept regelt Anforderungen an kryptographische Verfahren und Schlüssellängen.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">CON.1 · APP.4.2</span>
+          <span class="ref-tag ref-gs">GS++ BER.7 (Schlüsselmanagement)</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.8.24</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool: Zielobjekt „PKI" in S4 mit vollständigem BER.7-Praktiken-Set aus dem Anwenderkatalog GS++ 2026.</div>
+      </div>
+    </div>
+
+    <!-- ──────────── R ──────────── -->
+    <div class="section-header" id="sec-R">
+      <span class="section-letter">R</span>
+      <span class="section-label">R</span>
+    </div>
+
+    <div class="term-card cat-risiko" data-cat="risiko" data-term="risikoanalyse risikobetrachtung bsi 200-3">
+      <div class="term-head">
+        <div class="term-name">Risikoanalyse</div>
+        <div class="term-cat">Risiko</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Systematische Identifikation, Einschätzung und Bewertung von Risiken. Im IT-Grundschutz erforderlich bei: Schutzbedarf Hoch, negativen Änderungen des Sicherheitsniveaus, oder Nicht-Umsetzung von Anforderungen. Die <strong>Risikomatrix</strong> verbindet Eintrittswahrscheinlichkeit × Schadensauswirkung zu einer Gesamteinstufung: gering → mittel → hoch → kritisch.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-3</span>
+          <span class="ref-tag ref-gs">GS++ 3.8</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.6.1.2</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool: Für jede Elementare Gefährdung eine eigene Bewertungszeile in S6 — mit N/A-Option und benutzerdefinierten Gefährdungen.</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-risiko" data-cat="risiko" data-term="risikomatrix matrix 4x4 eintrittswahrscheinlichkeit schadensauswirkung">
+      <div class="term-head">
+        <div class="term-name">Risikomatrix</div>
+        <div class="term-cat">Risiko · Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Graphisches Hilfsmittel zur Risikobewertung. Die BSI-Risikomatrix ist 4×4: Achse X = Eintrittswahrscheinlichkeit (selten / möglich / wahrscheinlich / sicher), Achse Y = Schadensauswirkung (gering / mittel / hoch / kritisch). Jede Kombination ergibt eine Risikoeinstufung: <strong>Gering</strong> (grün), <strong>Mittel</strong> (gelb), <strong>Hoch</strong> (orange), <strong>Kritisch</strong> (rot — sofortige Eskalation an Leitungsebene). Das Ergebnis bestimmt die Priorität der Risikobehandlung.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-3 Kap.4</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.6.1.2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-organisation" data-cat="organisation" data-term="risikoeigentümer owner verantwortung">
+      <div class="term-head">
+        <div class="term-name">Risikoeigentümer</div>
+        <div class="term-cat">Organisation · Rolle</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Rolle, die die <strong>Gesamtverantwortung für identifizierte Risiken</strong> trägt und deren Behandlung verantwortet. Trägt die Leitungsverantwortung für das Risikomanagement und akzeptiert (oder lehnt ab) Restrisiken nach Maßnahmenumsetzung. Unterschied zum Informationseigentümer: Letzterer definiert den Schutzbedarf; der Risikoeigentümer entscheidet über die Risikobehandlung.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ 2.10</span>
+          <span class="ref-tag ref-bsi">BSI 200-3</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.6.1.2</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── S ──────────── -->
+    <div class="section-header" id="sec-S">
+      <span class="section-letter">S</span>
+      <span class="section-label">S</span>
+    </div>
+
+    <div class="term-card cat-risiko" data-cat="risiko" data-term="schadensauswirkung schaden auswirkung risiko">
+      <div class="term-head">
+        <div class="term-name">Schadensauswirkung</div>
+        <div class="term-cat">Risiko · Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Einschätzung, wie gravierend die Folgen wären, wenn eine Gefährdung tatsächlich eintritt. 4 Stufen: <strong>gering</strong> (begrenzt, beherrschbar), <strong>mittel</strong> (erheblich, aber überwindbar), <strong>hoch</strong> (existenzgefährdend), <strong>kritisch</strong> (katastrophal, nicht beherrschbar). Zusammen mit der Eintrittswahrscheinlichkeit ergibt sich die Risikoeinstufung aus der Risikomatrix.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-3 Kap.4</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.6.1.2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="schutzbedarf normal hoch vertraulichkeit integrität verfügbarkeit">
+      <div class="term-head">
+        <div class="term-name">Schutzbedarf</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Beschreibt, wie stark Geschäftsprozesse, Informationen oder Systeme geschützt werden müssen. Im GS++ zwei Stufen: <strong>Normal</strong> (Basis-Schutzmaßnahmen nach Stand der Technik) und <strong>Hoch</strong> (erhöhter Schutzbedarf, Risikoanalyse erforderlich). Bewertet wird anhand der drei <strong>Schutzziele</strong>: Vertraulichkeit (V), Integrität (I), Verfügbarkeit (V).</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.2</span>
+          <span class="ref-tag ref-gs">GS++ 7.9</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.6.1.2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="schutzziele cia vertraulichkeit integrität verfügbarkeit klassisch">
+      <div class="term-head">
+        <div class="term-name">Schutzziele (V-I-V)</div>
+        <div class="term-abbr">CIA-Triade</div>
+        <div class="term-cat">Methodik · Grundlagen</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Die drei klassischen Schutzziele der Informationssicherheit:<br>
+          <strong>Vertraulichkeit</strong> (Confidentiality): Informationen sind nur Berechtigten zugänglich.<br>
+          <strong>Integrität</strong> (Integrity): Informationen sind vollständig, korrekt und unverändert.<br>
+          <strong>Verfügbarkeit</strong> (Availability): Systeme und Informationen sind für Berechtigte bei Bedarf zugänglich.<br>
+          Moderne Erweiterungen: Authentizität, Nicht-Abstreitbarkeit, Verlässlichkeit. Der Schutzbedarf wird für jedes der drei Ziele separat bewertet.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-1 · BSI 200-2 Kap.8.2</span>
+          <span class="ref-tag ref-gs">GS++ STM.3</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.6.1.2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="schutzbedarfsfeststellung feststellung prozess bewertung">
+      <div class="term-head">
+        <div class="term-name">Schutzbedarf­feststellung</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Formaler Prozess zur Ermittlung des Schutzbedarfs aller im Informationsverbund erfassten Objekte. Beginnt bei Kernprozessen und überträgt sich per <strong>Maximalprinzip</strong> auf zugehörige Systeme und Infrastruktur. Bei Hoch: Übergang in die Risikoanalyse nach BSI 200-3.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.2</span>
+          <span class="ref-tag ref-gs">GS++ STM.3</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="sicherheitsleitlinie leitlinie informationssicherheit policy">
+      <div class="term-head">
+        <div class="term-name">Sicherheitsleitlinie</div>
+        <div class="term-cat">Methodik · Dokument</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Zentrales Dokument, das Zweck, Ziele, Strategie und Verantwortlichkeiten der Informationssicherheit festlegt. Muss von der <strong>Leitungsebene unterzeichnet</strong> und an alle Mitarbeitenden kommuniziert werden. Enthält: Informationssicherheitsziele, Sicherheitsstrategie, Benennung des ISB, Verpflichtung zur kontinuierlichen Verbesserung. Jährliche Überprüfung empfohlen.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-1 Kap.3</span>
+          <span class="ref-tag ref-gs">GS++ 2.4 · 7.11</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.5.2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="sicherheitsniveau normal erhöht stand technik">
+      <div class="term-head">
+        <div class="term-name">Sicherheitsniveau</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Erfüllungsgrad von Sicherheitszielen durch umgesetzte Maßnahmen. Zwei Stufen im GS++: <strong>Normal (Stand der Technik)</strong> — alle Anforderungen der technischen und organisatorischen Praktiken umgesetzt. <strong>Erhöht</strong> — zusätzliche Anforderungen aus der Risikoanalyse umgesetzt.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ 7.12</span>
+          <span class="ref-tag ref-bsi">BSI 200-2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-organisation" data-cat="organisation" data-term="stakeholder interessierte parteien beteiligte">
+      <div class="term-head">
+        <div class="term-name">Stakeholder</div>
+        <div class="term-cat">Organisation</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Alle Personen, Gruppen oder Institutionen, die ein berechtigtes Interesse an der Informationssicherheit der Institution haben. <strong>Intern</strong>: Leitungsebene, Mitarbeitende, ISB, DSB, Betriebsrat. <strong>Extern</strong>: Kunden, Dienstleister, Aufsichtsbehörden, Gesetzgeber, Öffentlichkeit. Ihre Anforderungen sind in der ISMS-Planung zu berücksichtigen.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.3.2</span>
+          <span class="ref-tag ref-gs">GS++ 2.3</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.4.2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-norm" data-cat="norm" data-term="stand der technik sdt sicherheitsniveau normal">
+      <div class="term-head">
+        <div class="term-name">Stand der Technik</div>
+        <div class="term-abbr">SdT</div>
+        <div class="term-cat">Norm · Standard</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Der Entwicklungsstand fortschrittlicher Verfahren, Einrichtungen und Betriebsweisen, der die praktische Eignung einer Maßnahme zur Erreichung des gesetzlich vorgeschriebenen Schutzniveaus gesichert erscheinen lässt. Im GS++ entspricht „Normal" dem Stand der Technik.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">IT-Sicherheitsgesetz 2.0</span>
+          <span class="ref-tag ref-gs">GS++ 7.12</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="strukturanalyse strukturmodellierung schichtenmodell ebenen">
+      <div class="term-head">
+        <div class="term-name">Strukturmodellierung</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Schichtenbasierte Darstellung aller sicherheitsrelevanten Komponenten eines Informationsverbunds. 6 Ebenen: <strong>O</strong> (Verantwortung), <strong>B</strong> (Geschäftsprozesse), <strong>A</strong> (Anwendungen), <strong>S</strong> (Systeme), <strong>H</strong> (Hardware), <strong>I</strong> (Infrastruktur / Netz / Gebäude). Verbindungen ermöglichen die Schutzbedarfsvererbung nach dem Maximalprinzip.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.3</span>
+          <span class="ref-tag ref-gs">GS++ STM.4</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool: S0-5 = org-weites Modell (einmalig, Owner und Prozesse aus S0-1/S0-2 automatisch eingetragen). S5 = IV-spezifisches Modell (je Informationsverbund).</div>
+      </div>
+    </div>
+
+    <!-- ──────────── U ──────────── -->
+    <div class="section-header" id="sec-U">
+      <span class="section-letter">U</span>
+      <span class="section-label">U</span>
+    </div>
+
+    <div class="term-card cat-organisation" data-cat="organisation" data-term="unterstützungsprozess supp hilfsprozess support isms">
+      <div class="term-head">
+        <div class="term-name">Unterstützungsprozess</div>
+        <div class="term-cat">Organisation · Prozess</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Organisationsweite Prozesse, die den Betrieb des ISMS und der IT-Infrastruktur unterstützen, aber keine primären Geschäftsprozesse sind. Im GS++ ISMS-Tool (S0-2): 9 Prozesse — IT-Beschaffung, Personalwesen, Sensibilisierung/Schulung, Change Management, Incident Management, Patch-Management, Datensicherung, Datenschutzmanagement, Outsourcing-Steuerung. Unterstützungsprozesse erben im IV zunächst Schutzbedarf Normal, können aber IV-spezifisch angepasst werden.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">ORP.2 · ORP.3 · OPS.1.x · CON.3</span>
+          <span class="ref-tag ref-gs">GS++ PERS · BES · DLS</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.7–8</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── V ──────────── -->
+    <div class="section-header" id="sec-V">
+      <span class="section-letter">V</span>
+      <span class="section-label">V</span>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="verfügbarkeit schutzziel ausfallzeit rto rpo">
+      <div class="term-head">
+        <div class="term-name">Verfügbarkeit</div>
+        <div class="term-cat">Schutzziel</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Eines der drei klassischen Schutzziele: Sicherstellung, dass Systeme, Dienste und Informationen für Berechtigte <strong>zu dem Zeitpunkt zugänglich sind, zu dem sie benötigt werden</strong>. Messgrößen: Verfügbarkeitszeit in % (z. B. 99,9 % = 8,7 Stunden Ausfall/Jahr), RTO (Recovery Time Objective = maximale Ausfallzeit), RPO (Recovery Point Objective = maximaler Datenverlust). Technische Maßnahmen: Redundanz, Clustering, Backup/Restore, USV, georedundante Rechenzentren.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-4 · CON.3</span>
+          <span class="ref-tag ref-gs">GS++ NOT · ARCH.8</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.8.13–8.14</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="vererbung schutzbedarfsvererbung abhängigkeit">
+      <div class="term-head">
+        <div class="term-name">Vererbung</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Im Kontext der Zielobjekthierarchie: Anforderungen übergeordneter Kategorien gelten automatisch auch für untergeordnete Kategorien. Im Kontext der Strukturmodellierung: Der Schutzbedarf eines Prozesses wird nach dem Maximalprinzip auf alle abhängigen Ebenen vererbt.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ 3.5.1</span>
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.3</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="vertraulichkeit schutzziel datenschutz geheimhaltung">
+      <div class="term-head">
+        <div class="term-name">Vertraulichkeit</div>
+        <div class="term-cat">Schutzziel</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Eines der drei klassischen Schutzziele: Sicherstellung, dass Informationen nur <strong>autorisierten Personen, Prozessen oder Systemen</strong> zugänglich sind. Verletzungen der Vertraulichkeit: Datenpannen, unbefugter Zugriff, Abhören, Social Engineering. Technische Maßnahmen: Verschlüsselung (at-rest, in-transit), Zugriffskontrollen, Need-to-know-Prinzip, DLP-Systeme, physische Sicherung. Rechtliche Relevanz: DSGVO (personenbezogene Daten), Betriebs- und Geschäftsgeheimnisse, Steuergeheimnis.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">CON.1 · ORP.4</span>
+          <span class="ref-tag ref-gs">GS++ BER · KONF.11</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.5.12 · A.8.24</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-technik" data-cat="technik" data-term="vpn virtual private network fernzugriff tunnel verschlüsselung">
+      <div class="term-head">
+        <div class="term-name">Virtual Private Network</div>
+        <div class="term-abbr">VPN</div>
+        <div class="term-cat">Technik · Netze</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Verschlüsselter Tunnel über ein unsicheres Netzwerk (typisch: Internet), der sichere Remote-Zugriffe oder Standortvernetzung ermöglicht. Typen: <strong>Site-to-Site-VPN</strong> (Standortkopplung), <strong>Client-VPN</strong> (Homeoffice, Mobile Worker). BSI-Anforderungen: starke Authentifizierung (MFA), aktuelle Verschlüsselung (TLS 1.3, IKEv2/IPsec), Split-Tunneling möglichst deaktivieren (alle Verbindungen über VPN tunneln). VPN-Gateway ist nach BSI eine kritische Komponente am Perimeter.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">NET.3.3 · OPS.1.2.4</span>
+          <span class="ref-tag ref-gs">GS++ ARCH.6 · BER.6.4</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.6.7 · A.8.20</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── W ──────────── -->
+    <div class="section-header" id="sec-W">
+      <span class="section-letter">W</span>
+      <span class="section-label">W</span>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="wiedervorlage wiedervorlagedatum frist review überprüfung">
+      <div class="term-head">
+        <div class="term-name">Wiedervorlage</div>
+        <div class="term-cat">Methodik · ISMS</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Geplanter Termin zur Überprüfung und Aktualisierung von ISMS-relevanten Dokumenten, Prozessen oder Maßnahmen. Typische Fristen: Sicherheitsleitlinie und Organigramm jährlich, Beschaffungsrichtlinien alle 3 Jahre, Schulungskonzept jährlich. Kernprozesse: jährliche Überprüfung nach BSI 200-1 Kap.3 / ISO 27001 Kap.9.3.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-1 Kap.3</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.9.3</span>
+          <span class="ref-tag ref-gs">GS++ PERF</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool: Das Wiedervorlage-Dashboard (S7) zeigt alle fälligen Termine farbkodiert — 🔴 überfällig, 🟡 ≤60 Tage, 🟢 gültig.</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-technik" data-cat="technik" data-term="wlan wireless lan 802.11 wifi netz wpa3 eap">
+      <div class="term-head">
+        <div class="term-name">Wireless LAN</div>
+        <div class="term-abbr">WLAN / Wi-Fi</div>
+        <div class="term-cat">Technik · Netze</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Drahtloses Netzwerk nach IEEE 802.11-Standard. WLAN-Sicherheit erfordert besondere Maßnahmen wegen der Funkausbreitung über Gebäudegrenzen hinaus. BSI-Anforderungen: <strong>WPA3</strong> (oder WPA2-Enterprise mit EAP-TLS), dedizierter WLAN-Controller, Netzwerksegmentierung (Gast-WLAN getrennt), WLAN-IDS/IPS (Erkennung von Rogue-APs), regelmäßige Prüfung der Funkabdeckung in Sicherheitsbereichen. Enterprise-WLAN: 802.1X-Authentifizierung über RADIUS-Server.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">NET.2.1 · NET.2.2</span>
+          <span class="ref-tag ref-gs">GS++ ARCH.3 · DET.4.19</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.8.20</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool: WLAN-Kontext in S1 (Verbund-Definition) als Pflichtfrage. Zielobjekt „WLAN" in S4 mit vollständigen ARCH.3-Praktiken.</div>
+      </div>
+    </div>
+
+    <!-- ──────────── Z ──────────── -->
+    <div class="section-header" id="sec-Z">
+      <span class="section-letter">Z</span>
+      <span class="section-label">Z</span>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="zielobjekt zielobjektkategorie kategorie hierarchie">
+      <div class="term-head">
+        <div class="term-name">Zielobjektkategorie</div>
+        <div class="term-cat">Methodik · GS++</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Standardisierte Klassen im GS++, denen Anforderungen zugeordnet werden. Der GS++ kennt 31 Zielobjektkategorien in 4 Hierarchie-Ebenen mit 6 Wurzelknoten: <strong>Standorte</strong>, <strong>Nutzende</strong>, <strong>Netze</strong>, <strong>IT-Systeme</strong>, <strong>Informationen</strong>, <strong>Anwendungen</strong>. Assets werden in der Asset-Modellierung diesen Kategorien zugeordnet.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ 3.4.2 · 7.13</span>
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.1</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="zweischleifig schleife 0 schleife 1 organisation iv">
+      <div class="term-head">
+        <div class="term-name">Zwei-Schleifen-Modell</div>
+        <div class="term-cat">Methodik · Tool</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Strukturierung des GS++ ISMS-Tools in zwei Ebenen: <strong>Schleife 0</strong> (organisationsweite Stammdaten, einmalig, S0-0 bis S0-6): Mgmt-Prozesse, Unterstützungsprozesse, Stammdaten-IV, Pflichtdokumente, Strukturmodell, Basis-Schutzbedarf. <strong>Schleife 1</strong> (IV-spezifisch, wiederholbar, S1–S7): Verbund-Definition, Stakeholder, Prozesse, Zielobjekte, Strukturmodell, Schutzbedarf/Risikoanalyse, Export. Für mehrere IVs wird Schleife 1 mehrfach durchlaufen; Schleife 0 gilt für alle IVs.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2</span>
+          <span class="ref-tag ref-gs">GS++ PS 1–2</span>
+        </div>
+        <div class="term-note">Stammdaten (Schleife 0) als .isms-sd speichern und in jeden neuen IV importieren.</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="anforderung anforderungspaket">
+      <div class="term-head">
+        <div class="term-name">Anforderung</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Beschreibt, <strong>was</strong> getan werden muss, um ein bestimmtes Informationssicherheitsniveau zu erreichen. Anforderungen behandeln organisatorische, personelle, infrastrukturelle und technische Themen. Das Modalverb zeigt den Pflichtcharakter an: <strong>MUSS</strong> (verpflichtend), <strong>SOLLTE</strong> (i.d.R. verpflichtend, begründete Ausnahmen möglich), <strong>KANN</strong> (optional).</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.3</span>
+          <span class="ref-tag ref-gs">GS++ 7.1</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.6</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="anforderungspaket modellierung">
+      <div class="term-head">
+        <div class="term-name">Anforderungspaket</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Die individuelle Zusammenstellung aller relevanten Anforderungen für einen konkreten <strong>Informationsverbund</strong>. Entsteht in GS++ Prozessschritt 2 (Anforderungsanalyse) durch Zuordnung von ISMS-Praktiken, Zielobjektkategorie-Anforderungen und ggf. zusätzlichen Anforderungen aus externen Verpflichtungen.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ PS 2</span>
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8</span>
+        </div>
+        <div class="term-note">Das Anforderungspaket ist exakt auf den IV zugeschnitten und bildet die Basis für Umsetzung (PS 3) und Überwachung (PS 4).</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="asset modellierung inventar">
+      <div class="term-head">
+        <div class="term-name">Asset-Modellierung</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Zentraler Schritt in GS++ Prozessschritt 2: Identifikation, Dokumentation und Zuordnung aller sicherheitsrelevanten Werte (Assets) zu <strong>Zielobjektkategorien</strong>. Ermöglicht die spätere automatische Ableitung von Anforderungen. Assets umfassen Informationen, Systeme, Netze, Infrastruktur sowie personelle und organisatorische Werte.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ 3.4</span>
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.1</span>
+          <span class="ref-tag ref-iso">ISO 27001 A.5.9</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="abgrenzung informationsverbund scope geltungsbereich negativ positiv">
+      <div class="term-head">
+        <div class="term-name">Abgrenzung</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Präzise Definition der Grenzen eines Informationsverbunds. Die <strong>Positiv-Abgrenzung</strong> beschreibt, was eingeschlossen ist (Systeme, Prozesse, Standorte). Die <strong>Negativ-Abgrenzung</strong> dokumentiert explizit ausgeschlossene Bereiche. Grundlage für alle nachfolgenden Analysen und die spätere Zertifizierung.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8</span>
+          <span class="ref-tag ref-gs">GS++ STM.1.1</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.4.3</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── B ──────────── -->
+    <div class="section-header" id="sec-B">
+      <span class="section-letter">B</span>
+      <span class="section-label">B</span>
+    </div>
+
+    <div class="term-card cat-norm" data-cat="norm" data-term="baustein it-grundschutz kompendium">
+      <div class="term-head">
+        <div class="term-name">Baustein</div>
+        <div class="term-abbr">IT-GS</div>
+        <div class="term-cat">Norm · Standard</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Strukturiertes Dokument im <strong>IT-Grundschutz-Kompendium</strong>, das für einen bestimmten Zielobjekttyp alle relevanten Gefährdungen und Anforderungen zusammenfasst. Bausteine sind nach Schichten organisiert: ISMS, ORP (Organisation), CON (Konzepte), OPS (Betrieb), DER (Detektion), APP, SYS, IND, NET, INF. Das Kompendium 2023 enthält über 100 Bausteine.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">IT-GS Kompendium 2023</span>
+          <span class="ref-tag ref-krt">KRT2023</span>
+        </div>
+        <div class="term-note">Beispiel: SYS.1.1 „Allgemeiner Server", NET.3.2 „Firewall", APP.5.3 „Allgemeiner E-Mail-Client und -Server".</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-norm" data-cat="norm" data-term="bsi-standard 200-1 200-2 200-3 200-4">
+      <div class="term-head">
+        <div class="term-name">BSI-Standard 200-x</div>
+        <div class="term-abbr">BSI Std.</div>
+        <div class="term-cat">Norm · Standard</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Vierteilige Standardreihe des Bundesamts für Sicherheit in der Informationstechnik:<br>
+          <strong>200-1</strong>: Managementsystem für Informationssicherheit (ISMS) — strategischer Rahmen.<br>
+          <strong>200-2</strong>: IT-Grundschutz-Methodik — Vorgehensweise Strukturanalyse, Schutzbedarfsfeststellung, Modellierung.<br>
+          <strong>200-3</strong>: Risikoanalyse auf Basis von IT-Grundschutz.<br>
+          <strong>200-4</strong>: Business Continuity Management (BCM) / Notfallmanagement.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-1</span>
+          <span class="ref-tag ref-bsi">BSI 200-2</span>
+          <span class="ref-tag ref-bsi">BSI 200-3</span>
+          <span class="ref-tag ref-iso">Basis ISO 27001</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── D ──────────── -->
+    <div class="section-header" id="sec-D">
+      <span class="section-letter">D</span>
+      <span class="section-label">D</span>
+    </div>
+
+    <div class="term-card cat-organisation" data-cat="organisation" data-term="dsb datenschutzbeauftragter">
+      <div class="term-head">
+        <div class="term-name">Datenschutzbeauftragter</div>
+        <div class="term-abbr">DSB</div>
+        <div class="term-cat">Organisation · Rolle</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Gesetzlich vorgeschriebene Rolle (Art. 37 DSGVO) zur Überwachung der Einhaltung des Datenschutzrechts. Arbeitet eng mit dem ISB zusammen, da Datenschutz und Informationssicherheit viele Überschneidungspunkte haben (z.B. Schutz personenbezogener Daten, Zugriffskonzepte, Datenpannen-Meldung).</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">ORP.2 · ORP.5</span>
+          <span class="ref-tag ref-iso">ISO A.5.34</span>
+          <span class="ref-tag ref-norm">DSGVO Art.37</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── E ──────────── -->
+    <div class="section-header" id="sec-E">
+      <span class="section-letter">E</span>
+      <span class="section-label">E</span>
+    </div>
+
+    <div class="term-card cat-risiko" data-cat="risiko" data-term="elementare gefährdung g0 bedrohung">
+      <div class="term-head">
+        <div class="term-name">Elementare Gefährdung</div>
+        <div class="term-abbr">G 0.x</div>
+        <div class="term-cat">Risiko · Gefährdung</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Grundlegende Gefährdungskategorien des IT-Grundschutzes (G 0.1 bis G 0.48). Jeder Baustein referenziert die für ihn relevanten elementaren Gefährdungen. Die <strong>Kreuzreferenztabelle (KRT2023)</strong> dokumentiert, welche Gefährdungen für welche Anforderungen eines Bausteins relevant sind. Beispiele: G 0.39 Schadprogramme, G 0.23 Unbefugtes Eindringen, G 0.45 Datenverlust.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-3</span>
+          <span class="ref-tag ref-krt">KRT2023</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.6.1.2</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool werden KRT2023-Vorschläge automatisch aus den gewählten Anwendungen und Prozesstypen abgeleitet und in S6 zur Bewertung vorgelegt.</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="eintrittswahrscheinlichkeit wahrscheinlichkeit risiko">
+      <div class="term-head">
+        <div class="term-name">Eintrittswahrscheinlichkeit</div>
+        <div class="term-cat">Risiko · Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Einschätzung, wie wahrscheinlich es ist, dass eine Gefährdung tatsächlich eintritt. Im 4-stufigen BSI-Modell: <strong>selten</strong> (einmal in 10 Jahren), <strong>möglich</strong> (einmal in 5 Jahren), <strong>wahrscheinlich</strong> (einmal pro Jahr), <strong>sicher</strong> (mehrfach pro Jahr). Zusammen mit der Schadensauswirkung ergibt sich die Risikoeinstufung aus der Risikomatrix.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-3 Kap.4</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.6.1.2</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── G ──────────── -->
+    <div class="section-header" id="sec-G">
+      <span class="section-letter">G</span>
+      <span class="section-label">G</span>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="geltungsbereich scope isms">
+      <div class="term-head">
+        <div class="term-name">Geltungsbereich</div>
+        <div class="term-abbr">Scope</div>
+        <div class="term-cat">Methodik · ISMS</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Formaler und organisatorischer Umfang, in dem das ISMS angewendet wird. Beschreibt, <strong>wo</strong> und <strong>für wen</strong> das ISMS gilt. Umfasst alle relevanten Institutionseinheiten, Geschäftsprozesse, Standorte und Systeme. Muss verbindlich dokumentiert und von der Leitungsebene genehmigt werden. Nicht zu verwechseln mit dem <em>Informationsverbund</em>, der die inhaltlich-technische Abbildung ist.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.3.3.4</span>
+          <span class="ref-tag ref-gs">GS++ 7.3</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.4.3</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="grundschutz++ gs++ methodik">
+      <div class="term-head">
+        <div class="term-name">Grundschutz++</div>
+        <div class="term-abbr">GS++</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Weiterentwickelte ISMS-Methodik des BSI, die auf den bisherigen IT-Grundschutz-Standards aufbaut und diese mit modernen Ansätzen kombiniert. Strukturiert in 5 Prozessschritte (PDCA): <strong>PS 1</strong> Erhebung &amp; Planung, <strong>PS 2</strong> Anforderungsanalyse, <strong>PS 3</strong> Realisierung, <strong>PS 4</strong> Überwachung, <strong>PS 5</strong> Kontinuierliche Verbesserung. Nutzt OSCAL-basierte maschinenlesbare Kataloge. Stand: Einführungs- und Erprobungsphase (März 2026).</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">Leitfaden GS++ März 2026</span>
+          <span class="ref-tag ref-bsi">BSI 200-1/2/3</span>
+          <span class="ref-tag ref-iso">ISO 27001:2022</span>
+        </div>
+        <div class="term-note">Kombination aus BSI-Methodik und internationalem Standard — ermöglicht gleichzeitig IT-Grundschutz-Konformität und ISO 27001-Zertifizierung.</div>
+      </div>
+    </div>
+
+    <!-- ──────────── I ──────────── -->
+    <div class="section-header" id="sec-I">
+      <span class="section-letter">I</span>
+      <span class="section-label">I</span>
+    </div>
+
+    <div class="term-card cat-organisation" data-cat="organisation" data-term="isb informationssicherheitsbeauftragter">
+      <div class="term-head">
+        <div class="term-name">Informationssicherheits­beauftragter</div>
+        <div class="term-abbr">ISB</div>
+        <div class="term-cat">Organisation · Rolle</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Zentrale Rolle im ISMS. Der ISB ist für den Aufbau, Betrieb und die kontinuierliche Verbesserung des ISMS verantwortlich. Muss organisatorisch <strong>unabhängig</strong> sein — direkt der Leitungsebene unterstellt, nicht dem IT-Leiter. Benötigt eine Bestellungsurkunde. Braucht Stellvertreterregelung für Vertretungsfähigkeit.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.4</span>
+          <span class="ref-tag ref-gs">GS++ 2.7</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.5.3</span>
+        </div>
+        <div class="term-note">Der ISB ist nicht der „IT-Sicherheitsbeauftragte" — er umfasst die gesamte organisatorische, technische und physische Informationssicherheit.</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="isms informationssicherheitsmanagementsystem">
+      <div class="term-head">
+        <div class="term-name">Informationssicherheits­managementsystem</div>
+        <div class="term-abbr">ISMS</div>
+        <div class="term-cat">Methodik · System</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Planungs-, Lenkungs- und Kontrollsystem für die ganzheitliche Informationssicherheit einer Institution. Kein einmaliges Projekt, sondern ein <strong>kontinuierlicher PDCA-Prozess</strong>. Umfasst Strategien, Richtlinien, Prozesse, technische Maßnahmen und deren regelmäßige Überprüfung. Bildet die Grundlage für BSI-IT-Grundschutz und ISO 27001-Zertifizierungen.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-1</span>
+          <span class="ref-tag ref-gs">GS++ 7.4</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.4.4</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="informationsverbund iv verbund">
+      <div class="term-head">
+        <div class="term-name">Informationsverbund</div>
+        <div class="term-abbr">IV</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Gesamtheit aller <strong>infrastrukturellen, organisatorischen, personellen und technischen Objekte</strong>, die der Aufgabenerfüllung in einem bestimmten Anwendungsbereich dienen. Ein IV kann den gesamten ISMS-Geltungsbereich oder Teilbereiche umfassen. Für jeden IV wird ein eigenes Sicherheitskonzept erstellt. Mehrere IVs können einen gemeinsamen Geltungsbereich teilen.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8</span>
+          <span class="ref-tag ref-gs">GS++ 7.5 · STM.1</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool bildet ein IV die Schleife-1-Erfassung: Verbund-Definition, Stakeholder, Prozesse, Zielobjekte, Strukturmodell, Schutzbedarf.</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-norm" data-cat="norm" data-term="iso 27001 2022 norm standard zertifizierung">
+      <div class="term-head">
+        <div class="term-name">ISO/IEC 27001:2022</div>
+        <div class="term-cat">Norm · Zertifizierung</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Internationale Norm für ISMS. Definiert Anforderungen an Aufbau, Betrieb, Überwachung und Verbesserung eines ISMS. Der Anhang A enthält 93 Maßnahmenkontrollen (Controls) gegliedert in 4 Bereiche: Organisatorische Maßnahmen (5), Personenbezogene Maßnahmen (6), Physische Maßnahmen (7), Technologische Maßnahmen (8). Ein BSI-konformes IT-Grundschutz-ISMS erfüllt die Anforderungen der ISO 27001.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-iso">ISO/IEC 27001:2022</span>
+          <span class="ref-tag ref-iso">ISO/IEC 27002:2022</span>
+          <span class="ref-tag ref-bsi">BSI Zuordnung 6. Edition 2023</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="informationssicherheitseinstufung einstufung schutzbedarf prozess">
+      <div class="term-head">
+        <div class="term-name">Informationssicherheits­einstufung</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Prozessorientierte Zuordnung eines Schutzbedarfs zu Geschäftsprozessen und den darin verarbeiteten Informationen (GS++ STM.3). Stellt die Verbindung zwischen <strong>Geschäftsprozessen</strong> und <strong>Informationen</strong> in den Vordergrund. Ergebnis: Priorisierte Liste kritischer Geschäftsprozesse als Grundlage für die Anforderungsanalyse.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ STM.3 · 2.6</span>
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.2</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── K ──────────── -->
+    <div class="section-header" id="sec-K">
+      <span class="section-letter">K</span>
+      <span class="section-label">K</span>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="kernprozess geschäftsprozess kritisch">
+      <div class="term-head">
+        <div class="term-name">Kernprozess</div>
+        <div class="term-cat">Methodik · Prozess</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Im ISMS-Kontext: Die für den Informationsverbund zentralen Geschäftsprozesse, die direkt zur Aufgabenerfüllung beitragen. Kernprozesse sind das primäre Objekt der <strong>Schutzbedarfsfeststellung</strong>. Sie erhalten einen IV-spezifischen Schutzbedarf (Normal / Hoch) und lösen bei Hoch eine vollständige Risikoanalyse nach BSI 200-3 aus. Alle anderen Prozesstypen (Mgmt, Unterstützung) erben zunächst Normal.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.2</span>
+          <span class="ref-tag ref-gs">GS++ 2.6</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.8.2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-tool" data-cat="tool" data-term="krt kreuzreferenztabelle 2023 gefährdung baustein">
+      <div class="term-head">
+        <div class="term-name">Kreuzreferenz­tabelle</div>
+        <div class="term-abbr">KRT2023</div>
+        <div class="term-cat">Werkzeug</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Excel-basiertes BSI-Werkzeug, das für jeden Baustein des IT-Grundschutz-Kompendiums 2023 dokumentiert, welche <strong>Elementaren Gefährdungen (G 0.x)</strong> welche Anforderungen beeinflussen. Enthält 111 Bausteine und über 1.836 Anforderungen mit Gefährdungszuordnung. Ermöglicht eine strukturierte Risikoanalyse nach BSI 200-3: Welche Gefährdungen sind für diesen Baustein relevant?</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-krt">KRT2023</span>
+          <span class="ref-tag ref-bsi">IT-GS Kompendium 2023</span>
+          <span class="ref-tag ref-bsi">BSI 200-3</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── M ──────────── -->
+    <div class="section-header" id="sec-M">
+      <span class="section-letter">M</span>
+      <span class="section-label">M</span>
+    </div>
+
+    <div class="term-card cat-risiko" data-cat="risiko" data-term="maximalprinzip schutzbedarfsvererbung vererbung">
+      <div class="term-head">
+        <div class="term-name">Maximalprinzip</div>
+        <div class="term-cat">Risiko · Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Regelung der <strong>Schutzbedarfsvererbung</strong> in der Strukturmodellierung: Ein Objekt erbt den höchsten Schutzbedarf aller Prozesse oder Objekte, die von ihm abhängen. Beispiel: Verarbeitet ein Server sowohl Prozesse mit Schutzbedarf Normal als auch Hoch, erhält der Server insgesamt Schutzbedarf Hoch. Verhindert, dass kritische Komponenten unzureichend geschützt werden.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.3</span>
+          <span class="ref-tag ref-gs">GS++ STM.4</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="maßnahme sicherheitsmaßnahme umsetzung">
+      <div class="term-head">
+        <div class="term-name">Maßnahme</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Alle Aktionen, die dazu dienen, Sicherheitsrisiken zu steuern und Anforderungen zu erfüllen. Maßnahmen beschreiben das <strong>Wie</strong> — im Gegensatz zu Anforderungen, die das <strong>Was</strong> definieren. Umfasst organisatorische, personelle, technische und infrastrukturelle Maßnahmen. Werden in PS 3 (Realisierung) geplant, umgesetzt und in PS 4 auf Wirksamkeit geprüft.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ 7.6</span>
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.9</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── O ──────────── -->
+    <div class="section-header" id="sec-O">
+      <span class="section-letter">O</span>
+      <span class="section-label">O</span>
+    </div>
+
+    <div class="term-card cat-tool" data-cat="tool" data-term="oscal open security controls format maschinenlesbar">
+      <div class="term-head">
+        <div class="term-name">OSCAL</div>
+        <div class="term-abbr">Open Security Controls Assessment Language</div>
+        <div class="term-cat">Werkzeug · Format</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Maschinenlesbares, standardisiertes Datenformat (NIST) für Sicherheitskontrollen und -anforderungen. Der GS++ Anwenderkatalog ist in OSCAL-basiertem JSON/XML verfügbar, was Automatisierung, Tool-Integration und interoperable Verarbeitung ermöglicht. Grundlage für die tool-gestützte Umsetzung der GS++ Methodik.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ Leitfaden 2026</span>
+          <span class="ref-tag ref-tool">NIST OSCAL</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── P ──────────── -->
+    <div class="section-header" id="sec-P">
+      <span class="section-letter">P</span>
+      <span class="section-label">P</span>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="pdca plan do check act zyklus verbesserung">
+      <div class="term-head">
+        <div class="term-name">PDCA-Zyklus</div>
+        <div class="term-abbr">Plan · Do · Check · Act</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Grundstruktur für kontinuierliche Verbesserung im ISMS. <strong>Plan</strong>: Planung (GS++ PS 1–2, Erhebung &amp; Anforderungsanalyse). <strong>Do</strong>: Umsetzung (PS 3, Realisierung). <strong>Check</strong>: Überwachung und Prüfung (PS 4, Monitoring &amp; Audit). <strong>Act</strong>: Verbesserung (PS 5, Korrekturmaßnahmen). Das ISMS ist kein Projekt, sondern ein dauerhafter Kreislauf.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-1</span>
+          <span class="ref-tag ref-gs">GS++ 1.4.6</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.10</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="praktik gs++ anforderungen tätigkeiten">
+      <div class="term-head">
+        <div class="term-name">Praktik</div>
+        <div class="term-cat">Methodik · GS++</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">GS++-spezifisches Konzept: Praktiken bündeln Anforderungen nach Tätigkeiten, deren Zuständigkeit bestimmten <strong>Rollen</strong> zuordenbar ist. Jede Anforderung ist in genau einer Praktik. Drei Typen: <strong>ISMS-Praktiken</strong> (übergreifend, z.B. GC, STM, UMS, VRB, PERF), <strong>Organisatorische Praktiken</strong> (ASST, PERS, BES, DLS, TEST, GEB, SENS), <strong>Technische Praktiken</strong> (ARCH, BER, NOT, DET, REA, KONF, DEV). Ermöglichen schnelle Rollenzuordnung.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ 7.7</span>
+          <span class="ref-tag ref-gs">Anwenderkatalog GS++ 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── R ──────────── -->
+    <div class="section-header" id="sec-R">
+      <span class="section-letter">R</span>
+      <span class="section-label">R</span>
+    </div>
+
+    <div class="term-card cat-risiko" data-cat="risiko" data-term="risikoanalyse risikobetrachtung bsi 200-3">
+      <div class="term-head">
+        <div class="term-name">Risikoanalyse</div>
+        <div class="term-cat">Risiko</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Systematische Identifikation, Einschätzung und Bewertung von Risiken. Im IT-Grundschutz erforderlich bei: <strong>Schutzbedarf Hoch</strong>, negativen Änderungen des Sicherheitsniveaus, oder Nicht-Umsetzung von Anforderungen. Die <strong>Risikomatrix</strong> verbindet Eintrittswahrscheinlichkeit (4 Stufen) × Schadensauswirkung (4 Stufen) zu einer Gesamteinstufung: gering → mittel → hoch → kritisch.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-3</span>
+          <span class="ref-tag ref-gs">GS++ 3.8</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.6.1.2</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool: Für jede Elementare Gefährdung wird in S6 eine eigene Zeile mit Eintrittswahrscheinlichkeit, Schadensauswirkung und Risikoeinstufung erstellt. N/A-Option für nicht zutreffende Gefährdungen.</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-organisation" data-cat="organisation" data-term="risikoeigentümer owner verantwortung">
+      <div class="term-head">
+        <div class="term-name">Risikoeigentümer</div>
+        <div class="term-cat">Organisation · Rolle</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Rolle, die die <strong>Gesamtverantwortung für identifizierte Risiken</strong> trägt und deren Behandlung verantwortet. Trägt die Leitungsverantwortung für das Risikomanagement. Stellt durch das ISMS die Erfüllung rechtlicher und organisatorischer Verpflichtungen sicher. Im GS++ wird der Risikoeigentümer im IV-Kontext (S1) erfasst.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ 2.10</span>
+          <span class="ref-tag ref-bsi">BSI 200-3</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.6.1.2</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── S ──────────── -->
+    <div class="section-header" id="sec-S">
+      <span class="section-letter">S</span>
+      <span class="section-label">S</span>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="schadensauswirkung schaden auswirkung risiko">
+      <div class="term-head">
+        <div class="term-name">Schadensauswirkung</div>
+        <div class="term-cat">Risiko · Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Einschätzung, wie gravierend die Folgen wären, wenn eine Gefährdung tatsächlich eintritt. 4 Stufen: <strong>gering</strong> (begrenzt, beherrschbar), <strong>mittel</strong> (erheblich, aber überwindbar), <strong>hoch</strong> (existenzgefährdend), <strong>kritisch</strong> (katastrophal, nicht beherrschbar). Zusammen mit der Eintrittswahrscheinlichkeit wird daraus die Risikoeinstufung bestimmt.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-3 Kap.4</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.6.1.2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="schutzbedarf normal hoch vertraulichkeit integrität verfügbarkeit viv">
+      <div class="term-head">
+        <div class="term-name">Schutzbedarf</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Beschreibt, wie stark Geschäftsprozesse, Informationen oder Systeme geschützt werden müssen. Im GS++ zwei Stufen: <strong>Normal</strong> (Basis-Schutzmaßnahmen nach Stand der Technik) und <strong>Hoch</strong> (erhöhter Schutzbedarf, Risikoanalyse erforderlich). Bewertet wird anhand der drei <strong>Schutzziele</strong>: <em>Vertraulichkeit</em> (V), <em>Integrität</em> (I), <em>Verfügbarkeit</em> (V).</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.2</span>
+          <span class="ref-tag ref-gs">GS++ 7.9</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.6.1.2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="schutzbedarfsfeststellung feststellung prozess bewertung">
+      <div class="term-head">
+        <div class="term-name">Schutzbedarf­feststellung</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Formaler Prozess zur Ermittlung des Schutzbedarfs aller im Informationsverbund erfassten Objekte. Beginnt bei Kernprozessen und überträgt sich per <strong>Maximalprinzip</strong> auf zugehörige Systeme und Infrastruktur. Ergebnis: Klassifikation als Normal oder Hoch, mit Begründung. Bei Hoch: Übergang in die Risikoanalyse nach BSI 200-3.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.2</span>
+          <span class="ref-tag ref-gs">GS++ STM.3</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="sicherheitsniveau normal erhöht stand technik">
+      <div class="term-head">
+        <div class="term-name">Sicherheitsniveau</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Erfüllungsgrad von Sicherheitszielen durch umgesetzte Maßnahmen. Zwei Stufen im GS++: <strong>Normal (Stand der Technik)</strong> — alle Anforderungen der technischen und organisatorischen Praktiken umgesetzt. <strong>Erhöht</strong> — zusätzliche Anforderungen aus der Risikoanalyse umgesetzt. Höheres Sicherheitsniveau beeinflusst die Reihenfolge bei der Umsetzung von Anforderungen.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ 7.12</span>
+          <span class="ref-tag ref-bsi">BSI 200-2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="sicherheitsleitlinie leitlinie informationssicherheit policy">
+      <div class="term-head">
+        <div class="term-name">Sicherheitsleitlinie</div>
+        <div class="term-cat">Methodik · Dokument</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Zentrales Dokument, das Zweck, Ziele, Strategie und Verantwortlichkeiten der Informationssicherheit festlegt. Muss von der <strong>Leitungsebene unterzeichnet</strong> und an alle Mitarbeitenden kommuniziert werden. Enthält: Informationssicherheitsziele, Sicherheitsstrategie, Benennung des ISB, Verpflichtung zur kontinuierlichen Verbesserung. Jährliche Überprüfung empfohlen.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-1 Kap.3</span>
+          <span class="ref-tag ref-gs">GS++ 2.4 · 7.11</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.5.2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-organisation" data-cat="organisation" data-term="stakeholder interessierte parteien beteiligte">
+      <div class="term-head">
+        <div class="term-name">Stakeholder</div>
+        <div class="term-cat">Organisation</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Alle Personen, Gruppen oder Institutionen, die ein berechtigtes Interesse an der Informationssicherheit der Institution haben oder von ihr betroffen sind. <strong>Intern</strong>: Leitungsebene, Mitarbeitende, ISB, DSB, Betriebsrat. <strong>Extern</strong>: Kunden, Dienstleister, Aufsichtsbehörden, Gesetzgeber, Öffentlichkeit. Ihre Anforderungen sind in der ISMS-Planung (PS 1) zu berücksichtigen.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.3.2</span>
+          <span class="ref-tag ref-gs">GS++ 2.3</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.4.2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="strukturanalyse strukturmodellierung schichtenmodell ebenen">
+      <div class="term-head">
+        <div class="term-name">Strukturmodellierung</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Schichtenbasierte Darstellung aller sicherheitsrelevanten Komponenten eines Informationsverbunds. 6 Ebenen: <strong>O</strong> (Verantwortung / Stakeholder), <strong>B</strong> (Geschäftsprozesse), <strong>A</strong> (Anwendungen), <strong>S</strong> (Systeme), <strong>H</strong> (Hardware), <strong>I</strong> (Infrastruktur / Netz / Gebäude). Verbindungen zwischen Ebenen ermöglichen die Schutzbedarfsvererbung nach dem Maximalprinzip.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.3</span>
+          <span class="ref-tag ref-gs">GS++ STM.4</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool: S0-4 = org-weites Modell (einmalig). S5 = IV-spezifisches Modell (je Informationsverbund).</div>
+      </div>
+    </div>
+
+    <div class="term-card cat-norm" data-cat="norm" data-term="stand der technik sdt sicherheitsniveau normal">
+      <div class="term-head">
+        <div class="term-name">Stand der Technik</div>
+        <div class="term-abbr">SdT</div>
+        <div class="term-cat">Norm · Standard</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Der Entwicklungsstand fortschrittlicher Verfahren, Einrichtungen und Betriebsweisen, der die praktische Eignung einer Maßnahme zur Erreichung des gesetzlich vorgeschriebenen Schutzniveaus gesichert erscheinen lässt. Im GS++ entspricht „Normal" dem <strong>Stand der Technik</strong>. Der BSI-Anwenderkatalog GS++ orientiert sich an der Stand-der-Technik-Bibliothek (SDT Community, GitHub).</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">IT-Sicherheitsgesetz 2.0</span>
+          <span class="ref-tag ref-gs">GS++ 7.12</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── V ──────────── -->
+    <div class="section-header" id="sec-V">
+      <span class="section-letter">V</span>
+      <span class="section-label">V</span>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="vererbung schutzbedarfsvererbung abhängigkeit">
+      <div class="term-head">
+        <div class="term-name">Vererbung</div>
+        <div class="term-cat">Methodik</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Im Kontext der <strong>Zielobjekthierarchie</strong>: Anforderungen übergeordneter Kategorien gelten automatisch auch für alle untergeordneten Kategorien. Beispiel: Anforderungen für „IT-Systeme" gelten auch für „Hostsysteme" und „Endgeräte". Im Kontext der <strong>Strukturmodellierung</strong>: Der Schutzbedarf eines Prozesses wird nach dem Maximalprinzip auf alle abhängigen Ebenen vererbt.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ 3.5.1</span>
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.3</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────── W ──────────── -->
+    <div class="section-header" id="sec-W">
+      <span class="section-letter">W</span>
+      <span class="section-label">W</span>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="wiedervorlage wiedervorlagedatum frist review überprüfung">
+      <div class="term-head">
+        <div class="term-name">Wiedervorlage</div>
+        <div class="term-cat">Methodik · ISMS</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Geplanter Termin zur Überprüfung und Aktualisierung von ISMS-relevanten Dokumenten, Prozessen oder Maßnahmen. Typische Fristen nach BSI Best Practice: Sicherheitsleitlinie und Organigramm jährlich, Beschaffungsrichtlinien alle 3 Jahre, Schulungskonzept jährlich. Kernprozesse: jährliche Überprüfung nach BSI 200-1 Kap.3 / ISO 27001 Kap.9.3 (Management Review).</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-1 Kap.3</span>
+          <span class="ref-tag ref-iso">ISO 27001 Kap.9.3</span>
+          <span class="ref-tag ref-gs">GS++ PERF</span>
+        </div>
+        <div class="term-note">Im GS++ ISMS-Tool: Das Wiedervorlage-Dashboard (S7) zeigt alle fälligen Termine farbkodiert — 🔴 überfällig, 🟡 ≤60 Tage, 🟢 gültig.</div>
+      </div>
+    </div>
+
+    <!-- ──────────── Z ──────────── -->
+    <div class="section-header" id="sec-Z">
+      <span class="section-letter">Z</span>
+      <span class="section-label">Z</span>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="zielobjekt zielobjektkategorie kategorie hierarchie">
+      <div class="term-head">
+        <div class="term-name">Zielobjektkategorie</div>
+        <div class="term-cat">Methodik · GS++</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Standardisierte Klassen im GS++, denen Anforderungen zugeordnet werden. Der GS++ kennt 31 Zielobjektkategorien in 4 Hierarchie-Ebenen mit 6 Wurzelknoten: <strong>Standorte</strong>, <strong>Nutzende</strong>, <strong>Netze</strong>, <strong>IT-Systeme</strong>, <strong>Informationen</strong>, <strong>Anwendungen</strong>. Assets werden in der Asset-Modellierung diesen Kategorien zugeordnet. Die Kategorien-Hierarchie ermöglicht Anforderungsvererbung von übergeordneten zu spezifischeren Kategorien.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-gs">GS++ 3.4.2 · 7.13</span>
+          <span class="ref-tag ref-gs">GS++ Abb. 6</span>
+          <span class="ref-tag ref-bsi">BSI 200-2 Kap.8.1</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-card cat-methodik" data-cat="methodik" data-term="zweischleifig schleife 0 schleife 1 organisation iv">
+      <div class="term-head">
+        <div class="term-name">Zwei-Schleifen-Modell</div>
+        <div class="term-cat">Methodik · Tool</div>
+      </div>
+      <div class="term-body">
+        <div class="term-def">Strukturierung des GS++ ISMS-Tools in zwei Ebenen: <strong>Schleife 0</strong> (organisationsweite Stammdaten, einmalig): Mgmt-Prozesse, Unterstützungsprozesse, Pflichtdokumente, organisationsweite Strukturmodellierung und Basis-Schutzbedarf. <strong>Schleife 1</strong> (IV-spezifisch, wiederholbar je Informationsverbund): Verbund-Definition, Stakeholder, Prozesse, Zielobjekte, Strukturmodell, Schutzbedarf, Export.</div>
+        <div class="term-refs">
+          <span class="ref-tag ref-bsi">BSI 200-2</span>
+          <span class="ref-tag ref-gs">GS++ PS 1–2</span>
+        </div>
+        <div class="term-note">Stammdaten (Schleife 0) können als .isms-sd Datei gespeichert und in jeden neuen Informationsverbund importiert werden.</div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <span>BSI IT-Grundschutz Glossar · GS++ Methodik v2026 · IT-GS-Kompendium 2023</span>
+  <span>Kein amtliches BSI-Dokument · Interne Arbeitshilfe</span>
+</footer>
+
+<script>
+// ── Alpha index builder ──
+const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+const usedLetters = new Set([...'ABCDEFGIKMNOPRSUSVWZ']);
+const alphaEl = document.getElementById('alpha-index');
+letters.forEach(l => {
+  const a = document.createElement('a');
+  a.href = `#sec-${l}`;
+  a.className = 'alpha-link' + (usedLetters.has(l) ? ' has' : '');
+  a.textContent = l;
+  if (!usedLetters.has(l)) {
+    a.style.opacity = '.35';
+    a.style.cursor = 'default';
+    a.href = '#';
+    a.onclick = e => e.preventDefault();
+  }
+  alphaEl.appendChild(a);
+});
+
+// ── Search ──
+let currentCat = 'all';
+function filterGlossar(q) {
+  const cards = document.querySelectorAll('.term-card');
+  const query = q.toLowerCase().trim();
+  let visible = 0;
+  cards.forEach(c => {
+    const terms = c.dataset.term || '';
+    const name = c.querySelector('.term-name')?.textContent || '';
+    const def = c.querySelector('.term-def')?.textContent || '';
+    const catMatch = currentCat === 'all' || c.dataset.cat === currentCat;
+    const textMatch = !query || terms.includes(query) || name.toLowerCase().includes(query) || def.toLowerCase().includes(query);
+    const show = catMatch && textMatch;
+    c.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+  updateSectionVisibility();
+  const count = document.getElementById('search-count');
+  count.textContent = query ? `${visible} Begriff${visible !== 1 ? 'e' : ''} gefunden` : '';
+  document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
+}
+
+function filterCat(cat, btn) {
+  currentCat = cat;
+  document.querySelectorAll('.cat-link').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterGlossar(document.getElementById('search-input').value);
+}
+
+function updateSectionVisibility() {
+  document.querySelectorAll('.section-header').forEach(h => {
+    const id = h.id.replace('sec-', '');
+    const nextCards = [];
+    let el = h.nextElementSibling;
+    while (el && !el.classList.contains('section-header')) {
+      if (el.classList.contains('term-card')) nextCards.push(el);
+      el = el.nextElementSibling;
+    }
+    const anyVisible = nextCards.some(c => !c.classList.contains('hidden'));
+    h.style.display = anyVisible ? '' : 'none';
+  });
+}
+
+// ── Scroll highlight for alpha ──
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('.section-header');
+  let current = '';
+  sections.forEach(s => {
+    if (s.getBoundingClientRect().top < 80) current = s.id.replace('sec-', '');
+  });
+  document.querySelectorAll('.alpha-link.has').forEach(a => {
+    a.style.background = a.textContent === current ? 'var(--bsi-blue)' : '';
+    a.style.color = a.textContent === current ? '#fff' : '';
+    a.style.borderColor = a.textContent === current ? 'var(--bsi-blue)' : '';
+  });
+});
+</script>
+</body>
+</html>
 
