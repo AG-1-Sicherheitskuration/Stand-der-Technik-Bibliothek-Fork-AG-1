@@ -8,7 +8,7 @@ Komponenten: 10 → 7 (3 Komponenten entfernt/konsolidiert)
 Capabilities: 2 → 1 (1 Capability entfernt)
 
 Was sich konkret geändert hat:
-Entfernt (Datei 1)Neu/Umbenannt (Datei 2)
+Entfernt (Datei 12.04 )Neu/Umbenannt (Datei 05.06 )
 
 Anlassbezogene Passwortwechsel→ zusammengefasst in Passwortrichtlinie
 
