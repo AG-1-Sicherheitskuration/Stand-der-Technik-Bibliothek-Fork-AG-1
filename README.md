@@ -1,7 +1,23 @@
-Update Sync 09.06.2026 9:15
+Update Sync 09.06.2026 9:15 Was hat sich geändert:
+---
+Änderungen der Passwortrichtlinien (Kurzfassung)
+Version Update: 12.04.2026 → 05.06.2026
+Struktur-Änderungen:
 
+Komponenten: 10 → 7 (3 Komponenten entfernt/konsolidiert)
+Capabilities: 2 → 1 (1 Capability entfernt)
 
-Die AG hat die Aufgabe sich an der inhaltlichen Verbesserung und Weiterentwicklung der Anforderungen und Maßnahmen in der Stand-der-Technik – Bibliothek und zur Sicherung der Qualität und Aktualität zu beteiligen.
+Was sich konkret geändert hat:
+Entfernt (Datei 1)Neu/Umbenannt (Datei 2)Anlassbezogene Passwortwechsel→ zusammengefasst in PasswortrichtlinieBlockieren von Passwort Recycling→ Blockieren von Passwort-Recycling (Umbenennung)Trivialpasswörter→ Blockieren von Trivialpasswörtern (Umstrukturiert)Passwortmanager→ Bereitgestellter Passwortmanager (Präzisiert)—→ Deaktivierung vorkonfigurierter Authentisierungsmittel (Neu)—→ MFA- und Biometriekonfiguration (Neu)
+Weggelassen ohne Ersatz:
+
+Einhaltung der Löschfristen
+Entsperr- und Wiederherstellungsverfahren
+Gruppenkonten-Passwortwechsel
+Kriterien für Passwortqualität
+Weisung zur Erstellung von Passwörtern
+---
+Die AG 1 hat die Aufgabe sich an der inhaltlichen Verbesserung und Weiterentwicklung der Anforderungen und Maßnahmen in der Stand-der-Technik – Bibliothek und zur Sicherung der Qualität und Aktualität zu beteiligen.
 
 Erste Aufgaben sollte die Festlegung eines gemeinsamen Verständnis der QS sein. Hierzu wird eine Diskussion gestartet.
 
@@ -15,10 +31,9 @@ Welche Bereiche werden / wurden bearbeitet Tabelle
 Übergreifende Themen (Diskussionen)
 
 |ISMS|jetzt--> Methodik
-|Technik|
-|Organisation|
 
-Die Tabelle wird weiter gefüllt
+Verantwortlichkeiten aller Praktiken
+
 
 # Stand der Technik Bibliothek
 
