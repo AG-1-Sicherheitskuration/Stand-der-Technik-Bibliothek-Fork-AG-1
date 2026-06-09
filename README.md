@@ -8,14 +8,35 @@ Komponenten: 10 → 7 (3 Komponenten entfernt/konsolidiert)
 Capabilities: 2 → 1 (1 Capability entfernt)
 
 Was sich konkret geändert hat:
-Entfernt (Datei 1)Neu/Umbenannt (Datei 2)Anlassbezogene Passwortwechsel→ zusammengefasst in PasswortrichtlinieBlockieren von Passwort Recycling→ Blockieren von Passwort-Recycling (Umbenennung)Trivialpasswörter→ Blockieren von Trivialpasswörtern (Umstrukturiert)Passwortmanager→ Bereitgestellter Passwortmanager (Präzisiert)—→ Deaktivierung vorkonfigurierter Authentisierungsmittel (Neu)—→ MFA- und Biometriekonfiguration (Neu)
+Entfernt (Datei 1)Neu/Umbenannt (Datei 2)
+
+Anlassbezogene Passwortwechsel→ zusammengefasst in Passwortrichtlinie
+
+Blockieren von Passwort Recycling→ Blockieren von Passwort-Recycling (Umbenennung)
+
+Trivialpasswörter→ Blockieren von Trivialpasswörtern (Umstrukturiert)
+
+Passwortmanager→ Bereitgestellter Passwortmanager (Präzisiert)
+
+—→ Deaktivierung vorkonfigurierter Authentisierungsmittel (Neu)
+
+—→ MFA- und Biometriekonfiguration (Neu)
+
+---
+
+
 Weggelassen ohne Ersatz:
 
 Einhaltung der Löschfristen
+
 Entsperr- und Wiederherstellungsverfahren
+
 Gruppenkonten-Passwortwechsel
+
 Kriterien für Passwortqualität
+
 Weisung zur Erstellung von Passwörtern
+
 ---
 Die AG 1 hat die Aufgabe sich an der inhaltlichen Verbesserung und Weiterentwicklung der Anforderungen und Maßnahmen in der Stand-der-Technik – Bibliothek und zur Sicherung der Qualität und Aktualität zu beteiligen.
 
