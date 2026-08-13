@@ -1,11 +1,11 @@
 {
   "catalog": {
-    "uuid": "2769d1c5-1481-4f88-b21f-cc60bd7692df",
+    "uuid": "d1ac46ff-2c26-4581-bcf3-de010aee028d",
     "metadata": {
       "title": "BSI Methodik Grundschutz++",
-      "published": "2026-07-29T06:41:30.788828+00:00",
-      "last-modified": "2026-07-29T06:41:30.788828+00:00",
-      "version": "2026-07-29T06:41:30.661595+00:00",
+      "published": "2026-08-13T04:09:55.033369+00:00",
+      "last-modified": "2026-08-13T04:09:55.033369+00:00",
+      "version": "2026-08-13T04:09:54.920935+00:00",
       "oscal-version": "1.1.3",
       "document-ids": [
         {
@@ -96,7 +96,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "80351189-6ffc-495e-a995-6219b9704724"
+                        "value": "1334b334-6fad-4595-97eb-3bb27c13e64b"
                       }
                     ]
                   }
@@ -366,7 +366,7 @@
                   },
                   {
                     "name": "tags",
-                    "value": "Compliance Management",
+                    "value": "Compliance-Management",
                     "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/tags.csv"
                   }
                 ],
@@ -431,7 +431,7 @@
                       },
                       {
                         "name": "tags",
-                        "value": "Compliance Management, Inventories",
+                        "value": "Compliance-Management, Inventories",
                         "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/tags.csv"
                       }
                     ],
@@ -466,7 +466,7 @@
                       {
                         "id": "GC.3.1.1_gdn",
                         "name": "guidance",
-                        "prose": "Gesetzliche Verpflichtungen, welche die Verarbeitung von Informationen durch die Institution betreffen, sind dokumentiert. Gesetzliche Verpflichtungen meint alle Pflichten, die sich unmittelbar aus dem Recht ergeben, inklusive des Verfassungsrechts, Europarechts und Verordnungen. Relevante gesetzliche Verpflichtungen können sich je nach Institution z. B. aus Grundrechten, Cyber Resilience Act, Data Act, Data Markets Act, NIS, DSGVO, BDSG, TKG, TDDDG oder GeschGehG ergeben. Hierbei werden Verpflichtungen, die sich mittelbar auswirken wie die Arbeitsstättenverordnung oder allgemeine Regelungen zur Fürsorgepflicht, auch beachtet."
+                        "prose": "Gesetzliche Verpflichtungen, welche die Verarbeitung von Informationen durch die Institution betreffen, sind dokumentiert. Gesetzliche Verpflichtungen meint alle Pflichten, die sich unmittelbar aus dem Recht ergeben, inklusive des Verfassungsrechts, Europarechts und Verordnungen. Relevante gesetzliche Verpflichtungen können sich je nach Institution z. B. aus Grundrechten, Cyber Resilience Act, Data Act, Digital Markets Act, NIS, DSGVO, BDSG, TKG, TDDDG oder GeschGehG ergeben. Hierbei werden Verpflichtungen, die sich mittelbar auswirken wie die Arbeitsstättenverordnung oder allgemeine Regelungen zur Fürsorgepflicht, auch beachtet."
                       }
                     ]
                   },
@@ -491,7 +491,7 @@
                       },
                       {
                         "name": "tags",
-                        "value": "Compliance Management",
+                        "value": "Compliance-Management",
                         "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/tags.csv"
                       }
                     ],
@@ -551,7 +551,7 @@
                       },
                       {
                         "name": "tags",
-                        "value": "Compliance Management",
+                        "value": "Compliance-Management",
                         "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/tags.csv"
                       }
                     ],
@@ -611,7 +611,7 @@
                       },
                       {
                         "name": "tags",
-                        "value": "Compliance Management",
+                        "value": "Compliance-Management",
                         "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/tags.csv"
                       }
                     ],
@@ -790,7 +790,7 @@
                   {
                     "id": "GC.4.2_gdn",
                     "name": "guidance",
-                    "prose": "Alle relevanten externen interessierten Parteien werden ermittelt. Die internen interessierten Parteien umfassen beispielsweise: Geschäftsführung, ISB, DSB, Mitarbeiter, Führungskräfte, Betriebsrat/Personalrat."
+                    "prose": "Alle relevanten internen interessierten Parteien werden ermittelt. Die internen interessierten Parteien umfassen beispielsweise: Geschäftsführung, ISB, DSB, Mitarbeiter, Führungskräfte, Betriebsrat/Personalrat."
                   }
                 ],
                 "links": [
@@ -1235,7 +1235,7 @@
           },
           {
             "id": "GC.7",
-            "title": "Infomationssicherheitseinstufung",
+            "title": "Informationssicherheitseinstufung",
             "props": [
               {
                 "name": "label",
@@ -1249,7 +1249,7 @@
             "controls": [
               {
                 "id": "GC.7.1",
-                "title": "Vorgehen bei der Infomationssicherheitseinstufung",
+                "title": "Vorgehen bei der Informationssicherheitseinstufung",
                 "class": "BSI-Methodik-Grundschutz-plus-plus",
                 "props": [
                   {
@@ -1681,7 +1681,7 @@
                         "props": [
                           {
                             "name": "alt-identifier",
-                            "value": "5cc59bb1-af0d-457f-a548-03373447fec7"
+                            "value": "de45cc2e-026e-40fb-8af2-c9ecb6a6ca12"
                           }
                         ]
                       }
@@ -1753,7 +1753,7 @@
                             "props": [
                               {
                                 "name": "alt-identifier",
-                                "value": "96ebe8f3-2419-45d0-b981-dc973d21c17c"
+                                "value": "b329ef41-4e5a-4c06-9f2c-12964662425c"
                               }
                             ]
                           }
@@ -2222,7 +2222,7 @@
                         "props": [
                           {
                             "name": "alt-identifier",
-                            "value": "6ccbc3f1-0984-4b12-86f2-708d40e9b635"
+                            "value": "9b7f8f35-5488-449b-a86f-2a64c266d8d0"
                           }
                         ]
                       }
@@ -3554,7 +3554,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "e2c90fc0-e6e5-4a89-8099-39360b6e8eb9"
+                        "value": "5e16b7d0-1b96-4624-8a20-ab93a8f5269f"
                       }
                     ]
                   }
@@ -3716,7 +3716,7 @@
                   {
                     "id": "UMS.2.1_gdn",
                     "name": "guidance",
-                    "prose": "Je nach Organisation ist eine strukturierte Vorgehensweise festzulegen. Dabei empfiehlt es sich zu prüfen, ob Maßnahmen etabliert sind, die mehrere Anforderungen zugleich abdecken. Ebenso werden Synergieeffekte erschlossen, indem ähnliche Defizite in anderen Bereichen identifiziert und mit gemeinsamen Lösungen adressiert werden. Das Ergebnis dieser Anforderung ist die Überführung des unstrukturierten Anforderungspakets hin zu einem strukturierten Umsetzungsplans."
+                    "prose": "Je nach Organisation ist eine strukturierte Vorgehensweise festzulegen. Dabei empfiehlt es sich zu prüfen, ob Maßnahmen etabliert sind, die mehrere Anforderungen zugleich abdecken. Ebenso werden Synergieeffekte erschlossen, indem ähnliche Defizite in anderen Bereichen identifiziert und mit gemeinsamen Lösungen adressiert werden. Das Ergebnis dieser Anforderung ist die Überführung des unstrukturierten Anforderungspakets hin zu einem strukturierten Umsetzungsplan."
                   }
                 ]
               },
@@ -3757,7 +3757,7 @@
                       },
                       {
                         "name": "result_specification",
-                        "value": "auf Basis der der Risikobewertung, Abhängigkeiten und Ressourcenverfügbarkeit",
+                        "value": "auf Basis der Risikobewertung, Abhängigkeiten und Ressourcenverfügbarkeit",
                         "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/result.csv"
                       },
                       {
@@ -3771,7 +3771,7 @@
                         "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/modal_verbs.csv"
                       }
                     ],
-                    "prose": "Umsetzung MUSS eine Priorisierung der festgelegten Maßnahmen auf Basis der der Risikobewertung, Abhängigkeiten und Ressourcenverfügbarkeit festlegen."
+                    "prose": "Umsetzung MUSS eine Priorisierung der festgelegten Maßnahmen auf Basis der Risikobewertung, Abhängigkeiten und Ressourcenverfügbarkeit festlegen."
                   },
                   {
                     "id": "UMS.2.2_gdn",
@@ -3988,7 +3988,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "c3e9f936-827a-4af2-a750-0777a082477d"
+                        "value": "5bcb7c62-7ecd-4286-9b75-a2881fdb3a82"
                       }
                     ]
                   }
@@ -4275,7 +4275,7 @@
                   },
                   {
                     "name": "tags",
-                    "value": "Compliance Management",
+                    "value": "Compliance-Management",
                     "ns": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/tags.csv"
                   }
                 ],
@@ -4515,7 +4515,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "b2be1d91-1744-467f-abd1-7bcde818fd65"
+                        "value": "2ac14d52-0a0e-4be2-a746-b11c6501e86b"
                       }
                     ]
                   }
@@ -4891,7 +4891,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "89d9eada-bcdb-4b47-a3de-b26e22cca2a4"
+                        "value": "36153501-7480-4470-b779-5098c4f76fb5"
                       }
                     ]
                   }
@@ -5186,7 +5186,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "ffabec9a-1a60-4edc-bdbb-adc79c43d7c8"
+                        "value": "36840492-0e82-4cba-906d-0b111400b6db"
                       }
                     ]
                   }
@@ -5253,7 +5253,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "1d6e2d9d-a9b9-46cb-9079-a2587c90c661"
+                        "value": "23b05903-b67f-40c9-97ce-9878ba141fba"
                       }
                     ]
                   }
@@ -5341,7 +5341,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "9bb16672-4394-4ce9-bd14-12a080233f7a"
+                        "value": "1aefe6a8-956b-42b8-b47c-bf31fbb521de"
                       }
                     ]
                   }
@@ -5897,7 +5897,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "f9cf8bd8-9a68-4294-9e33-ab7b4f28c68c"
+                        "value": "ed6e6c46-c341-42ac-8d7f-f2337c4d2c0a"
                       }
                     ]
                   }
@@ -6511,7 +6511,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "5d8dccb2-5fea-43c1-a804-0b49f481a1ca"
+                        "value": "57cd11be-8664-4036-90f2-b09dc91723fb"
                       }
                     ]
                   }
@@ -6600,7 +6600,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "17e221bd-3b74-453a-ad4e-e2cb346b6af5"
+                        "value": "698213de-6178-4d8b-8931-059ab5542c9f"
                       }
                     ]
                   }

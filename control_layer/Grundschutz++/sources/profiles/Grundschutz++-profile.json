@@ -1,10 +1,10 @@
 {
   "profile": {
-    "uuid": "28cc9ebd-4157-4fc3-9bfd-9342225eaf53",
+    "uuid": "2fd453f3-cf5c-471a-83dd-de999bb70858",
     "metadata": {
       "title": "Anwenderkatalog Grundschutz++",
-      "last-modified": "2026-07-29T06:42:34.226242+00:00",
-      "version": "2026-07-29T06:42:34.226285+00:00",
+      "last-modified": "2026-08-13T04:10:54.168397+00:00",
+      "version": "2026-08-13T04:10:54.168414+00:00",
       "oscal-version": "1.1.3",
       "roles": [
         {
@@ -50,7 +50,7 @@
       ],
       "links": [
         {
-          "href": "#4ecfe5d4-aec3-4a93-8f38-92cd1498d221",
+          "href": "#a6e2a58c-11e8-40af-855b-96afa53a6678",
           "rel": "reference",
           "text": "BSI IT-Grundschutz Edition 2023"
         }
@@ -58,11 +58,11 @@
     },
     "imports": [
       {
-        "href": "#5fa04faf-937c-48e0-8764-9b2cd55e2170",
+        "href": "#492f2a07-5fdd-44d9-9774-abe34ba49938",
         "include-all": {}
       },
       {
-        "href": "#d139a8e0-1d74-4e33-ad25-6385c53b4fbe",
+        "href": "#fd7e26a2-5db2-41ea-9888-86526a8043e1",
         "include-controls": [
           {
             "with-ids": [
@@ -76,7 +76,7 @@
         ]
       },
       {
-        "href": "#41fb0187-c393-4342-827f-173e6323a6c0",
+        "href": "#356bc5d4-4587-409d-bc64-44f0c5ed05da",
         "include-all": {}
       }
     ],
@@ -91,20 +91,13 @@
           "values": [
             "BSI Grundschutz++"
           ]
-        },
-        {
-          "param-id": "not.1.1.4-prm1",
-          "label": "BSI-Standard 200-4",
-          "values": [
-            "BSI-Standard 200-4"
-          ]
         }
       ]
     },
     "back-matter": {
       "resources": [
         {
-          "uuid": "4ecfe5d4-aec3-4a93-8f38-92cd1498d221",
+          "uuid": "a6e2a58c-11e8-40af-855b-96afa53a6678",
           "title": "BSI IT-Grundschutz Edition 2023",
           "rlinks": [
             {
@@ -119,42 +112,42 @@
           ]
         },
         {
-          "uuid": "5fa04faf-937c-48e0-8764-9b2cd55e2170",
+          "uuid": "492f2a07-5fdd-44d9-9774-abe34ba49938",
           "rlinks": [
             {
               "href": "../catalogs/Methodik-Grundschutz++/BSI-Methodik-Grundschutz++-catalog.json",
               "hashes": [
                 {
                   "algorithm": "MD5",
-                  "value": "7ea2ef05151a7496c67f963ed860b6ff"
+                  "value": "88907974da6fffc3889dac5fc08af04b"
                 }
               ]
             }
           ]
         },
         {
-          "uuid": "d139a8e0-1d74-4e33-ad25-6385c53b4fbe",
+          "uuid": "fd7e26a2-5db2-41ea-9888-86526a8043e1",
           "rlinks": [
             {
               "href": "../../../Risikomanagement/BSI-Anforderungen-zum-Risikomanagement-catalog.json",
               "hashes": [
                 {
                   "algorithm": "MD5",
-                  "value": "46038878e975968a985ff23cf1ad5ef3"
+                  "value": "5062cfc604961ec9239db0a8f156357d"
                 }
               ]
             }
           ]
         },
         {
-          "uuid": "41fb0187-c393-4342-827f-173e6323a6c0",
+          "uuid": "356bc5d4-4587-409d-bc64-44f0c5ed05da",
           "rlinks": [
             {
               "href": "../catalogs/Kernel/BSI-Stand-der-Technik-Kernel-G0-catalog.json",
               "hashes": [
                 {
                   "algorithm": "MD5",
-                  "value": "b6fa1738b8ad1db8a6f3efe1de4fdeec"
+                  "value": "78ccf98a7fd88e64e2eaf40c270e959b"
                 }
               ]
             }
