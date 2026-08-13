@@ -1,10 +1,10 @@
 {
   "catalog": {
-    "uuid": "4b76ece7-f2f8-4724-adc8-62d01755d2ce",
+    "uuid": "15aee732-411c-41f5-a3f7-b72ab6aa6a32",
     "metadata": {
       "title": "Supply Chain Security",
-      "last-modified": "2026-07-29T06:43:07.008912819Z",
-      "version": "2026-07-29T06:43:02.309555+00:00",
+      "last-modified": "2026-08-13T04:11:27.180571079Z",
+      "version": "2026-08-13T04:11:22.667900+00:00",
       "oscal-version": "1.1.3",
       "document-ids": [
         {
@@ -221,7 +221,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "52eee4a3-f5cf-444d-ad0c-9c83c693481b"
+                        "value": "33427b2a-58b9-4cc4-a8b1-741adf0ac04d"
                       }
                     ],
                     "label": "eine zuständige Person oder Rolle"
@@ -325,7 +325,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "ddfc1b03-9014-4317-a7bb-09980b234457"
+                        "value": "1951a125-d4b1-4bc7-9721-6e06cb297335"
                       }
                     ],
                     "label": "eine zuständige Person oder Rolle"
@@ -488,7 +488,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "59a96eb8-75ad-420d-aab5-4d448f5c12ae"
+                        "value": "2371f338-88e6-4183-888a-7d45bd34917c"
                       }
                     ],
                     "label": "eine zuständige Person oder Rolle"
@@ -778,7 +778,7 @@
                         "props": [
                           {
                             "name": "alt-identifier",
-                            "value": "6412af95-f83a-4b0c-ba66-edcecfaafd85"
+                            "value": "17de7346-fa29-4f0f-95a2-d458d1abab2d"
                           }
                         ],
                         "label": "zuständigen Personen oder Rollen"
@@ -907,7 +907,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "5a10cf6d-51f6-48cf-8a79-98bab4565b7b"
+                        "value": "6e2c09d2-6c4c-48a1-a113-de7784666783"
                       }
                     ],
                     "label": "regelmäßig"
@@ -1263,7 +1263,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "6d50b322-84b8-4c9b-bd2a-0b48d6b61847"
+                        "value": "33863550-4070-433d-9ea5-3bb8af2ee49d"
                       }
                     ],
                     "label": "eine zuständige Person oder Rolle"
@@ -3077,7 +3077,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "91319f26-75c0-476c-b544-aedd4dbf6e14"
+                        "value": "9d456eac-2df1-4c09-b525-2e1bf19f34e7"
                       }
                     ],
                     "label": "Kriterien"
@@ -3912,7 +3912,7 @@
                         "props": [
                           {
                             "name": "alt-identifier",
-                            "value": "6cecab39-d08d-49a1-922e-b3f9ea7d5af4"
+                            "value": "dec8b5a1-ae65-4cab-b684-148774c0555e"
                           }
                         ],
                         "label": "einem passenden Sicherheitsstandard"
@@ -4337,7 +4337,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "31fea405-1180-4c99-b080-a90a2ee6f574"
+                        "value": "a4898591-785f-420e-a1ca-99400367c4ad"
                       }
                     ],
                     "label": "Kriterien"
@@ -4685,7 +4685,7 @@
                         "props": [
                           {
                             "name": "alt-identifier",
-                            "value": "adb32e38-f59a-42fa-b1a0-67abd118c585"
+                            "value": "d5347a77-1126-4c4a-b232-328086ff6750"
                           }
                         ],
                         "label": "Kriterien"
@@ -4964,7 +4964,7 @@
                         "props": [
                           {
                             "name": "alt-identifier",
-                            "value": "95512f8d-eca6-4928-a56f-1a58e5fcf3f0"
+                            "value": "07fdfde5-b683-4d11-bd15-11b7ddc7b81d"
                           }
                         ],
                         "label": "kritische Komponenten"
@@ -5570,7 +5570,7 @@
                             "props": [
                               {
                                 "name": "alt-identifier",
-                                "value": "ebc08e41-e728-4447-93fa-233fbad7f2fa"
+                                "value": "ec80e792-2dfe-44b7-ba58-e434e097cb6e"
                               }
                             ],
                             "label": "einem anerkannten Standard"
@@ -6683,7 +6683,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "abea6f59-f58b-47c3-b908-7ae68410fde3"
+                        "value": "c967d323-8669-4e20-85a1-e75a467fc2a6"
                       }
                     ],
                     "label": "Kriterien zur Akzeptanz"
@@ -7367,7 +7367,7 @@
                             "props": [
                               {
                                 "name": "alt-identifier",
-                                "value": "f89b0154-ccb8-401f-b352-9135e685a4e7"
+                                "value": "4ded8eda-2f03-4c70-bbcd-b5553fa1c1c7"
                               }
                             ],
                             "label": "einem anerkannten Standard"
@@ -7938,7 +7938,7 @@
                         "props": [
                           {
                             "name": "alt-identifier",
-                            "value": "7a3321a5-9f54-4ada-955d-647aeb0e51b5"
+                            "value": "9b9cde1a-ec0c-454e-b19a-445adfb24a3c"
                           }
                         ],
                         "label": "einem anerkannten Standard"
@@ -8531,7 +8531,7 @@
                         "props": [
                           {
                             "name": "alt-identifier",
-                            "value": "d630bd91-1daa-4467-865c-e3ce5b437fdb"
+                            "value": "8a4b9016-a15e-4c36-993b-b0819c2dc75c"
                           }
                         ],
                         "label": "zuständigen Personen oder Rollen"
@@ -8670,7 +8670,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "79e6ddcd-767f-4cf3-85a7-4928198c0318"
+                        "value": "b5c5db3f-0313-4f5d-ad25-c992ec408dee"
                       }
                     ],
                     "label": "regelmäßig"
@@ -8833,7 +8833,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "c9cd4b7e-8f76-4884-afb7-dcfd3d228624"
+                        "value": "03ad8886-c699-48c8-8ccd-b1f7b3e2ebce"
                       }
                     ],
                     "label": "einem anerkannten Standard"
@@ -9007,7 +9007,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "5b17bd9b-ff38-46eb-a1ef-7b38429f128b"
+                        "value": "074c98be-7af3-4b21-8af3-4668d9d6db1f"
                       }
                     ],
                     "label": "regelmäßig"
@@ -9089,7 +9089,7 @@
                         "props": [
                           {
                             "name": "alt-identifier",
-                            "value": "12c2c250-86b8-46a0-bccd-d0b2f59b6bae"
+                            "value": "a36c5475-bc35-4cfd-9439-17e00688a018"
                           }
                         ],
                         "label": "Audits, Zertifikates oder vergleichbaren Sicherheitsnachweises"
@@ -9099,7 +9099,7 @@
                         "props": [
                           {
                             "name": "alt-identifier",
-                            "value": "12c2c250-86b8-46a0-bccd-d0b2f59b6bae"
+                            "value": "0049f05e-1320-403a-87b7-15ea5b0c3843"
                           }
                         ],
                         "label": "regelmäßig"
@@ -9183,7 +9183,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "ca07f3db-7a2f-4156-b1de-4fa648393557"
+                        "value": "0aa433d2-cfd6-470b-8bc3-d8563f4fbfd9"
                       }
                     ],
                     "label": "regelmäßig"
@@ -9477,7 +9477,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "2563b59c-b3da-4bdd-99cd-3eedb94c0abb"
+                        "value": "767da398-aab7-4f5e-9ea3-41dcda2ceaa0"
                       }
                     ],
                     "label": "regelmäßig"
@@ -9924,7 +9924,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "13789041-edcf-4270-a8d1-49bdd0d54ab4"
+                        "value": "57c473b0-6223-4e16-8789-94eefd76a07a"
                       }
                     ],
                     "label": "einem anerkannten Standard"
@@ -9934,7 +9934,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "13789041-edcf-4270-a8d1-49bdd0d54ab4"
+                        "value": "5e3ee4f9-cc64-4945-97b4-4b1329b3771c"
                       }
                     ],
                     "label": "regelmäßig"
@@ -10271,7 +10271,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "4cf4ca7f-0b09-4777-83dc-5569c8e08f63"
+                        "value": "483fee57-77a8-4cf7-86c8-53afd4558ee3"
                       }
                     ],
                     "label": "einen automatisierten Mechanismus"
