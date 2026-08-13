@@ -1,10 +1,10 @@
 {
   "catalog": {
-    "uuid": "90ce110f-8fa8-41d8-8777-8aeb0419b03f",
+    "uuid": "bf6a5a4a-8161-45fc-b969-5a5064cecf2f",
     "metadata": {
       "title": "Stand der Technik WLAN",
-      "last-modified": "2026-08-13T04:11:46Z",
-      "version": "2026-08-13T04:11:45.533059+00:00",
+      "last-modified": "2026-08-13T11:52:35Z",
+      "version": "2026-08-13T11:52:23.015978+00:00",
       "oscal-version": "1.1.3",
       "roles": [
         {
@@ -41,6 +41,48 @@
         {
           "name": "resolution-tool",
           "value": "profile-from-csv internal resolver"
+        }
+      ],
+      "links": [
+        {
+          "href": "#dae7a188-d095-4dc5-a0ca-6dcef2fdfedf",
+          "rel": "reference",
+          "text": "Quellkatalog Grundschutz++ Kernel G0"
+        },
+        {
+          "href": "#3dc5b358-b20b-45e4-a984-5d2152b429c5",
+          "rel": "reference",
+          "text": "IEEE 802.11"
+        },
+        {
+          "href": "#22f925e9-5830-48a0-b74b-2021b1a461ba",
+          "rel": "reference",
+          "text": "IEEE 802.1X"
+        },
+        {
+          "href": "#87f7dbda-2a2b-4762-a6da-ab18a1a2ac68",
+          "rel": "reference",
+          "text": "EAP-TLS"
+        },
+        {
+          "href": "#1c3c2d90-781a-4406-827d-da4b229a4180",
+          "rel": "reference",
+          "text": "WBA Wi-Fi Security Guidelines"
+        },
+        {
+          "href": "#74a94594-ed33-4656-9e83-d7a6f4b2dbe8",
+          "rel": "reference",
+          "text": "BSI KomTK Teil 1"
+        },
+        {
+          "href": "#59482173-fb32-4b89-a7f0-6f18b488c507",
+          "rel": "reference",
+          "text": "BSI KomTK Teil 3"
+        },
+        {
+          "href": "#1a6a4cd2-bee4-4280-a697-88f714a1fdb3",
+          "rel": "reference",
+          "text": "Bundesnetzagentur Allgemeinzuteilung WLAN"
         }
       ]
     },
@@ -6864,6 +6906,130 @@
           }
         ]
       }
-    ]
+    ],
+    "back-matter": {
+      "resources": [
+        {
+          "uuid": "dae7a188-d095-4dc5-a0ca-6dcef2fdfedf",
+          "title": "Quellkatalog Grundschutz++ Kernel G0",
+          "rlinks": [
+            {
+              "href": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/47de2824a341812438ef3f044b3f65ce2cad6e32/control_layer/Grundschutz%2B%2B/sources/catalogs/Kernel/BSI-Stand-der-Technik-Kernel-G0-catalog.json",
+              "hashes": [
+                {
+                  "algorithm": "MD5",
+                  "value": "ab064e4563670f1ba3d91498f18a2602"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "3dc5b358-b20b-45e4-a984-5d2152b429c5",
+          "title": "IEEE 802.11",
+          "rlinks": [
+            {
+              "href": "https://standards.ieee.org/ieee/802.11/10548/",
+              "hashes": [
+                {
+                  "algorithm": "MD5",
+                  "value": "6d1eec77ddcd5fd5d3ec0d04dfd18d52"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "22f925e9-5830-48a0-b74b-2021b1a461ba",
+          "title": "IEEE 802.1X",
+          "rlinks": [
+            {
+              "href": "https://standards.ieee.org/ieee/802.1X/7345/",
+              "hashes": [
+                {
+                  "algorithm": "MD5",
+                  "value": "b831d1b89b29cf58f31b1f41cbdc8e02"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "87f7dbda-2a2b-4762-a6da-ab18a1a2ac68",
+          "title": "EAP-TLS",
+          "rlinks": [
+            {
+              "href": "https://www.rfc-editor.org/rfc/rfc9190.html",
+              "hashes": [
+                {
+                  "algorithm": "MD5",
+                  "value": "b367fd1a38c31951c60a5099908af253"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "1c3c2d90-781a-4406-827d-da4b229a4180",
+          "title": "WBA Wi-Fi Security Guidelines",
+          "rlinks": [
+            {
+              "href": "https://wballiance.com/resource/wi-fi-security-guidelines/",
+              "hashes": [
+                {
+                  "algorithm": "MD5",
+                  "value": "3c180a1e8402e4795de4f1cdcbc8eabb"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "74a94594-ed33-4656-9e83-d7a6f4b2dbe8",
+          "title": "BSI KomTK Teil 1",
+          "rlinks": [
+            {
+              "href": "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Cyber-Sicherheit/Themen/KomTK-Teil1.pdf?__blob=publicationFile&v=2",
+              "hashes": [
+                {
+                  "algorithm": "MD5",
+                  "value": "c25f9c1321b8c2c77e9ec3a0d3b76146"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "59482173-fb32-4b89-a7f0-6f18b488c507",
+          "title": "BSI KomTK Teil 3",
+          "rlinks": [
+            {
+              "href": "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Cyber-Sicherheit/Themen/KomTK-Teil3.pdf?__blob=publicationFile&v=2",
+              "hashes": [
+                {
+                  "algorithm": "MD5",
+                  "value": "7130bcdc0697231675dc2b14eeb05a4a"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "1a6a4cd2-bee4-4280-a697-88f714a1fdb3",
+          "title": "Bundesnetzagentur Allgemeinzuteilung WLAN",
+          "rlinks": [
+            {
+              "href": "https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Frequenzen/Allgemeinzuteilungen/_DL/MobilfunkDectWlanCBFunk/vfg76_2025.pdf?__blob=publicationFile&v=5",
+              "hashes": [
+                {
+                  "algorithm": "MD5",
+                  "value": "fece9c2831b13c5727480cba79865beb"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   }
 }
