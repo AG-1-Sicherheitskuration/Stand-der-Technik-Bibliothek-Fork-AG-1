@@ -1,11 +1,11 @@
 {
   "catalog": {
-    "uuid": "81162c1d-283e-4e2f-a6dc-12eb4e719f2d",
+    "uuid": "270e8a46-6c26-4db6-aedd-234d62cb0871",
     "metadata": {
       "title": "BSI Anforderungen zum Risikomanagement",
-      "published": "2026-07-29T06:41:36.045889+00:00",
-      "last-modified": "2026-07-29T06:41:36.045889+00:00",
-      "version": "2026-07-29T06:41:35.985975+00:00",
+      "published": "2026-08-13T04:10:00.109658+00:00",
+      "last-modified": "2026-08-13T04:10:00.109658+00:00",
+      "version": "2026-08-13T04:10:00.051628+00:00",
       "oscal-version": "1.1.3",
       "document-ids": [
         {
@@ -96,7 +96,7 @@
                     "props": [
                       {
                         "name": "alt-identifier",
-                        "value": "b6f7870d-6113-4039-974b-df571540c2f3"
+                        "value": "b85addde-a440-4f51-bc63-5ec0dda1e38f"
                       }
                     ]
                   }
