@@ -1,3 +1,22 @@
+Update Sync 12 Commits seit 29.07.2026, überwiegend automatische „rolling publication"-Artefakte plus einige inhaltliche Korrekturen.
+
+Was ist NEU gekommen
+Keycloak-Komponente (implementation_layer) – neue Vorlage mit ~800 Zeilen (13.08.)
+WLAN-Control-Layer stark ausgebaut – neue Anforderungen zu Verfügbarkeitsüberwachung, MFA/Break-Glass-Zugängen, Change-/Notfall-Management, Rückfalllösungen
+Verbesserte Grundschutz++-Parameterauflösung
+Was ist WEGGEFALLEN
+ISO27001 Annex-A-Katalog gelöscht (‑2.370 Zeilen, 17.08.) – deutlichster Wegfall
+Obsolete WLAN-Komponente (WLAN-component_definition.json, ‑1.648 Zeilen) entfernt und durch die neue Struktur ersetzt
+Redaktionelle Bereinigung der Handlungswörter (action_words.csv): Infinitiv-Formen vereinheitlicht (z. B. „frage → fragen"), Tippfehler korrigiert („chiffiere → chiffrieren")
+
+BCM (NOTfallmanagment (NOT)
+
+Ein Parameter wurde präzisiert: aus dem vagen Verweis „einem anerkannten BCM-Standard" wurde konkret „BSI-Standard 200-4" (Commit 6627dc74, 13.08.).
+
+Das ist inhaltlich relevant: Wo vorher ein  anerkannter BCM-Standard genügte, verweist die Bibliothek jetzt verbindlich auf den BSI-Standard 200-4 (Business Continuity Management). Ansonsten kam im BCM-Bereich in diesem Zeitraum nichts Neues hinzu und nichts weg.
+
+Der WLAN-Ausbau berührt BCM-nahe Themen (Notfall-Changes, Wiederanlauf, Rückfalllösungen), ist aber unter WLAN und nicht unter BCM eingeordnet.
+
 Update Sync 09.06.2026 9:15 Was hat sich geändert:
 ---
 Änderungen der Passwortrichtlinien (Kurzfassung)
