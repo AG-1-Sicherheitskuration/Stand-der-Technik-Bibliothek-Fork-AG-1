@@ -1,10 +1,10 @@
 {
   "profile": {
-    "uuid": "0f9cfea6-4734-4dc7-8158-88cfeb7affb9",
+    "uuid": "b853d68a-abc6-4c97-a072-0a05ecd8eaa6",
     "metadata": {
       "title": "Supply Chain Security",
-      "last-modified": "2026-09-03T07:06:35.997687+00:00",
-      "version": "2026-09-03T07:06:35.997731+00:00",
+      "last-modified": "2026-09-10T07:18:13.752389+00:00",
+      "version": "2026-09-10T07:18:13.752407+00:00",
       "oscal-version": "1.1.3",
       "roles": [
         {
@@ -40,7 +40,7 @@
     },
     "imports": [
       {
-        "href": "#1d5d19f4-6565-4178-af76-0568e33862a8",
+        "href": "#b187468e-ff90-41b2-8197-d6e2e72ec24f",
         "include-controls": [
           {
             "with-ids": [
@@ -202,7 +202,7 @@
     "back-matter": {
       "resources": [
         {
-          "uuid": "1d5d19f4-6565-4178-af76-0568e33862a8",
+          "uuid": "b187468e-ff90-41b2-8197-d6e2e72ec24f",
           "rlinks": [
             {
               "href": "../../../Grundschutz++/sources/catalogs/Kernel/BSI-Stand-der-Technik-Kernel-catalog.json",

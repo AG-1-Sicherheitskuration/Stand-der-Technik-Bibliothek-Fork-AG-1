@@ -1,11 +1,11 @@
 {
   "catalog": {
-    "uuid": "ff2e8257-ddcd-4130-8980-db3d0f6277a4",
+    "uuid": "c6f21306-42d3-4e61-a110-0f97da658be3",
     "metadata": {
       "title": "BSI Methodik Grundschutz++",
-      "published": "2026-09-03T07:04:06.339328+00:00",
-      "last-modified": "2026-09-03T07:04:06.339328+00:00",
-      "version": "2026-09-03T07:04:06.201332+00:00",
+      "published": "2026-09-10T07:15:43.322202+00:00",
+      "last-modified": "2026-09-10T07:15:43.322202+00:00",
+      "version": "2026-09-10T07:15:43.208802+00:00",
       "oscal-version": "1.1.3",
       "document-ids": [
         {
